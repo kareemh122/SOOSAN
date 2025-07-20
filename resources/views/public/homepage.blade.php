@@ -648,7 +648,7 @@
         }
 
         .hero-main-title {
-            font-size: 4rem !important;
+            font-size: 3.2rem !important;
             font-weight: 800;
             line-height: 1.1;
             color: #fff;

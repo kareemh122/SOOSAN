@@ -388,6 +388,9 @@
         box-shadow: 0 4px 20px rgba(176, 215, 1, 0.3);
         position: relative;
         overflow: hidden;
+        z-index: 10;
+        pointer-events: auto;
+        cursor: pointer;
     }
 
     .cta-button::before {
@@ -775,19 +778,20 @@
                         <div class="section-icon">
                             <i class="fas fa-gavel"></i>
                         </div>
-                        <div class="term-card">
-                            <h2 class="term-title"><i class="fas fa-gavel text-muted"></i> {{ __('terms.changes_to_terms_title') }}</h2>
-                            <p>{{ __('terms.changes_to_terms_content') }}</p>
-                        </div>
+                        <h2 class="section-title">{{ __('terms.changes_to_terms_title') }}</h2>
+                        <p class="terms-text">{{ __('terms.changes_to_terms_content') }}</p>
+                    </div>
 
-                        <div class="term-card contact-section">
-                            <h2 class="term-title"><i class="fas fa-envelope-open-text text-primary"></i> {{ __('terms.contact_title') }}</h2>
-                            <p>{{ __('terms.contact_description') }}</p>
-                            <a href="{{ route('contact') }}" class="btn btn-primary btn-lg mt-3">
-                                <i class="fas fa-paper-plane"></i> {{ __('terms.contact_button') }}
-                            </a>
+                    <!-- Contact Section -->
+                    <div class="terms-card animate-slide-in">
+                        <div class="section-icon">
+                            <i class="fas fa-envelope-open-text"></i>
                         </div>
-
+                        <h2 class="section-title">{{ __('terms.contact_title') }}</h2>
+                        <p class="terms-text">{{ __('terms.contact_description') }}</p>
+                        <a href="{{ route('contact') }}" class="cta-button" onclick="window.location.href='{{ route('contact') }}'; return false;">
+                            <i class="fas fa-paper-plane"></i> {{ __('terms.contact_button') }}
+                        </a>
                     </div>
 
                 </div>
@@ -977,6 +981,34 @@
                 document.body.removeChild(announcement);
             }, 1000);
         };
+
+        // Ensure contact button is clickable
+        const contactButton = document.querySelector('.cta-button');
+        if (contactButton) {
+            contactButton.addEventListener('click', function(e) {
+                console.log('Contact button clicked!');
+                // Ensure the click event is not prevented
+                e.stopPropagation();
+                // The href will handle the navigation
+            });
+            
+            // Add hover effect for better UX
+            contactButton.addEventListener('mouseenter', function() {
+                this.style.cursor = 'pointer';
+            });
+            
+            // Add fallback click handler
+            contactButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Contact button clicked - navigating to contact page');
+                window.location.href = this.getAttribute('href');
+            });
+            
+            // Ensure the button is not disabled
+            contactButton.style.pointerEvents = 'auto';
+            contactButton.style.cursor = 'pointer';
+        }
 
         // Announce when sections come into view
         const sectionObserver = new IntersectionObserver((entries) => {

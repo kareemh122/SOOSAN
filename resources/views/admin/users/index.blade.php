@@ -518,16 +518,19 @@
             padding: 1.25rem;
         }
 
-        .user-card .d-flex {
-            flex-direction: column;
-            text-align: center;
-        }
-
         .user-avatar {
             width: 60px;
             height: 60px;
             font-size: 1.25rem;
             margin: 0 auto 1rem;
+        }
+
+        .text-section {
+            @if(app()->getLocale() === 'ar')
+                margin-right: 1rem;
+            @else
+                margin-left: 1rem;
+            @endif
         }
 
         .action-btn {
@@ -859,7 +862,7 @@
                             {{ substr($user->name, 0, 1) }}
                         @endif
                     </div>
-                    <div class="flex-grow-1">
+                    <div class="flex-grow-1 text-section">
                         <h5 class="mb-1 fw-bold">{{ $user->name }}</h5>
                         <p class="text-muted mb-2 small">
                             <i class="fas fa-envelope me-1"></i>

@@ -625,7 +625,7 @@
             justify-content: center;
             width: 100%;
             padding: 1.25rem 2rem;
-            background: linear-gradient(135deg, #00548e 0%, #004085 50%, #b0d701 100%);
+            background: #00548e;
             color: white;
             text-decoration: none;
             border-radius: 16px;
@@ -1979,8 +1979,6 @@
             transform: translateX(0);
         }
 
-
-
         .submenu-header {
             font-size: 1rem;
             font-weight: 700;
@@ -1991,7 +1989,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
+        
         .submenu-item {
             display: flex;
             align-items: center;
@@ -2163,32 +2161,6 @@
         /* RTL Support for Korean Flag */
         html[dir='rtl'] .korean-flag-container {
             order: -1;
-        }
-
-        /* Mobile Korean Flag */
-        .mobile-korean-flag {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-korean-flag:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .mobile-korean-flag img {
-            width: 40px;
-            height: 30px;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Responsive Korean Flag */
@@ -2533,7 +2505,7 @@
             <!-- Mobile Authentication -->
             <div class="mobile-nav-auth">
                 @guest
-                    <a href="{{ route('login') }}" class="mobile-nav-auth-btn">
+                    <a href="{{ route('admin.login') }}" class="mobile-nav-auth-btn">
                         <i class="fas fa-sign-in-alt me-3"></i>
                         {{ __('auth.login') }}
                     </a>
@@ -2580,14 +2552,6 @@
                         العربية
                     </a>
         </div>
-            </div>
-
-            <!-- Mobile Korean Flag -->
-            <div class="mobile-korean-flag">
-                <img src="{{ asset('images/korean-flag-removebg-preview.webp') }}"
-                     alt="Korean Flag"
-                     title="Korean Partnership">
-                <span class="ms-2 text-white small">Korean Partnership</span>
             </div>
         </div>
     </div>
