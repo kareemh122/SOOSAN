@@ -15,27 +15,50 @@ return [
     'period' => 'الفترة',
     'generated_on' => 'تم إنشاؤه في',
     'confidential_document' => 'هذا مستند سري',
-    
+    'download_warranty' => 'معرفة ضمان المنتجات(PDF)',
+
     // Time Periods
     'last_7_days' => 'آخر 7 أيام',
     'last_30_days' => 'آخر 30 يوماً',
     'last_90_days' => 'آخر 90 يوماً',
     'this_year' => 'هذا العام',
     'last_year' => 'العام الماضي',
-    
+
     // Report Types
     'comprehensive_report' => 'تقرير شامل',
     'owners_report' => 'تقرير المالكين',
     'sales_report' => 'تقرير المبيعات',
+    'warranty_report' => 'تقرير الضمان',
     'comprehensive_business_analysis' => 'تحليل تجاري شامل',
     'owners_analysis' => 'تحليل المالكين',
     'comprehensive_sales_analysis' => 'تحليل شامل للمبيعات',
-    
+    'warranty_analysis' => 'تحليل الضمان',
+
     // Report Titles
     'comprehensive_report_title' => 'تقرير الأعمال الشامل',
     'owners_report_title' => 'تقرير تحليل المالكين',
     'sales_report_title' => 'تقرير أداء المبيعات',
-    
+    'warranty_report_title' => 'تقرير تغطية الضمان',
+
+    // Warranty-specific translations
+    'warranty_coverage_report' => 'تقرير تغطية الضمان',
+    'warranty_description' => 'تتبع شامل للضمان وتحليل انتهاء الصلاحية لجميع المنتجات المباعة',
+    'warranty_features' => 'ميزات الضمان',
+    'active_warranty_coverage' => 'حالة تغطية الضمان النشطة',
+    'days_remaining_expiration' => 'الأيام المتبقية حتى انتهاء الصلاحية',
+    'product_model_breakdown' => 'تفصيل نموذج المنتج',
+    'owner_warranty_tracking' => 'تتبع ضمان المالك',
+    'expiration_notifications' => 'إشعارات انتهاء الصلاحية',
+    'coverage_analytics' => 'تحليلات التغطية',
+    'under_warranty' => 'تحت الضمان',
+    'expired_warranties' => 'منتهي الصلاحية',
+    'warranty_status' => 'حالة الضمان',
+    'warranty_expiration' => 'انتهاء الضمان',
+    'warranty_void' => 'ضمان ملغي',
+    'warranty_active' => 'نشط',
+    'warranty_expired' => 'منتهي الصلاحية',
+    'warranty_voided' => 'ملغي',
+
     // Financial Overview
     'financial_overview' => 'نظرة عامة مالية',
     'total_revenue' => 'إجمالي الإيرادات',
@@ -46,7 +69,7 @@ return [
     'average_sale_value' => 'متوسط قيمة البيع',
     'revenue_growth' => 'نمو الإيرادات',
     'sales_growth' => 'نمو المبيعات',
-    
+
     // Sales Metrics
     'sales_summary' => 'ملخص المبيعات',
     'sales_metrics' => 'مقاييس المبيعات',
@@ -61,7 +84,7 @@ return [
     'avg_sale_value' => 'متوسط قيمة البيع',
     'performance' => 'الأداء',
     'top_performer' => 'الأفضل أداءً',
-    
+
     // Products
     'product_name' => 'اسم المنتج',
     'product' => 'المنتج',
@@ -78,14 +101,14 @@ return [
     'avg_price' => 'متوسط السعر',
     'category_performance' => 'أداء الفئة',
     'category_name' => 'اسم الفئة',
-    
+
     // Staff
     'staff_name' => 'اسم الموظف',
     'staff_performance' => 'أداء الموظفين',
     'sold_by' => 'باع بواسطة',
     'active_staff' => 'الموظفون النشطون',
     'total_staff' => 'إجمالي الموظفين',
-    
+
     // Owners
     'owners_overview' => 'نظرة عامة على المالكين',
     'owners_demographics' => 'التركيبة السكانية للمالكين',
@@ -108,17 +131,17 @@ return [
     'email' => 'البريد الإلكتروني',
     'registered_date' => 'تاريخ التسجيل',
     'last_purchase' => 'آخر شراء',
-    
+
     // Regional
     'regional_analysis' => 'التحليل الإقليمي',
     'regional_data' => 'البيانات الإقليمية',
     'owner_count' => 'عدد المالكين',
-    
+
     // Growth
     'growth_metrics' => 'مقاييس النمو',
     'compared_to_previous' => 'مقارنة بالفترة السابقة',
     'growth_rate' => 'معدل النمو',
-    
+
     // Data Labels
     'date' => 'التاريخ',
     'month' => 'الشهر',
@@ -127,7 +150,7 @@ return [
     'amount' => 'المبلغ',
     'count' => 'العدد',
     'percentage' => 'النسبة المئوية',
-    
+
     // Status Messages
     'no_data' => 'لا توجد بيانات متاحة للفترة المحددة',
     'no_sales_data' => 'لا توجد بيانات مبيعات متاحة للفترة المحددة',
@@ -138,14 +161,14 @@ return [
     'no_products_data' => 'لا توجد بيانات منتجات متاحة',
     'loading' => 'جاري التحميل...',
     'processing' => 'جاري المعالجة...',
-    
+
     // Chart Placeholders
     'revenue_chart_placeholder' => 'مخطط اتجاه الإيرادات (سيظهر المخطط البياني هنا)',
     'sales_chart_placeholder' => 'مخطط اتجاه المبيعات (سيظهر المخطط البياني هنا)',
     'daily_sales_chart_placeholder' => 'مخطط المبيعات اليومية (سيظهر المخطط البياني هنا)',
     'category_chart_placeholder' => 'مخطط أداء الفئات (سيظهر المخطط البياني هنا)',
     'regional_chart_placeholder' => 'مخطط التوزيع الإقليمي (سيظهر المخطط البياني هنا)',
-    
+
     // Interface
     'preview_stats' => 'إحصائيات المعاينة',
     'download_pdf' => 'تحميل PDF',
@@ -154,16 +177,16 @@ return [
     'please_wait' => 'يرجى الانتظار بينما نقوم بإنشاء التقرير...',
     'report_ready' => 'التقرير جاهز!',
     'your_report_is_ready' => 'تم إنشاء التقرير بنجاح.',
-    
+
     // Descriptions
     'comprehensive_report_desc' => 'نظرة شاملة على الأعمال تشمل الماليات والمبيعات وأداء الموظفين ومقاييس النمو.',
     'owners_report_desc' => 'تحليل مفصل لقاعدة العملاء والتركيبة السكانية وسلوك الشراء واتجاهات الاكتساب.',
     'sales_report_desc' => 'تحليل شامل لأداء المبيعات يشمل المنتجات والموظفين والاتجاهات.',
-    
+
     // Permissions
     'access_denied' => 'تم رفض الوصول. هذه الميزة متاحة فقط للمشرفين والمديرين التنفيذيين.',
     'insufficient_permissions' => 'ليس لديك صلاحيات كافية للوصول إلى هذه الميزة.',
-    
+
     // Reports Interface
     'financial_reports' => 'التقارير المالية',
     'comprehensive_analytics_description' => 'إنشاء تقارير تحليلية شاملة ومالية لاتخاذ قرارات استراتيجية.',

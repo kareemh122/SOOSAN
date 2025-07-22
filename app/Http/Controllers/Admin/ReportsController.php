@@ -22,7 +22,7 @@ class ReportsController extends Controller
         if (!$user || !$user->canAccessReports()) {
             abort(403, __('reports.access_denied'));
         }
-        
+
         // Get real statistics for preview
         $stats = $this->getPreviewStats();
 
@@ -33,12 +33,19 @@ class ReportsController extends Controller
 
         return view('admin.reports.index', compact('stats', 'comprehensiveData', 'comprehensiveDateRange'));
     }
-    
+
     private function getPreviewStats()
     {
         // Last 30 days statistics
         $last30Days = Carbon::now()->subDays(30);
-        
+
+        // Warranty statistics
+        $warrantyStats = SoldProduct::select(
+                DB::raw('COUNT(*) as total_sold'),
+                DB::raw('COUNT(CASE WHEN warranty_end_date > NOW() AND warranty_voided != 1 THEN 1 END) as under_warranty'),
+                DB::raw('COUNT(CASE WHEN warranty_end_date <= NOW() OR warranty_voided = 1 THEN 1 END) as expired')
+            )->first();
+
         return [
             'comprehensive' => [
                 'revenue' => SoldProduct::where('sale_date', '>=', $last30Days)->sum('purchase_price'),
@@ -52,6 +59,11 @@ class ReportsController extends Controller
                 'products_sold' => SoldProduct::where('sale_date', '>=', $last30Days)->count(),
                 'avg_sale' => SoldProduct::where('sale_date', '>=', $last30Days)->avg('purchase_price') ?? 0,
             ],
+            'warranty' => [
+                'under_warranty' => $warrantyStats->under_warranty ?? 0,
+                'expired' => $warrantyStats->expired ?? 0,
+                'total_sold' => $warrantyStats->total_sold ?? 0,
+            ],
         ];
     }
 
@@ -61,28 +73,28 @@ class ReportsController extends Controller
         if (!auth()->user()->canAccessReports()) {
             abort(403, 'Access denied');
         }
-        
+
         // Force English locale for PDF reports
         app()->setLocale('en');
-        
+
         $dateRange = $this->getDateRange($request);
         $data = $this->getComprehensiveData($dateRange);
-        
+
         // Generate PDF using dompdf directly
         $html = view('admin.reports.comprehensive', compact('data', 'dateRange'))->render();
-        
+
         $options = new Options();
         $options->set('defaultFont', 'Arial');
         $options->set('isRemoteEnabled', true);
         $options->set('isHtml5ParserEnabled', true);
-        
+
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
-        
+
         $filename = 'comprehensive-business-report-' . Carbon::now()->format('Y-m-d-H-i-s') . '.pdf';
-        
+
         return response()->streamDownload(
             fn () => print($dompdf->output()),
             $filename,
@@ -96,27 +108,27 @@ class ReportsController extends Controller
         if (!auth()->user()->canAccessReports()) {
             abort(403, 'Access denied');
         }
-        
+
         // Force English locale for PDF reports
         app()->setLocale('en');
-        
+
         $dateRange = $this->getDateRange($request);
         $data = $this->getOwnersData($dateRange);
-        
+
         // Generate PDF using dompdf directly
         $html = view('admin.reports.owners', compact('data', 'dateRange'))->render();
-        
+
         $options = new Options();
         $options->set('defaultFont', 'Arial');
         $options->set('isRemoteEnabled', true);
-        
+
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
-        
+
         $filename = 'customer-owners-report-' . Carbon::now()->format('Y-m-d-H-i-s') . '.pdf';
-        
+
         return response()->streamDownload(
             fn () => print($dompdf->output()),
             $filename,
@@ -130,27 +142,27 @@ class ReportsController extends Controller
         if (!auth()->user()->canAccessReports()) {
             abort(403, 'Access denied');
         }
-        
+
         // Force English locale for PDF reports
         app()->setLocale('en');
-        
+
         $dateRange = $this->getDateRange($request);
         $data = $this->getSalesData($dateRange);
-        
+
         // Generate PDF using dompdf directly
         $html = view('admin.reports.sales', compact('data', 'dateRange'))->render();
-        
+
         $options = new Options();
         $options->set('defaultFont', 'Arial');
         $options->set('isRemoteEnabled', true);
-        
+
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
-        
+
         $filename = 'sales-performance-report-' . Carbon::now()->format('Y-m-d-H-i-s') . '.pdf';
-        
+
         return response()->streamDownload(
             fn () => print($dompdf->output()),
             $filename,
@@ -161,7 +173,7 @@ class ReportsController extends Controller
     private function getDateRange(Request $request)
     {
         $period = $request->get('period', 'last_30_days');
-        
+
         switch ($period) {
             case 'last_7_days':
                 return [
@@ -213,7 +225,7 @@ class ReportsController extends Controller
         // Financial Overview - Based on your sold_products table
         $totalRevenue = SoldProduct::whereBetween('sale_date', [$dateRange['start'], $dateRange['end']])
             ->sum('purchase_price'); // Using purchase_price as the main revenue metric
-        
+
         $totalSales = SoldProduct::whereBetween('sale_date', [$dateRange['start'], $dateRange['end']])->count();
         $averageSaleValue = $totalSales > 0 ? $totalRevenue / $totalSales : 0;
 
@@ -372,7 +384,7 @@ class ReportsController extends Controller
             ->get();
 
         // Company analysis
-        $companiesAnalysis = Owner::select('company', 
+        $companiesAnalysis = Owner::select('company',
                 DB::raw('COUNT(*) as owner_count'),
                 DB::raw('COUNT(sold_products.id) as total_purchases'),
                 DB::raw('SUM(sold_products.purchase_price) as total_spent'))
@@ -482,6 +494,177 @@ class ReportsController extends Controller
             'recent_sales' => $recentSales,
             'warranty_analysis' => $warrantyAnalysis,
             'serial_analysis' => $serialAnalysis,
+        ];
+    }
+
+    public function downloadWarrantyReport(Request $request)
+    {
+        // Check if user has permission to access reports
+        if (!auth()->user()->canAccessReports()) {
+            abort(403, 'Access denied');
+        }
+
+        // Force English locale for PDF reports
+        app()->setLocale('en');
+
+        $dateRange = $this->getDateRange($request);
+        $data = $this->getWarrantyData($dateRange);
+
+        // Check if JSON format is requested (for AJAX calls)
+        if ($request->get('format') === 'json' || $request->wantsJson()) {
+            return response()->json($data);
+        }
+
+        // Generate PDF using dompdf directly
+        $html = view('admin.reports.warranty', compact('data', 'dateRange'))->render();
+
+        $options = new Options();
+        $options->set('defaultFont', 'Arial');
+        $options->set('isRemoteEnabled', true);
+        $options->set('isHtml5ParserEnabled', true);
+
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        $filename = 'warranty-coverage-report-' . Carbon::now()->format('Y-m-d-H-i-s') . '.pdf';
+
+        return response()->streamDownload(
+            fn () => print($dompdf->output()),
+            $filename,
+            ['Content-Type' => 'application/pdf']
+        );
+    }
+
+    /**
+     * Get warranty data for enhanced PDF with separate tables
+     * Route: /admin/reports/warranty-data
+     */
+    public function getWarrantyDataForPDF(Request $request)
+    {
+        // Check if user has permission to access reports
+        $user = auth()->user();
+        if (!$user || ($user && method_exists($user, 'canAccessReports') && !$user->canAccessReports())) {
+            abort(403, 'Access denied');
+        }
+
+        // Get all sold products with warranty information
+        $soldProducts = SoldProduct::with(['product', 'owner'])
+            ->select([
+                'id',
+                'product_id',
+                'owner_id',
+                'serial_number',
+                'sale_date',
+                'sale_price',
+                'warranty_start_date',
+                'warranty_end_date',
+                'warranty_voided',
+                'warranty_void_reason'
+            ])
+            ->orderBy('warranty_end_date', 'desc')
+            ->get();
+
+        $underWarranty = [];
+        $expired = [];
+
+        foreach ($soldProducts as $soldProduct) {
+            $daysLeft = 0;
+            $status = 'Expired';
+
+            // Calculate warranty status
+            if ($soldProduct->warranty_voided) {
+                $status = 'Voided';
+            } elseif ($soldProduct->warranty_end_date && now() <= $soldProduct->warranty_end_date) {
+                $daysLeft = now()->diffInDays($soldProduct->warranty_end_date);
+                $status = 'Active';
+            }
+
+            $productData = [
+                'model_name' => $soldProduct->product->model_name ?? 'N/A',
+                'serial_number' => $soldProduct->serial_number ?? 'N/A',
+                'owner_name' => $soldProduct->owner->name ?? 'N/A',
+                'purchase_date' => $soldProduct->sale_date ? $soldProduct->sale_date->format('Y-m-d') : 'N/A',
+                'sale_price' => $soldProduct->sale_price ?? 0,
+                'days_left' => $daysLeft,
+                'company' => 'SoosanEgypt',
+                'status' => $status,
+                'warranty_end' => $soldProduct->warranty_end_date ? $soldProduct->warranty_end_date->format('Y-m-d') : 'N/A'
+            ];
+
+            // Separate into two arrays based on warranty status
+            if ($status === 'Active') {
+                $underWarranty[] = $productData;
+            } else {
+                $expired[] = $productData;
+            }
+        }
+
+        return response()->json([
+            'under_warranty' => $underWarranty,
+            'expired' => $expired,
+            'summary' => [
+                'total_products' => count($underWarranty) + count($expired),
+                'under_warranty_count' => count($underWarranty),
+                'expired_count' => count($expired)
+            ]
+        ]);
+    }
+
+    private function getWarrantyData($dateRange)
+    {
+        // Get detailed warranty information
+        $warrantyDetails = SoldProduct::with(['product', 'owner'])
+            ->select([
+                'id',
+                'product_id',
+                'owner_id',
+                'serial_number',
+                'sale_date',
+                'warranty_start_date',
+                'warranty_end_date',
+                'warranty_voided',
+                'warranty_void_reason'
+            ])
+            ->whereBetween('sale_date', [$dateRange['start'], $dateRange['end']])
+            ->orderBy('warranty_end_date', 'asc')
+            ->get()
+            ->map(function ($soldProduct) {
+                $daysLeft = null;
+                $status = 'Expired';
+
+                if ($soldProduct->warranty_voided) {
+                    $status = 'Voided';
+                } elseif ($soldProduct->warranty_end_date && now() <= $soldProduct->warranty_end_date) {
+                    $daysLeft = now()->diffInDays($soldProduct->warranty_end_date);
+                    $status = 'Active';
+                }
+
+                return [
+                    'model_name' => $soldProduct->product->model_name ?? 'N/A',
+                    'serial_number' => $soldProduct->serial_number ?? 'N/A',
+                    'owner_name' => $soldProduct->owner->name ?? 'N/A',
+                    'days_left' => $daysLeft ? $daysLeft . ' days' : 'Expired',
+                    'warranty_end' => $soldProduct->warranty_end_date ? $soldProduct->warranty_end_date->format('M d, Y') : 'N/A',
+                    'status' => $status
+                ];
+            });
+
+        // Get summary statistics
+        $summary = SoldProduct::select(
+                DB::raw('COUNT(*) as total_sold'),
+                DB::raw('COUNT(CASE WHEN warranty_end_date > NOW() AND warranty_voided != 1 THEN 1 END) as under_warranty'),
+                DB::raw('COUNT(CASE WHEN warranty_end_date <= NOW() OR warranty_voided = 1 THEN 1 END) as expired_warranty'),
+                DB::raw('COUNT(CASE WHEN warranty_voided = 1 THEN 1 END) as voided_warranty')
+            )
+            ->whereBetween('sale_date', [$dateRange['start'], $dateRange['end']])
+            ->first();
+
+        return [
+            'warranty_details' => $warrantyDetails,
+            'summary' => $summary,
+            'period' => $dateRange['label']
         ];
     }
 }

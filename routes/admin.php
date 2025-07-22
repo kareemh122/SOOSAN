@@ -83,6 +83,8 @@ Route::prefix('admin')->name('admin.')->middleware(['web'])->group(function () {
             Route::get('/comprehensive', [ReportsController::class, 'downloadComprehensiveReport'])->name('comprehensive');
             Route::get('/owners', [ReportsController::class, 'downloadOwnersReport'])->name('owners');
             Route::get('/sales', [ReportsController::class, 'downloadSalesReport'])->name('sales');
+            Route::get('/warranty', [ReportsController::class, 'downloadWarrantyReport'])->name('warranty');
+            Route::get('/warranty-data', [ReportsController::class, 'getWarrantyDataForPDF'])->name('warranty-data');
         });
 
     });

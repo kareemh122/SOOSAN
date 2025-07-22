@@ -9,14 +9,14 @@ return [
     'employee_access' => 'صلاحيات الموظف',
     'employee_access_desc' => 'يمكنك إنشاء منتجات جديدة وتعديل الموجودة. أي تعديلات على المنتجات الموجودة ستخضع لموافقة المدير قبل التطبيق.',
     'hydraulic_breakers' => 'القواطع الهيدروليكية',
-    
+
     // Statistics
     'total_products' => 'إجمالي المنتجات',
     'active_products' => 'المنتجات النشطة',
     'featured_products' => 'المنتجات المميزة',
     'categories' => 'الفئات',
     'products_stats' => 'إحصائيات المنتجات',
-    
+
     // Search & Filter
     'search_filter_products' => 'البحث وتصفية المنتجات',
     'search_products' => 'البحث عن المنتجات',
@@ -31,7 +31,7 @@ return [
     'apply_filters' => 'تطبيق المرشحات',
     'clear_filters' => 'مسح المرشحات',
     'filter_by' => 'تصفية حسب',
-    
+
     // Product Actions
     'add_product' => 'إضافة منتج',
     'create_product' => 'إنشاء منتج',
@@ -50,7 +50,7 @@ return [
     'cancel' => 'إلغاء',
     'created_at' => 'تاريخ الإنشاء',
     'updated_at' => 'تاريخ التحديث',
-    
+
     // Create Product Page
     'create_new_product' => 'إنشاء منتج جديد',
     'add_new_product' => 'إضافة منتج جديد لمعدات الحفر إلى الكتالوج',
@@ -76,16 +76,16 @@ return [
     'active_product' => 'منتج نشط',
     'featured_product' => 'منتج مميز',
     'required' => '*',
-    
+
     // Edit Product Page
     'edit_product' => 'تعديل المنتج',
     'update_product_info' => 'تحديث معلومات المنتج والإعدادات',
     'view_product' => 'عرض المنتج',
     'essential_product_details' => 'تفاصيل المنتج الأساسية والتعريف',
     'enter_model_name' => 'أدخل اسم النموذج',
-    'enter_product_line' => 'أدخل خط المنتج',
+    'enter_product_line' => 'أدخل طراز المنتج',
     'update_product' => 'تحديث المنتج',
-    
+
     // Show Product Page
     'product_details' => 'تفاصيل المنتج',
     'product_details_specifications' => 'تفاصيل ومواصفات المنتج',
@@ -102,7 +102,7 @@ return [
     'no_image_available' => 'لا توجد صورة متاحة',
     'n_a' => 'غير متوفر',
     'normal' => 'عادي',
-    
+
     // Product Details
     'product_name' => 'اسم المنتج',
     'product_title' => 'عنوان المنتج',
@@ -119,7 +119,7 @@ return [
     'upload_image' => 'رفع صورة',
     'remove_image' => 'إزالة الصورة',
     'change_image' => 'تغيير الصورة',
-    
+
     // Pricing
     'price' => 'السعر',
     'original_price' => 'السعر الأصلي',
@@ -131,7 +131,7 @@ return [
     'price_currency' => 'عملة السعر',
     'price_includes_tax' => 'السعر يشمل الضريبة',
     'tax_rate' => 'معدل الضريبة',
-    
+
     // Inventory
     'stock' => 'المخزون',
     'stock_quantity' => 'كمية المخزون',
@@ -145,7 +145,7 @@ return [
     'unlimited_stock' => 'مخزون غير محدود',
     'stock_alert' => 'تنبيه المخزون',
     'restock_level' => 'مستوى إعادة التخزين',
-    
+
     // Product Attributes
     'sku' => 'رمز المنتج',
     'barcode' => 'الرمز الشريطي',
@@ -168,7 +168,7 @@ return [
     'new' => 'جديد',
     'used' => 'مستعمل',
     'refurbished' => 'مجدد',
-    
+
     // SEO
     'seo_settings' => 'إعدادات SEO',
     'meta_title' => 'العنوان الوصفي',
@@ -180,7 +180,7 @@ return [
     'search_engine_visibility' => 'ظهور في محركات البحث',
     'index_product' => 'فهرسة المنتج',
     'noindex_product' => 'عدم فهرسة المنتج',
-    
+
     // Product Categories
     'product_category' => 'فئة المنتج',
     'product_categories' => 'فئات المنتجات',
@@ -191,14 +191,14 @@ return [
     'category_image' => 'صورة الفئة',
     'category_slug' => 'رابط الفئة',
     'uncategorized' => 'غير مصنف',
-    
+
     // Product Tags
     'tags' => 'الكلمات الدلالية',
     'product_tags' => 'كلمات المنتج الدلالية',
     'add_tag' => 'إضافة كلمة دلالية',
     'popular_tags' => 'الكلمات الدلالية الشائعة',
     'tag_name' => 'اسم الكلمة الدلالية',
-    
+
     // Product Variations
     'variations' => 'التنويعات',
     'product_variations' => 'تنويعات المنتج',
@@ -209,7 +209,7 @@ return [
     'variation_stock' => 'مخزون التنويع',
     'variation_image' => 'صورة التنويع',
     'default_variation' => 'التنويع الافتراضي',
-    
+
     // Product Reviews
     'reviews' => 'التقييمات',
     'product_reviews' => 'تقييمات المنتج',
@@ -222,7 +222,7 @@ return [
     'moderate_reviews' => 'مراجعة التقييمات',
     'average_rating' => 'متوسط التقييم',
     'total_reviews' => 'إجمالي التقييمات',
-    
+
     // Product Shipping
     'shipping' => 'الشحن',
     'shipping_info' => 'معلومات الشحن',
@@ -234,7 +234,7 @@ return [
     'delivery_time' => 'وقت التسليم',
     'express_shipping' => 'شحن سريع',
     'standard_shipping' => 'شحن عادي',
-    
+
     // Product Visibility
     'visibility' => 'الرؤية',
     'product_visibility' => 'رؤية المنتج',
@@ -247,7 +247,7 @@ return [
     'featured_only' => 'مميز فقط',
     'catalog_only' => 'الكتالوج فقط',
     'search_only' => 'البحث فقط',
-    
+
     // Bulk Actions
     'bulk_actions' => 'الإجراءات الجماعية',
     'select_all' => 'تحديد الكل',
@@ -262,7 +262,7 @@ return [
     'bulk_export' => 'تصدير جماعي',
     'bulk_duplicate' => 'تكرار جماعي',
     'apply_action' => 'تطبيق الإجراء',
-    
+
     // Pagination & Sorting
     'showing' => 'عرض',
     'of' => 'من',
@@ -280,7 +280,7 @@ return [
     'price_high_low' => 'السعر (عالي إلى منخفض)',
     'most_popular' => 'الأكثر شعبية',
     'best_rated' => 'الأعلى تقييماً',
-    
+
     // Messages
     'no_products_found' => 'لم يتم العثور على منتجات',
     'product_created' => 'تم إنشاء المنتج بنجاح',
@@ -297,17 +297,17 @@ return [
     'confirm_bulk_delete' => 'هل أنت متأكد من حذف المنتجات المحددة؟',
     'operation_successful' => 'تمت العملية بنجاح',
     'operation_failed' => 'فشلت العملية',
-    'validation_error' => 'يرجى التحقق من الأخطاء في النموذج',
+    'validation_error' => 'يرجى التحقق من الأطرازاء في النموذج',
     'required_fields' => 'يرجى ملء جميع الحقول المطلوبة',
     'invalid_data' => 'البيانات المدخلة غير صحيحة',
     'unauthorized' => 'ليس لديك صلاحية لتنفيذ هذا الإجراء',
     'product_not_found' => 'المنتج غير موجود',
     'category_not_found' => 'الفئة غير موجودة',
-    'image_upload_error' => 'خطأ في رفع الصورة',
+    'image_upload_error' => 'طرازأ في رفع الصورة',
     'file_too_large' => 'الملف كبير جداً',
     'invalid_file_type' => 'نوع الملف غير صحيح',
     'max_images_exceeded' => 'تم تجاوز العدد الأقصى للصور',
-    
+
     // Form Validation
     'name_required' => 'اسم المنتج مطلوب',
     'description_required' => 'وصف المنتج مطلوب',
@@ -324,7 +324,7 @@ return [
     'slug_unique' => 'الرابط المختصر يجب أن يكون فريداً',
     'meta_title_max' => 'العنوان الوصفي لا يمكن أن يزيد عن 60 حرف',
     'meta_description_max' => 'الوصف الوصفي لا يمكن أن يزيد عن 160 حرف',
-    
+
     // Import/Export
     'import_products' => 'استيراد المنتجات',
     'export_products' => 'تصدير المنتجات',
@@ -342,10 +342,10 @@ return [
     'date_range' => 'نطاق التاريخ',
     'from_date' => 'من تاريخ',
     'to_date' => 'إلى تاريخ',
-    
-    // Missing translation keys for forms  
-    'line' => 'الخط',
-    'line_placeholder' => 'أدخل خط المنتج',
+
+    // Missing translation keys for forms
+    'line' => 'الطراز',
+    'line_placeholder' => 'أدخل طراز المنتج',
     'type' => 'النوع',
     'type_placeholder' => 'أدخل نوع المنتج',
     'technical_specifications' => 'المواصفات التقنية',
@@ -384,7 +384,7 @@ return [
     'edit' => 'تعديل',
     'delete' => 'حذف',
     'search' => 'بحث',
-    
+
     // UI Elements for blade files
     'view' => 'عرض',
     'edit' => 'تعديل',
@@ -405,7 +405,7 @@ return [
     'all' => 'الكل',
     'none' => 'لا شيء',
     'optional' => 'اختياري',
-    
+
     // Form and Upload elements
     'form_progress' => 'تقدم النموذج',
     'progress_completed' => 'مكتمل',
@@ -427,19 +427,19 @@ return [
     'supported_formats_desc' => 'الصيغ المدعومة: JPG، PNG، GIF (الحد الأقصى: 10 ميجابايت)',
     'file_too_large_error' => 'الملف كبير جداً. الحد الأقصى 10 ميجابايت.',
     'invalid_file_format' => 'صيغة ملف غير صالحة. يرجى استخدام JPG أو PNG أو GIF.',
-    
+
     // Messages and Notifications
-    'please_correct_errors' => 'يرجى تصحيح الأخطاء أدناه',
+    'please_correct_errors' => 'يرجى تصحيح الأطرازاء أدناه',
     'form_saved_successfully' => 'تم حفظ النموذج بنجاح',
     'changes_saved' => 'تم حفظ تغييراتك',
     'operation_completed' => 'تمت العملية بنجاح',
-    'error_occurred' => 'حدث خطأ',
+    'error_occurred' => 'حدث طرازأ',
     'try_again' => 'يرجى المحاولة مرة أخرى',
     'confirm_action' => 'هل أنت متأكد؟',
     'action_cannot_undone' => 'لا يمكن التراجع عن هذا الإجراء',
     'unsaved_changes' => 'لديك تغييرات غير محفوظة',
     'continue_without_saving' => 'المتابعة بدون حفظ؟',
-    
+
     // Product specific translations
     'editing_product' => 'تعديل المنتج',
     'creating_product' => 'إنشاء المنتج',
@@ -449,10 +449,10 @@ return [
     'fill_product_details' => 'املأ تفاصيل المنتج أدناه',
     'add_new_product_to_catalog' => 'إضافة منتج جديد لمعدات الحفر إلى الكتالوج',
     'update_product_information' => 'تحديث معلومات المنتج والإعدادات',
-    
+
     // Mobile responsive text
     'mobile_back' => 'رجوع',
-    'mobile_view' => 'عرض', 
+    'mobile_view' => 'عرض',
     'mobile_edit' => 'تعديل',
     'mobile_save' => 'حفظ',
     'mobile_update' => 'تحديث',
@@ -460,18 +460,18 @@ return [
     'mobile_delete' => 'حذف',
     'mobile_upload' => 'رفع',
     'mobile_remove' => 'إزالة',
-    
+
     // Status and state indicators
     'current_status' => 'الحالة الحالية',
     'product_active' => 'منتج نشط',
-    'product_inactive' => 'منتج غير نشط', 
+    'product_inactive' => 'منتج غير نشط',
     'product_featured' => 'منتج مميز',
     'product_not_featured' => 'غير مميز',
     'visible_in_catalog' => 'مرئي في الكتالوج',
     'hidden_from_catalog' => 'مخفي من الكتالوج',
     'appears_prominently' => 'يظهر بشكل بارز',
     'normal_display' => 'عرض عادي',
-    
+
     // Form validation messages
     'field_required' => 'هذا الحقل مطلوب',
     'please_select' => 'يرجى اختيار خيار',
@@ -479,7 +479,7 @@ return [
     'value_too_long' => 'القيمة طويلة جداً',
     'value_too_short' => 'القيمة قصيرة جداً',
     'invalid_characters' => 'تحتوي على أحرف غير صالحة',
-    
+
     // Keyboard shortcuts
     'keyboard_shortcuts' => 'اختصارات لوحة المفاتيح',
     'save_shortcut' => 'Ctrl + S للحفظ',

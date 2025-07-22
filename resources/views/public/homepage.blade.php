@@ -4894,8 +4894,8 @@
         }
 
         .search-input-btn {
-            width: 55px;
-            height: 55px;
+            width: 43px;
+            height: 59px;
             border-radius: 50%;
             color: #fff;
             border: none;
@@ -4910,13 +4910,6 @@
             gap: 0.5rem;
             justify-content: center;
         }
-        @if(app()->getLocale() === 'ar')
-        .search-input-btn {
-            padding-left: 24px;
-        }
-        @endif
-
-
         .search-input-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);

@@ -15,27 +15,51 @@ return [
     'period' => 'Period',
     'generated_on' => 'Generated on',
     'confidential_document' => 'This is a confidential document',
-    
+    'download_warranty' => 'Download Warranty PDF',
+
+
     // Time Periods
     'last_7_days' => 'Last 7 Days',
     'last_30_days' => 'Last 30 Days',
     'last_90_days' => 'Last 90 Days',
     'this_year' => 'This Year',
     'last_year' => 'Last Year',
-    
+
     // Report Types
     'comprehensive_report' => 'Comprehensive Report',
     'owners_report' => 'Owners Report',
     'sales_report' => 'Sales Report',
+    'warranty_report' => 'Warranty Report',
     'comprehensive_business_analysis' => 'Comprehensive Business Analysis',
     'owners_analysis' => 'Owners Analysis',
     'comprehensive_sales_analysis' => 'Comprehensive Sales Analysis',
-    
+    'warranty_analysis' => 'Warranty Analysis',
+
     // Report Titles
     'comprehensive_report_title' => 'Comprehensive Business Report',
     'owners_report_title' => 'Owners Analysis Report',
     'sales_report_title' => 'Sales Performance Report',
-    
+    'warranty_report_title' => 'Warranty Coverage Report',
+
+    // Warranty-specific translations
+    'warranty_coverage_report' => 'Warranty Coverage Report',
+    'warranty_description' => 'Comprehensive warranty tracking and expiration analysis for all sold products',
+    'warranty_features' => 'Warranty Features',
+    'active_warranty_coverage' => 'Active warranty coverage status',
+    'days_remaining_expiration' => 'Days remaining until expiration',
+    'product_model_breakdown' => 'Product model breakdown',
+    'owner_warranty_tracking' => 'Owner warranty tracking',
+    'expiration_notifications' => 'Expiration notifications',
+    'coverage_analytics' => 'Coverage analytics',
+    'under_warranty' => 'Under Warranty',
+    'expired_warranties' => 'Expired',
+    'warranty_status' => 'Warranty Status',
+    'warranty_expiration' => 'Warranty Expiration',
+    'warranty_void' => 'Warranty Void',
+    'warranty_active' => 'Active',
+    'warranty_expired' => 'Expired',
+    'warranty_voided' => 'Voided',
+
     // Financial Overview
     'financial_overview' => 'Financial Overview',
     'total_revenue' => 'Total Revenue',
@@ -46,7 +70,7 @@ return [
     'average_sale_value' => 'Average Sale Value',
     'revenue_growth' => 'Revenue Growth',
     'sales_growth' => 'Sales Growth',
-    
+
     // Sales Metrics
     'sales_summary' => 'Sales Summary',
     'sales_metrics' => 'Sales Metrics',
@@ -61,7 +85,7 @@ return [
     'avg_sale_value' => 'Avg Sale Value',
     'performance' => 'Performance',
     'top_performer' => 'Top Performer',
-    
+
     // Products
     'product_name' => 'Product Name',
     'product' => 'Product',
@@ -75,14 +99,14 @@ return [
     'avg_price' => 'Average Price',
     'category_performance' => 'Category Performance',
     'category_name' => 'Category Name',
-    
+
     // Staff
     'staff_name' => 'Staff Name',
     'staff_performance' => 'Staff Performance',
     'sold_by' => 'Sold By',
     'active_staff' => 'Active Staff',
     'total_staff' => 'Total Staff',
-    
+
     // Owners
     'owners_overview' => 'Owners Overview',
     'owners_demographics' => 'Owners Demographics',
@@ -105,17 +129,17 @@ return [
     'email' => 'Email',
     'registered_date' => 'Registered Date',
     'last_purchase' => 'Last Purchase',
-    
+
     // Regional
     'regional_analysis' => 'Regional Analysis',
     'regional_data' => 'Regional Data',
     'owner_count' => 'Owner Count',
-    
+
     // Growth
     'growth_metrics' => 'Growth Metrics',
     'compared_to_previous' => 'Compared to Previous Period',
     'growth_rate' => 'Growth Rate',
-    
+
     // Data Labels
     'date' => 'Date',
     'month' => 'Month',
@@ -124,7 +148,7 @@ return [
     'amount' => 'Amount',
     'count' => 'Count',
     'percentage' => 'Percentage',
-    
+
     // Status Messages
     'no_data' => 'No data available for the selected period',
     'no_sales_data' => 'No sales data available for the selected period',
@@ -135,14 +159,14 @@ return [
     'no_products_data' => 'No products data available',
     'loading' => 'Loading...',
     'processing' => 'Processing...',
-    
+
     // Chart Placeholders
     'revenue_chart_placeholder' => 'Revenue Trend Chart (Chart visualization would appear here)',
     'sales_chart_placeholder' => 'Sales Trend Chart (Chart visualization would appear here)',
     'daily_sales_chart_placeholder' => 'Daily Sales Chart (Chart visualization would appear here)',
     'category_chart_placeholder' => 'Category Performance Chart (Chart visualization would appear here)',
     'regional_chart_placeholder' => 'Regional Distribution Chart (Chart visualization would appear here)',
-    
+
     // Interface
     'preview_stats' => 'Preview Stats',
     'download_pdf' => 'Download PDF',
@@ -151,16 +175,16 @@ return [
     'please_wait' => 'Please wait while we generate your report...',
     'report_ready' => 'Report Ready!',
     'your_report_is_ready' => 'Your report has been generated successfully.',
-    
+
     // Descriptions
     'comprehensive_report_desc' => 'Complete business overview including financials, sales, staff performance, and growth metrics.',
     'owners_report_desc' => 'Detailed analysis of customer base, demographics, purchasing behavior, and acquisition trends.',
     'sales_report_desc' => 'Comprehensive sales performance analysis including products, staff, and trends.',
-    
+
     // Permissions
     'access_denied' => 'Access denied. This feature is only available to administrators and CEOs.',
     'insufficient_permissions' => 'You do not have sufficient permissions to access this feature.',
-    
+
     // Reports Interface
     'financial_reports' => 'Financial Reports',
     'comprehensive_analytics_description' => 'Generate comprehensive analytics and financial reports for strategic decision-making.',
@@ -198,7 +222,7 @@ return [
     'error_generating_report' => 'Error generating report. Please try again.',
     'invalid_date_range' => 'Invalid date range selected.',
     'report_generation_failed' => 'Report generation failed. Please contact support.',
-    
+
     // Summary translation keys
     'total_revenue_summary' => 'Total revenue reached :amount for the selected period',
     'total_sales_summary' => 'Completed :count sales transactions',

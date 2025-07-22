@@ -11,11 +11,11 @@ return [
     'product_sales' => 'مبيعات المنتجات',
     'sales_transactions' => 'معاملات المبيعات',
     'sales_records' => 'سجلات المبيعات',
-    
+
     // Employee Access
     'employee_access' => 'صلاحيات الموظف',
     'employee_access_desc' => 'يمكنك إنشاء مبيعات جديدة وتعديل الموجودة. أي تعديلات على المبيعات الموجودة ستخضع لموافقة المدير قبل التطبيق.',
-    
+
     // Statistics
     'total_sales' => 'إجمالي المبيعات',
     'total_revenue' => 'إجمالي الإيرادات',
@@ -26,7 +26,7 @@ return [
     'monthly_sales' => 'المبيعات الشهرية',
     'yearly_sales' => 'المبيعات السنوية',
     'average_sale_value' => 'متوسط قيمة البيع',
-    
+
     // Actions
     'add_new_sale' => 'إضافة بيع جديد',
     'create_sale' => 'إنشاء بيع',
@@ -40,7 +40,7 @@ return [
     'update_sale' => 'تحديث البيع',
     'cancel' => 'إلغاء',
     'back_to_sales' => 'العودة إلى المبيعات',
-    
+
     // Sale Details
     'sale_information' => 'معلومات البيع',
     'sale_details' => 'تفاصيل البيع',
@@ -54,7 +54,7 @@ return [
     'warranty_info_desc' => 'تفاصيل تغطية ومدة الضمان',
     'additional_information' => 'معلومات إضافية',
     'additional_info_desc' => 'تفاصيل بيع إضافية اختيارية',
-    
+
     // Form Fields
     'product' => 'المنتج',
     'select_product' => 'اختر المنتج',
@@ -99,7 +99,7 @@ return [
     'payment_status' => 'حالة الدفع',
     'invoice_number' => 'رقم الفاتورة',
     'receipt_number' => 'رقم الإيصال',
-    
+
     // Payment Methods
     'cash' => 'نقد',
     'credit_card' => 'بطاقة ائتمان',
@@ -107,14 +107,14 @@ return [
     'check' => 'شيك',
     'financing' => 'تمويل',
     'installments' => 'أقساط',
-    
+
     // Payment Status
     'paid' => 'مدفوع',
     'pending' => 'معلق',
     'partial' => 'جزئي',
     'overdue' => 'متأخر',
     'refunded' => 'مُسترد',
-    
+
     // Sale Status
     'completed' => 'مكتمل',
     'processing' => 'قيد المعالجة',
@@ -122,7 +122,7 @@ return [
     'delivered' => 'تم التسليم',
     'cancelled' => 'ملغي',
     'returned' => 'مُرتجع',
-    
+
     // Display Labels
     'model_name' => 'اسم الموديل',
     'category' => 'الفئة',
@@ -137,7 +137,7 @@ return [
     'updated_at' => 'تاريخ التحديث',
     'created_by' => 'أنشأه',
     'updated_by' => 'حدثه',
-    
+
     // Warranty Display
     'warranty_info' => 'معلومات الضمان',
     'warranty_valid' => 'ضمان صالح',
@@ -147,14 +147,14 @@ return [
     'warranty_years_left' => 'سنة متبقية',
     'no_warranty' => 'بلا ضمان',
     'lifetime_warranty' => 'ضمان مدى الحياة',
-    
+
     // Empty States
     'no_sales_found' => 'لم يتم العثور على منتجات مباعة',
     'no_sales_recorded' => 'لم يتم تسجيل مبيعات بعد',
     'start_recording_sales' => 'ابدأ بتسجيل معاملة البيع الأولى.',
     'no_results_found' => 'لم يتم العثور على نتائج لبحثك.',
     'try_different_criteria' => 'حاول تعديل معايير البحث.',
-    
+
     // Search & Filter
     'search_sales' => 'البحث في المبيعات',
     'search_placeholder' => 'البحث بالعميل أو المنتج أو الرقم التسلسلي...',
@@ -174,10 +174,10 @@ return [
     'apply_filters' => 'تطبيق المرشحات',
     'clear_filters' => 'مسح المرشحات',
     'search' => 'بحث',
-    
+
     // Quick Search
     'quick_search_placeholder' => 'البحث السريع باسم المالك أو الرقم التسلسلي...',
-    
+
     // Filtering and Search
     'advanced_filters' => 'فلاتر متقدمة',
     'toggle_filters' => 'تبديل الفلاتر',
@@ -199,7 +199,7 @@ return [
     'showing_results' => 'عرض :count نتيجة',
     'this_month' => 'هذا الشهر',
     'expiring_soon' => 'ينتهي قريباً',
-    
+
     // Pagination & Sorting
     'showing' => 'عرض',
     'of' => 'من',
@@ -215,7 +215,7 @@ return [
     'customer_z_a' => 'العميل (ي-أ)',
     'product_a_z' => 'المنتج (أ-ي)',
     'product_z_a' => 'المنتج (ي-أ)',
-    
+
     // Actions & Buttons
     'view' => 'عرض',
     'edit' => 'تعديل',
@@ -231,14 +231,14 @@ return [
     'extend_warranty' => 'تمديد الضمان',
     'void_sale' => 'إلغاء البيع',
     'refund' => 'استرداد',
-    
+
     // Confirmation Messages
     'confirm_delete' => 'هل أنت متأكد من حذف سجل البيع هذا؟',
     'confirm_delete_desc' => 'لا يمكن التراجع عن هذا الإجراء.',
     'confirm_void' => 'هل أنت متأكد من إلغاء هذا البيع؟',
     'confirm_refund' => 'هل أنت متأكد من معالجة استرداد لهذا البيع؟',
     'delete_cannot_undone' => 'لا يمكن التراجع عن هذا الإجراء. هل أنت متأكد؟',
-    
+
     // Success Messages
     'sale_created' => 'تم إنشاء سجل البيع بنجاح',
     'sale_updated' => 'تم تحديث سجل البيع بنجاح',
@@ -251,14 +251,14 @@ return [
     'warranty_extended' => 'تم تمديد الضمان بنجاح',
     'warranty_voided' => 'تم الإلغاء',
     'warranty_voided_successfully' => 'تم إلغاء الضمان بنجاح.',
-    
+
     // Error Messages
     'sale_not_found' => 'سجل البيع غير موجود',
     'customer_not_found' => 'العميل غير موجود',
     'product_not_found' => 'المنتج غير موجود',
     'employee_not_found' => 'الموظف غير موجود',
     'operation_failed' => 'فشلت العملية',
-    'validation_error' => 'يرجى التحقق من الأخطاء في النموذج',
+    'validation_error' => 'يرجى التحقق من الأطرازاء في النموذج',
     'required_fields' => 'يرجى ملء جميع الحقول المطلوبة',
     'invalid_date' => 'يرجى إدخال تاريخ صحيح',
     'invalid_price' => 'يرجى إدخال سعر صحيح',
@@ -268,7 +268,7 @@ return [
     'sale_date_future' => 'تاريخ البيع لا يمكن أن يكون في المستقبل',
     'unauthorized' => 'غير مخول لك تنفيذ هذا الإجراء',
     'warranty_already_voided' => 'تم إلغاء الضمان مسبقًا لهذا البيع.',
-    
+
     // Form Validation
     'required' => 'مطلوب',
     'optional' => 'اختياري',
@@ -280,7 +280,7 @@ return [
     'positive_number' => 'يجب أن يكون رقماً موجباً',
     'valid_email' => 'يجب أن يكون عنوان بريد إلكتروني صحيح',
     'valid_phone' => 'يجب أن يكون رقم هاتف صحيح',
-    
+
     // Units & Currency
     'currency_symbol' => 'ر.س',
     'price_format' => ':amount ر.س',
@@ -290,19 +290,19 @@ return [
     'years' => 'سنوات',
     'hours' => 'ساعات',
     'minutes' => 'دقائق',
-    
+
     // Date Formats
     'date_format' => 'd M Y',
     'datetime_format' => 'd M Y h:i A',
     'time_format' => 'h:i A',
     'short_date' => 'd/m/Y',
     'full_date' => 'l، j F Y',
-    
+
     // Common Labels
     'yes' => 'نعم',
     'no' => 'لا',
     'true' => 'صحيح',
-    'false' => 'خطأ',
+    'false' => 'طرازأ',
     'enabled' => 'مُفعل',
     'disabled' => 'معطل',
     'active' => 'نشط',
@@ -316,7 +316,7 @@ return [
     'not_available' => 'غير متاح',
     'not_specified' => 'غير محدد',
     'to_be_determined' => 'سيتم تحديده',
-    
+
     // Import/Export
     'import_sales' => 'استيراد المبيعات',
     'export_sales' => 'تصدير المبيعات',
@@ -332,7 +332,7 @@ return [
     'include_customer_data' => 'تضمين بيانات العملاء',
     'include_product_data' => 'تضمين بيانات المنتجات',
     'include_warranty_data' => 'تضمين بيانات الضمان',
-    
+
     // Reports
     'sales_report' => 'تقرير المبيعات',
     'sales_summary' => 'ملخص المبيعات',
@@ -381,14 +381,14 @@ return [
     'created' => 'تم الإنشاء',
     'updated' => 'تم التحديث',
     'additional_notes' => 'ملاحظات إضافية',
-    
+
     // Placeholders
     'select_product' => 'اختر المنتج',
     'select_owner' => 'اختر المالك',
     'select_employee' => 'اختر الموظف',
     'enter_serial_number' => 'أدخل رقم تسلسلي فريد',
     'additional_notes_placeholder' => 'ملاحظات إضافية حول هذا البيع...',
-    
+
     // Actions
     'create_sale' => 'إنشاء بيع',
     'update_sale' => 'تحديث البيع',
@@ -400,7 +400,7 @@ return [
     'quick_actions' => 'إجراءات سريعة',
     'view_product' => 'عرض المنتج',
     'view_owner' => 'عرض المالك',
-    
+
     // Warranty information
     'warranty_information' => 'معلومات الضمان',
     'warranty_voided' => 'ملغي من الضمان',
@@ -417,18 +417,18 @@ return [
     'voided_at_employee' => 'تاريخ الإلغاء من قبل الموظف',
     // Confirmation messages
     'confirm_delete' => 'هل أنت متأكد أنك تريد حذف سجل البيع هذا؟',
-    
+
     // Success messages
     'created_successfully' => 'تم إنشاء سجل البيع بنجاح!',
     'updated_successfully' => 'تم تحديث سجل البيع بنجاح!',
     'deleted_successfully' => 'تم حذف سجل البيع بنجاح!',
-    
+
     // Error messages
-    'create_error' => 'خطأ في إنشاء سجل البيع. يرجى المحاولة مرة أخرى.',
-    'update_error' => 'خطأ في تحديث سجل البيع. يرجى المحاولة مرة أخرى.',
-    'delete_error' => 'خطأ في حذف سجل البيع. يرجى المحاولة مرة أخرى.',
+    'create_error' => 'طرازأ في إنشاء سجل البيع. يرجى المحاولة مرة أخرى.',
+    'update_error' => 'طرازأ في تحديث سجل البيع. يرجى المحاولة مرة أخرى.',
+    'delete_error' => 'طرازأ في حذف سجل البيع. يرجى المحاولة مرة أخرى.',
     'not_found' => 'سجل البيع غير موجود.',
-    
+
     // Status and other values
     'na' => 'غير متاح',
     'no_sales' => 'لم يتم العثور على مبيعات.',

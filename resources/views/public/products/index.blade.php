@@ -48,24 +48,24 @@
 </script>
 
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "{{ url('/') }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Products",
-            "item": "{{ url('/products') }}"
-        }
-    ]
-}
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ url('/') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "{{ url('/products') }}"
+            }
+        ]
+    }
 </script>
 @endpush
 
@@ -751,7 +751,7 @@
 <div id="copyToast" class="copy-toast">Link copied to clipboard</div>
 
 @push('scripts')
-<script> 
+<script>
     // Progress bar functionality
 function startProgressBar() {
     var bar = document.getElementById("pageProgressBar");
@@ -784,26 +784,26 @@ document.addEventListener("DOMContentLoaded", function () {
     function syncMobileFormWithDesktop() {
         const mobileForm = document.getElementById("mobileFilterForm");
         const filterForm = document.getElementById("filterForm");
-        
+
         if (!mobileForm || !filterForm) return;
-        
+
         // Sync sort value
         const desktopSortInput = document.getElementById("sortInput");
         const mobileSortInput = document.querySelector("#mobileFilterForm input[name='sort']");
         if (desktopSortInput && mobileSortInput) {
             mobileSortInput.value = desktopSortInput.value;
         }
-        
+
         // Sync search value
         const desktopSearchInput = document.getElementById("search");
         const mobileSearchInput = document.querySelector("#mobileFilterForm input[name='search']");
         if (desktopSearchInput && mobileSearchInput) {
             mobileSearchInput.value = desktopSearchInput.value;
         }
-        
+
         // Sync filter checkboxes
         const desktopCheckboxes = filterForm.querySelectorAll(".filter-checkbox");
-        
+
         desktopCheckboxes.forEach((desktopCb) => {
             const name = desktopCb.name;
             const value = desktopCb.value;
@@ -818,7 +818,7 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileFilterOverlay.classList.add("show");
         mobileFilterSidebar.classList.add("show");
         document.body.style.overflow = "hidden";
-        
+
         // Sync mobile form with current desktop state
         syncMobileFormWithDesktop();
     }
@@ -855,24 +855,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Always use desktop form for consistency, but sync mobile state
                 const filterForm = document.getElementById("filterForm");
                 const mainSearchForm = document.getElementById("mainSearchForm");
-                
+
                 if (filterForm && mainSearchForm) {
                     // Sync mobile checkbox state to desktop form
                     const desktopCb = filterForm.querySelector(`input[name="${this.name}"][value="${this.value}"]`);
                     if (desktopCb) {
                         desktopCb.checked = this.checked;
                     }
-                    
+
                     const formData = new FormData(filterForm);
                     const searchFormData = new FormData(mainSearchForm);
-                    
+
                     // Include search parameters from main search form
                     for (const [key, value] of searchFormData.entries()) {
                         if (!formData.has(key)) {
                             formData.append(key, value);
                         }
                     }
-                    
+
                     const params = new URLSearchParams();
                     for (const [key, value] of formData) {
                         params.append(key, value);
@@ -892,7 +892,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Always use desktop form for consistency, but sync mobile state
             const filterForm = document.getElementById("filterForm");
             const mainSearchForm = document.getElementById("mainSearchForm");
-            
+
             if (filterForm && mainSearchForm) {
                 // Sync all mobile checkbox states to desktop form
                 const mobileCheckboxes = mobileForm.querySelectorAll(".mobile-filter-checkbox");
@@ -902,17 +902,17 @@ document.addEventListener("DOMContentLoaded", function () {
                         desktopCb.checked = mobileCb.checked;
                     }
                 });
-                
+
                 const formData = new FormData(filterForm);
                 const searchFormData = new FormData(mainSearchForm);
-                
+
                 // Include search parameters from main search form
                 for (const [key, value] of searchFormData.entries()) {
                     if (!formData.has(key)) {
                         formData.append(key, value);
                     }
                 }
-                
+
                 const params = new URLSearchParams();
                 for (const [key, value] of formData) {
                     params.append(key, value);
@@ -1022,14 +1022,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (filterForm && mainSearchForm) {
                     const formData = new FormData(filterForm);
                     const searchFormData = new FormData(mainSearchForm);
-                    
+
                     // Include search parameters from main search form
                     for (const [key, value] of searchFormData.entries()) {
                         if (!formData.has(key)) {
                             formData.append(key, value);
                         }
                     }
-                    
+
                     const params = new URLSearchParams();
                     for (const [key, value] of formData) {
                         params.append(key, value);
@@ -1185,13 +1185,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const params = new URLSearchParams();
         params.append("unit", unitInput?.value || "imperial");
-        
+
         // Include search parameters if they exist
         const searchInput = document.getElementById("search");
         if (searchInput && searchInput.value.trim()) {
             params.append("search", searchInput.value.trim());
         }
-        
+
         if (filterForm) {
             ajaxUpdate(filterForm.action, params.toString());
         }
@@ -1267,7 +1267,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function syncSortState(sortValue) {
         const sortInput = document.getElementById("sortInput");
         const mobileSortInput = document.querySelector("#mobileFilterForm input[name='sort']");
-        
+
         if (sortInput) {
             sortInput.value = sortValue;
         }
@@ -1285,7 +1285,7 @@ document.addEventListener("DOMContentLoaded", function () {
         option.addEventListener("click", function (e) {
             e.preventDefault();
             const sortValue = this.dataset.sort;
-            
+
             // Update sort input in both desktop and mobile forms
             syncSortState(sortValue);
 
@@ -1331,26 +1331,26 @@ document.addEventListener("DOMContentLoaded", function () {
             // Get current form data from desktop form (always use desktop form for consistency)
             const filterForm = document.getElementById("filterForm");
             const mainSearchForm = document.getElementById("mainSearchForm");
-            
+
             if (filterForm && mainSearchForm) {
                 const formData = new FormData(filterForm);
                 const searchFormData = new FormData(mainSearchForm);
-                
+
                 // Include search parameters from main search form
                 for (const [key, value] of searchFormData.entries()) {
                     if (!formData.has(key)) {
                         formData.append(key, value);
                     }
                 }
-                
+
                 // Set the sort value
                 formData.set("sort", sortValue);
-                
+
                 const params = new URLSearchParams();
                 for (const [key, value] of formData) {
                     params.append(key, value);
                 }
-                
+
                 // Use AJAX instead of page refresh
                 ajaxUpdate(filterForm.action, params.toString());
             }
@@ -1391,12 +1391,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".sort-option").forEach(function (option) {
             // Remove existing listeners to prevent duplicates
             option.removeEventListener("click", option._sortClickHandler);
-            
+
             // Create new handler
             option._sortClickHandler = function (e) {
                 e.preventDefault();
                 const sortValue = this.dataset.sort;
-                
+
                 // Update sort input in both desktop and mobile forms
                 syncSortState(sortValue);
 
@@ -1442,31 +1442,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Get current form data from desktop form (always use desktop form for consistency)
                 const filterForm = document.getElementById("filterForm");
                 const mainSearchForm = document.getElementById("mainSearchForm");
-                
+
                 if (filterForm && mainSearchForm) {
                     const formData = new FormData(filterForm);
                     const searchFormData = new FormData(mainSearchForm);
-                    
+
                     // Include search parameters from main search form
                     for (const [key, value] of searchFormData.entries()) {
                         if (!formData.has(key)) {
                             formData.append(key, value);
                         }
                     }
-                    
+
                     // Set the sort value
                     formData.set("sort", sortValue);
-                    
+
                     const params = new URLSearchParams();
                     for (const [key, value] of formData) {
                         params.append(key, value);
                     }
-                    
+
                     // Use AJAX instead of page refresh
                     ajaxUpdate(filterForm.action, params.toString());
                 }
             };
-            
+
             option.addEventListener("click", option._sortClickHandler);
         });
 
@@ -1479,7 +1479,7 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileCheckboxes.forEach((checkbox) => {
             // Remove existing listeners to prevent duplicates
             checkbox.removeEventListener("change", checkbox._mobileChangeHandler);
-            
+
             // Create new handler
             checkbox._mobileChangeHandler = function (e) {
                 e.preventDefault();
@@ -1488,24 +1488,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Always use desktop form for consistency, but sync mobile state
                     const filterForm = document.getElementById("filterForm");
                     const mainSearchForm = document.getElementById("mainSearchForm");
-                    
+
                     if (filterForm && mainSearchForm) {
                         // Sync mobile checkbox state to desktop form
                         const desktopCb = filterForm.querySelector(`input[name="${this.name}"][value="${this.value}"]`);
                         if (desktopCb) {
                             desktopCb.checked = this.checked;
                         }
-                        
+
                         const formData = new FormData(filterForm);
                         const searchFormData = new FormData(mainSearchForm);
-                        
+
                         // Include search parameters from main search form
                         for (const [key, value] of searchFormData.entries()) {
                             if (!formData.has(key)) {
                                 formData.append(key, value);
                             }
                         }
-                        
+
                         const params = new URLSearchParams();
                         for (const [key, value] of formData) {
                             params.append(key, value);
@@ -1514,7 +1514,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }, 250);
             };
-            
+
             checkbox.addEventListener("change", checkbox._mobileChangeHandler);
         });
 

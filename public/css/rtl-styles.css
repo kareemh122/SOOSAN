@@ -2,6 +2,9 @@
 [dir="rtl"] {
     font-family: 'Inter', 'Noto Sans Arabic', Arial, sans-serif;
 }
+[dir="rtl"] .slider-nav {
+    padding-left: 8px;
+}
 
 /* Navigation fixes */
 [dir="rtl"] .navbar-nav .nav-link {
@@ -68,8 +71,14 @@
 [dir="rtl"] .fas,
 [dir="rtl"] .far,
 [dir="rtl"] .fab {
-    padding-left: 7px;
     margin-right: 0;
+}
+[dir="rtl"] .search-input-btn {
+    padding-left: 30px;
+}
+
+[dir="rtl"] #scrollToTopBtn {
+    padding-left: 12px;
 }
 
 [dir="rtl"] .me-2 {

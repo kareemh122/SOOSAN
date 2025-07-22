@@ -74,6 +74,78 @@
     <!-- Global Enhanced Styles -->
     <link href="{{ asset('css/global-styles.css') }}" rel="stylesheet">
 
+    <!-- Global Icon Centering Styles -->
+    <style>
+        /* Universal Icon Centering for ALL Icons */
+        i,
+        .fas,
+        .fab,
+        .far,
+        .fal,
+        .fad,
+        .icon,
+        [class*="fa-"] {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            line-height: 1 !important;
+        }
+
+        /* Button Icon Centering */
+        button i,
+        .btn i,
+        a i,
+        .button i {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            line-height: 1 !important;
+        }
+
+        /* Specific icon containers */
+        .social i,
+        .social-icons i,
+        .search-input-btn i,
+        .scroll-to-top-btn i,
+        .hero-btn i,
+        .slider-nav i,
+        .mobile-nav-auth-btn i,
+        .language-selector-btn i,
+        .mobile-nav-logout-btn i,
+        .youtube-explore-btn i,
+        .breaker-product-btn i {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            line-height: 1 !important;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        /* RTL Support for Icons */
+        html[dir='rtl'] i,
+        html[dir='rtl'] .fas,
+        html[dir='rtl'] .fab,
+        html[dir='rtl'] .far,
+        html[dir='rtl'] .fal,
+        html[dir='rtl'] .fad,
+        html[dir='rtl'] .icon,
+        html[dir='rtl'] [class*="fa-"] {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            line-height: 1 !important;
+        }
+    </style>
+
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @if (app()->isLocale('ar'))
@@ -1280,6 +1352,19 @@
             flex-shrink: 0;
         }
 
+        .social i {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            line-height: 1 !important;
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
         .social::before {
             content: '';
             position: absolute;
@@ -1319,7 +1404,6 @@
         }
 
         html[dir='rtl'] .social {
-            padding-right: 8px;
             margin: 0 2px;
         }
 
@@ -1989,7 +2073,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .submenu-item {
             display: flex;
             align-items: center;
@@ -2441,7 +2525,7 @@
                 <div id="mobile-products-section" class="mobile-nav-section-content">
                     <div class="mobile-nav-subsection">
                         <h6 class="mobile-nav-subheader">{{ __('common.product_categories') }}</h6>
-        
+
                         <!-- Hydraulic breakers category with clickable link and expandable submenu -->
                         <div class="mobile-nav-item hydraulic-breakers-mobile" data-target="#mobile-product-lines">
                             <a href="{{ route('products.index') }}" class="d-flex align-items-center flex-grow-1 text-decoration-none text-inherit">
@@ -2533,7 +2617,7 @@
                     </div>
                 @endguest
                 </div>
-                
+
             <!-- Mobile Language Section -->
             <div class="mobile-language-section">
                 <div class="mobile-language-header">
@@ -3279,7 +3363,22 @@
             visibility: hidden;
             box-shadow: 0 8px 32px rgba(0, 84, 142, 0.18);
             font-size: 1.5rem;
-            
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .scroll-to-top-btn i {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            vertical-align: middle !important;
+            line-height: 1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
         }
         .scroll-to-top-btn.show {
             opacity: 1;
