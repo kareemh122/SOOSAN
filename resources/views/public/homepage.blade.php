@@ -971,6 +971,11 @@
             justify-content: center;
             opacity: 0.8;
         }
+        @if(app()->getLocale() == 'ar')
+        .slider-nav {
+            padding-right: 8px;
+        }
+        @endif
 
         .slider-nav:hover {
             background: rgba(0, 84, 142, 0.9);
@@ -4905,6 +4910,12 @@
             gap: 0.5rem;
             justify-content: center;
         }
+        @if(app()->getLocale() === 'ar')
+        .search-input-btn {
+            padding-left: 24px;
+        }
+        @endif
+
 
         .search-input-btn:hover {
             transform: scale(1.1);

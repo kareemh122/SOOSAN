@@ -68,7 +68,7 @@
 [dir="rtl"] .fas,
 [dir="rtl"] .far,
 [dir="rtl"] .fab {
-    margin-left: 0.5rem;
+    padding-left: 7px;
     margin-right: 0;
 }
 
