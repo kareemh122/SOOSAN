@@ -12,7 +12,7 @@ return [
     'products_in_category' => 'المنتجات في هذا التصنيف',
     'none' => 'لا يوجد',
     'not_provided' => 'غير متوفر',
-    'hydraulic_breakers' => 'قواطع هيدروليكية',
+    'hydraulic_breakers' => 'شواكيش هيدروليكية',
     'back' => 'عودة',
 
     // إجراءات التصنيف

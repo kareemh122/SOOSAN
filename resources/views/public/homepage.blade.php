@@ -648,7 +648,7 @@
         }
 
         .hero-main-title {
-            font-size: 3.2rem !important;
+            font-size: 2.3rem !important;
             font-weight: 800;
             line-height: 1.1;
             color: #fff;
@@ -756,8 +756,12 @@
         }
 
             .hero-btn-group {
+                margin-left: 30px;
                 gap: 0.8rem;
                 width: 100%;
+            }
+            [dir="ltr"] .hero-btn-group {
+                margin-left: 0;
             }
 
             .hero-btn {
@@ -996,6 +1000,9 @@
 
         .slider-nav.next {
             right: 2rem;
+        }
+        [dir="rtl"] .slider-nav.prev, [dir="rtl"] .slider-nav.next {
+            padding-left: 5px;
         }
 
         .slider-dots {
@@ -1993,7 +2000,7 @@
                     left: 50%;
                     right: auto;
                     transform: translateX(-50%);
-                    text-align: center;
+                    text-align: left;
                     padding: 2rem 1.5rem;
                     bottom: 20%;
                     top: auto;
@@ -2154,6 +2161,10 @@
 
                 .search-input-btn {
                     width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 12px;
                 }
 
                 .product-grid {
@@ -2168,6 +2179,9 @@
 
                 .category-btn {
                     width: 100%;
+                }
+                .line-badge {
+                    display: none;
                 }
             }
 
@@ -2218,7 +2232,7 @@
                 }
 
                 .slider-dots {
-                    bottom: 4rem;
+                    bottom: 2rem;
                     gap: 0.5rem;
                     padding: 0.5rem 0.75rem;
                 }
@@ -2277,15 +2291,6 @@
                 justify-content: center;
             }
 
-            [dir="rtl"] .slider-nav.prev {
-                left: auto;
-                right: 2rem;
-            }
-
-            [dir="rtl"] .slider-nav.next {
-                right: auto;
-                left: 2rem;
-            }
 
             [dir="rtl"] .search-input-container {
                 direction: rtl;
@@ -2461,16 +2466,6 @@
                 text-align: center;
             }
 
-            [dir="rtl"] .slider-nav.prev {
-                left: auto;
-                right: 2rem;
-            }
-
-            [dir="rtl"] .slider-nav.next {
-                right: auto;
-                left: 2rem;
-            }
-
             [dir="rtl"] .search-input-container {
                 direction: rtl;
             }
@@ -2533,14 +2528,6 @@
                     flex-direction: column;
                     align-items: center;
                 }
-
-                [dir="rtl"] .slider-nav.prev {
-                    right: 1rem;
-                }
-
-                [dir="rtl"] .slider-nav.next {
-                    left: 1rem;
-                }
             }
 
             /* Typing Effect Cursor */
@@ -2564,7 +2551,7 @@
             }
 
             .image-block {
-                width: fit-content;
+                width: 100%;
                 padding: 0;
                 margin: 0;
                 display: flex;
@@ -2690,7 +2677,6 @@
 
             /* Stats Section */
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
             }
 
@@ -2746,7 +2732,6 @@
             }
 
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
 
@@ -2861,7 +2846,6 @@
             }
 
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
 
@@ -2900,7 +2884,7 @@
                 border-radius: 16px;
             }
 
-            .search-input {
+            /* .search-input {
                 padding: 1rem;
                 text-align: center;
                 font-size: 0.9rem;
@@ -2911,7 +2895,7 @@
                 width: 100%;
                 padding: 1rem;
                 font-size: 0.9rem;
-            }
+            } */
 
             /* Product Categories */
             .product-categories {
@@ -2983,6 +2967,7 @@
             }
 
             .feature-item {
+                margin-bottom: -8px;
                 padding: 1.5rem;
                 text-align: center;
             }
@@ -3120,7 +3105,6 @@
             }
 
             .stats-grid {
-                grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
@@ -4390,11 +4374,11 @@
                             {{ __('homepage.innovation_section_description') }}
                         </p>
                         <div class="features-list">
-                            <div class="feature-item d-flex align-items-center mb-3">
+                            <div class="feature-item d-flex align-items-center">
                                 <i class="fas fa-check-circle text-success me-3"></i>
                                 <span>{{ __('homepage.advanced_hydraulic_tech') }}</span>
                             </div>
-                            <div class="feature-item d-flex align-items-center mb-3">
+                            <div class="feature-item d-flex align-items-center">
                                 <i class="fas fa-check-circle text-success me-3"></i>
                                 <span>{{ __('homepage.precision_engineering') }}</span>
                             </div>
@@ -4427,7 +4411,7 @@
                         <p class="lead text-muted mb-4">
                             {{ __('homepage.global_section_description') }}
                         </p>
-                        <div class="stats-grid row">
+                        <div class="stats-grid row" style="flex-wrap: nowrap;">
                             <div class="col-4 text-center">
                                 <div class="stat-item">
                                     <h3 class="h2 fw-bold" style="color: #00548e">{{ __('common.country_numbers') }}</h3>
@@ -4867,10 +4851,11 @@
             align-items: center;
             background: white;
             border: 2px solid #e5e7eb;
-            border-radius: 60px;
+            border-radius: 15px;
             transition: all 0.3s ease;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            padding: 0.5rem;
+            padding: 0;
+            overflow: hidden;
         }
 
         .search-input-container:focus-within {
@@ -4883,10 +4868,17 @@
             flex: 1;
             border: none;
             outline: none;
-            padding: 1.25rem 2rem;
+            padding: 1.25rem 70px 1.25rem 2rem;
             font-size: 1.1rem;
             background: transparent;
             color: var(--text-color);
+            border-radius: 15px;
+            width: 100%;
+        }
+
+        /* RTL Support for search input */
+        [dir="rtl"] .search-input {
+            padding: 1.25rem 2rem 1.25rem 70px;
         }
 
         .search-input::placeholder {
@@ -4894,26 +4886,62 @@
         }
 
         .search-input-btn {
-            width: 43px;
-            height: 59px;
+            position: absolute;
+            left: 91%;
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: 5px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             color: #fff;
             border: none;
             background: #00548e;
-            padding: 1.25rem 2rem;
-            font-size: 1.35rem;
+            padding: 0;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
             justify-content: center;
+            margin: 0;
+        }
+
+        [dir="rtl"] .search-input-btn {
+            right: 91%;
         }
         .search-input-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
             background: #b0d701;
+        }
+
+        /* Responsive adjustments for search button */
+        @media (max-width: 768px) {
+            .search-input {
+                padding: 1rem 60px 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            [dir="rtl"] .search-input {
+                padding: 1rem 1.5rem 1rem 60px;
+            }
+            .search-input-btn {
+                left: 88%;
+            }
+            [dir="rtl"] .search-input-btn {
+                right: 88%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-input {
+                padding: 0.9rem 55px 0.9rem 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            [dir="rtl"] .search-input {
+                padding: 0.9rem 1.2rem 0.9rem 55px;
+            }
         }
 
         .search-tags {
@@ -5034,16 +5062,34 @@
             </div>
             <div class="youtube-video-grid">
                 <div class="youtube-video-item">
-                    <iframe src="https://www.youtube.com/embed/cMefr35fupY" title="Soosan Video 3" frameborder="0"
-                        allowfullscreen loading="lazy" aria-label="Soosan YouTube Video 3"></iframe>
+                    <iframe src="https://www.youtube.com/embed/cMefr35fupY?rel=0&modestbranding=1&fs=1&cc_load_policy=1"
+                        title="Soosan Video 3"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        aria-label="Soosan YouTube Video 3">
+                    </iframe>
                 </div>
                 <div class="youtube-video-item">
-                    <iframe src="https://www.youtube.com/embed/iJmuKhtD_nk" title="Soosan Video 2" frameborder="0"
-                        allowfullscreen loading="lazy" aria-label="Soosan YouTube Video 2"></iframe>
+                    <iframe src="https://www.youtube.com/embed/iJmuKhtD_nk?rel=0&modestbranding=1&fs=1&cc_load_policy=1"
+                        title="Soosan Video 2"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        aria-label="Soosan YouTube Video 2">
+                    </iframe>
                 </div>
                 <div class="youtube-video-item">
-                    <iframe src="https://www.youtube.com/embed/AGvShKigxLg" title="Soosan Video 4" frameborder="0"
-                        allowfullscreen loading="lazy" aria-label="Soosan YouTube Video 4"></iframe>
+                    <iframe src="https://www.youtube.com/embed/AGvShKigxLg?rel=0&modestbranding=1&fs=1&cc_load_policy=1"
+                        title="Soosan Video 4"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        aria-label="Soosan YouTube Video 4">
+                    </iframe>
                 </div>
             </div>
             <div class="youtube-explore-btn-wrapper">
@@ -5075,52 +5121,42 @@
 
         .youtube-video-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(360px, 1fr));
-            gap: 3.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-bottom: 2.5rem;
             justify-items: center;
             align-items: stretch;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .youtube-video-item {
             position: relative;
-            border-radius: 0;
-            overflow: hidden;
-            box-shadow: 0 6px 32px rgba(37, 99, 235, 0.13);
+            width: 100%;
             background: #000;
-            transition: box-shadow 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            transition: transform 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
+            transition: all 0.3s ease;
+            aspect-ratio: 16/9;
         }
 
         .youtube-video-item:hover {
-            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.18);
-            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.25);
+            transform: translateY(-8px) scale(1.02);
         }
 
         .youtube-video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            min-width: 400px;
-            min-height: 250px;
-            max-width: 100%;
-            max-height: 100%;
             border: none;
-            display: block;
-            border-radius: 0;
+            border-radius: 12px;
             background: #000;
-            aspect-ratio: 16/9;
-            /* Ensure controls are visible */
-            allowfullscreen: true;
-            allow: accelerometer;
-            autoplay;
-            clipboard-write;
-            encrypted-media;
-            gyroscope;
-            picture-in-picture;
+            display: block;
         }
 
         .youtube-explore-btn-wrapper {
@@ -5159,25 +5195,97 @@
             transform: translateX(4px);
         }
 
+        /* Responsive Design for YouTube Section */
         @media (max-width: 1200px) {
             .youtube-video-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .youtube-video-item {
-                max-width: 95vw;
-                height: 240px;
+                gap: 1.5rem;
+                padding: 0 1rem;
             }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
+            .soosan-youtube-section {
+                padding: 3rem 0 2rem;
+            }
+
             .youtube-video-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+                margin-bottom: 2rem;
             }
 
             .youtube-video-item {
-                max-width: 100vw;
-                height: 200px;
+                width: 100%;
+                max-width: 100%;
+                min-height: 250px;
+                border-radius: 8px;
+            }
+
+            .youtube-video-item iframe {
+                border-radius: 8px;
+            }
+
+            .youtube-explore-btn {
+                font-size: 1rem;
+                padding: 0.9rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .soosan-youtube-section {
+                padding: 2.5rem 0 1.5rem;
+            }
+
+            .youtube-video-grid {
+                gap: 1rem;
+                padding: 0;
+            }
+
+            .youtube-video-item {
+                min-height: 220px;
+                border-radius: 6px;
+                margin: 0 auto;
+                max-width: 95%;
+            }
+
+            .youtube-video-item iframe {
+                border-radius: 6px;
+            }
+
+            .soosan-youtube-section .section-header {
+                margin-bottom: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .soosan-youtube-section .section-title {
+                font-size: 2rem;
+            }
+
+            .soosan-youtube-section .section-description {
+                font-size: 1rem;
+            }
+
+            .youtube-explore-btn {
+                font-size: 0.95rem;
+                padding: 0.8rem 1.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .youtube-video-item {
+                min-height: 200px;
+                max-width: 98%;
+            }
+
+            .soosan-youtube-section .section-title {
+                font-size: 1.8rem;
+            }
+
+            .youtube-explore-btn {
+                font-size: 0.9rem;
+                padding: 0.7rem 1.5rem;
             }
         }
     </style>
@@ -5195,67 +5303,82 @@
                 <!-- Card 1: Construction -->
                 <div class="industry-serve-card">
                     <div class="industry-serve-img-wrap">
-                        <img src="/images/img10.webp" alt="Construction" class="industry-serve-img" />
+                        <img src="/images/img10.webp" alt="Construction Equipment" class="industry-serve-img" loading="lazy" />
                     </div>
                     <div class="industry-serve-content">
                         <h3 class="industry-serve-name">{{ __('homepage.industry_construction_title') }}</h3>
                         <p class="industry-serve-description">{{ __('homepage.industry_construction_desc') }}</p>
-                        <div class="industry-serve-apps-title">{{ __('homepage.industry_apps_title') }}</div>
+                        <div class="industry-serve-apps-title">
+                            <i class="fas fa-cogs" style="margin-right: 0.5rem; color: #b0d701;"></i>
+                            {{ __('homepage.industry_apps_title') }}
+                        </div>
                         <ul class="industry-serve-apps">
-                            <li>{{ __('homepage.industry_construction_app_1') }}</li>
-                            <li>{{ __('homepage.industry_construction_app_2') }}</li>
-                            <li>{{ __('homepage.industry_construction_app_3') }}</li>
+                            <li><i class="fas fa-hammer" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_construction_app_1') }}</li>
+                            <li><i class="fas fa-road" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_construction_app_2') }}</li>
+                            <li><i class="fas fa-building" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_construction_app_3') }}</li>
                         </ul>
                     </div>
                     <div class="industry-progress-bar"></div>
                 </div>
+
                 <!-- Card 2: Infrastructure -->
                 <div class="industry-serve-card">
                     <div class="industry-serve-img-wrap">
-                        <img src="/images/img4.webp" alt="Infrastructure" class="industry-serve-img" />
+                        <img src="/images/img4.webp" alt="Infrastructure Development" class="industry-serve-img" loading="lazy" />
                     </div>
                     <div class="industry-serve-content">
                         <h3 class="industry-serve-name">{{ __('homepage.industry_infrastructure_title') }}</h3>
                         <p class="industry-serve-description">{{ __('homepage.industry_infrastructure_desc') }}</p>
-                        <div class="industry-serve-apps-title">{{ __('homepage.industry_apps_title') }}</div>
+                        <div class="industry-serve-apps-title">
+                            <i class="fas fa-cogs" style="margin-right: 0.5rem; color: #b0d701;"></i>
+                            {{ __('homepage.industry_apps_title') }}
+                        </div>
                         <ul class="industry-serve-apps">
-                            <li>{{ __('homepage.industry_infrastructure_app_1') }}</li>
-                            <li>{{ __('homepage.industry_infrastructure_app_2') }}</li>
-                            <li>{{ __('homepage.industry_infrastructure_app_3') }}</li>
+                            <li><i class="fas fa-bridge" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_infrastructure_app_1') }}</li>
+                            <li><i class="fas fa-road" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_infrastructure_app_2') }}</li>
+                            <li class="full-width"><i class="fas fa-tools" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_infrastructure_app_3') }}</li>
                         </ul>
                     </div>
                     <div class="industry-progress-bar"></div>
                 </div>
+
                 <!-- Card 3: Mining -->
                 <div class="industry-serve-card">
                     <div class="industry-serve-img-wrap">
-                        <img src="/images/img9.webp" alt="Mining" class="industry-serve-img" />
+                        <img src="/images/img9.webp" alt="Mining Operations" class="industry-serve-img" loading="lazy" />
                     </div>
                     <div class="industry-serve-content">
                         <h3 class="industry-serve-name">{{ __('homepage.industry_mining_title') }}</h3>
                         <p class="industry-serve-description">{{ __('homepage.industry_mining_desc') }}</p>
-                        <div class="industry-serve-apps-title">{{ __('homepage.industry_apps_title') }}</div>
+                        <div class="industry-serve-apps-title">
+                            <i class="fas fa-cogs" style="margin-right: 0.5rem; color: #b0d701;"></i>
+                            {{ __('homepage.industry_apps_title') }}
+                        </div>
                         <ul class="industry-serve-apps">
-                            <li>{{ __('homepage.industry_mining_app_1') }}</li>
-                            <li>{{ __('homepage.industry_mining_app_2') }}</li>
-                            <li>{{ __('homepage.industry_mining_app_3') }}</li>
+                            <li><i class="fas fa-mountain" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_mining_app_1') }}</li>
+                            <li><i class="fas fa-gem" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_mining_app_2') }}</li>
+                            <li><i class="fas fa-industry" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_mining_app_3') }}</li>
                         </ul>
                     </div>
                     <div class="industry-progress-bar"></div>
                 </div>
+
                 <!-- Card 4: Industrial -->
                 <div class="industry-serve-card">
                     <div class="industry-serve-img-wrap">
-                        <img src="/images/img6.webp" alt="Industrial" class="industry-serve-img" />
+                        <img src="/images/img6.webp" alt="Industrial Applications" class="industry-serve-img" loading="lazy" />
                     </div>
                     <div class="industry-serve-content">
                         <h3 class="industry-serve-name">{{ __('homepage.industry_industrial_title') }}</h3>
                         <p class="industry-serve-description">{{ __('homepage.industry_industrial_desc') }}</p>
-                        <div class="industry-serve-apps-title">{{ __('homepage.industry_apps_title') }}</div>
+                        <div class="industry-serve-apps-title">
+                            <i class="fas fa-cogs" style="margin-right: 0.5rem; color: #b0d701;"></i>
+                            {{ __('homepage.industry_apps_title') }}
+                        </div>
                         <ul class="industry-serve-apps">
-                            <li>{{ __('homepage.industry_industrial_app_1') }}</li>
-                            <li>{{ __('homepage.industry_industrial_app_2') }}</li>
-                            <li>{{ __('homepage.industry_industrial_app_3') }}</li>
+                            <li><i class="fas fa-industry" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_industrial_app_1') }}</li>
+                            <li><i class="fas fa-wrench" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_industrial_app_2') }}</li>
+                            <li><i class="fas fa-cog" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_industrial_app_3') }}</li>
                         </ul>
                     </div>
                     <div class="industry-progress-bar"></div>
@@ -5271,60 +5394,64 @@
 
             .industries-serve-title {
                 text-align: center;
-                font-size: 3.5rem;
+                font-size: clamp(2.2rem, 5vw, 3.5rem);
                 font-weight: 800;
-                margin-bottom: 0.7rem;
+                margin-bottom: 1rem;
                 letter-spacing: -1px;
+                color: var(--text-color);
             }
 
             .industries-serve-desc {
                 text-align: center;
                 color: var(--text-muted);
-                font-size: 1.13rem;
-                margin-bottom: 2.5rem;
-                line-height: 1.5;
+                font-size: clamp(1rem, 2.5vw, 1.13rem);
+                margin-bottom: 3rem;
+                line-height: 1.6;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 1rem;
             }
 
             .industries-serve-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 2.5rem 2.5rem;
+                gap: 2.5rem;
                 justify-items: center;
                 align-items: stretch;
-                max-width: 1100px;
+                max-width: 1200px;
                 margin: 0 auto;
+                padding: 0 1rem;
             }
 
             .industry-serve-card {
                 background: #fff;
-                border-radius: 18px;
-                box-shadow: 0 8px 32px rgba(37, 99, 235, 0.13);
+                border-radius: 20px;
+                box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
-                transition: transform 0.32s cubic-bezier(.4, 2, .3, 1), box-shadow 0.32s, filter 0.25s;
-                min-width: 0;
+                transition: all 0.3s cubic-bezier(.4, 2, .3, 1);
                 position: relative;
-                min-height: 390px;
                 width: 100%;
                 cursor: pointer;
-                will-change: transform, box-shadow, filter;
+                border: 1px solid rgba(226, 232, 240, 0.8);
             }
 
             .industry-serve-card:hover,
             .industry-serve-card:focus-within {
-                transform: translateY(-12px) scale(1.035);
-                box-shadow: 0 16px 48px 0 rgba(0, 84, 142, 0.16), 0 4px 16px rgba(176, 215, 1, 0.11);
-                filter: brightness(1.07) saturate(1.14);
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 20px 48px rgba(0, 84, 142, 0.15), 0 4px 16px rgba(176, 215, 1, 0.12);
+                border-color: rgba(176, 215, 1, 0.3);
                 z-index: 2;
             }
 
             .industry-serve-img-wrap {
                 width: 100%;
-                height: 170px;
-                background: #eee;
+                height: 180px;
+                background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
                 display: flex;
-                align-items: flex-end;
+                align-items: center;
                 justify-content: center;
                 overflow: hidden;
                 position: relative;
@@ -5332,67 +5459,85 @@
 
             .industry-serve-img {
                 width: 100%;
-                height: 170px;
-                object-fit: contain;
-                border-top-left-radius: 18px;
-                border-top-right-radius: 18px;
-                transition: filter 0.3s;
+                height: 100%;
+                object-fit: cover;
+                transition: all 0.3s ease;
                 display: block;
             }
 
             .industry-serve-card:hover .industry-serve-img {
-                filter: brightness(1.08) saturate(1.22);
+                transform: scale(1.05);
+                filter: brightness(1.1) saturate(1.1);
             }
 
             .industry-serve-content {
-                padding: 1.7rem 1.5rem 1.2rem 1.5rem;
+                padding: 1.8rem 1.8rem 1.5rem 1.8rem;
                 display: flex;
                 flex-direction: column;
                 flex: 1;
+                gap: 0.8rem;
             }
 
             .industry-serve-name {
-                font-size: 1.21rem;
+                font-size: clamp(1.1rem, 2.5vw, 1.3rem);
                 font-weight: 700;
                 color: #00548e;
                 margin-bottom: 0.5rem;
+                line-height: 1.3;
             }
 
             .industry-serve-description {
-                font-size: 0.98rem;
-                color: #222;
-                margin-bottom: 1.1rem;
-                line-height: 1.5;
-                min-height: 48px;
+                font-size: clamp(0.9rem, 2vw, 1rem);
+                color: #374151;
+                margin-bottom: 1rem;
+                line-height: 1.6;
+                flex-grow: 1;
             }
 
             .industry-serve-apps-title {
-                font-size: 0.98rem;
+                font-size: clamp(0.9rem, 2vw, 1rem);
                 font-weight: 700;
                 color: #00548e;
-                margin-bottom: 0.2rem;
+                margin-bottom: 0.8rem;
             }
 
             .industry-serve-apps {
                 display: flex;
-                flex-wrap: nowrap;
-                gap: 0.5rem 0.7rem;
+                flex-wrap: wrap;
+                gap: 0.6rem;
                 padding: 0;
-                margin: 0 0 0.2rem 0;
+                margin: 0;
                 list-style: none;
             }
 
             .industry-serve-apps li {
-                background: #c2b22e;
+                background: linear-gradient(135deg, #b0d701 0%, #9cb836 100%);
                 color: #fff;
-                font-size: 0.86rem;
+                font-size: clamp(0.8rem, 1.8vw, 0.9rem);
                 font-weight: 600;
-                border-radius: 1.1rem;
-                padding: 0.28rem 1.08rem;
+                border-radius: 20px;
+                padding: 0.5rem 1.2rem;
                 margin: 0;
-                box-shadow: 0 2px 8px rgba(176, 215, 1, 0.10);
-                transition: background 0.18s, color 0.18s;
+                box-shadow: 0 2px 8px rgba(176, 215, 1, 0.25);
+                transition: all 0.2s ease;
                 white-space: nowrap;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .industry-serve-apps li:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(176, 215, 1, 0.35);
+                background: linear-gradient(135deg, #9cb836 0%, #8ba332 100%);
+            }
+
+            .industry-serve-apps li.full-width {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .industry-serve-apps li i {
+                opacity: 0.9;
+                font-size: 0.8em;
             }
 
             .industry-progress-bar {
@@ -5402,8 +5547,8 @@
                 height: 4px;
                 width: 0%;
                 background: linear-gradient(90deg, #00548e 0%, #b0d701 100%);
-                border-radius: 0 0 18px 18px;
-                transition: width 0.7s cubic-bezier(.4, 2, .3, 1);
+                border-radius: 0 0 20px 20px;
+                transition: width 0.6s cubic-bezier(.4, 2, .3, 1);
                 z-index: 3;
             }
 
@@ -5412,50 +5557,97 @@
                 width: 100%;
             }
 
-            @media (max-width: 900px) {
+            /* Responsive Design for Industries Section */
+            @media (max-width: 1024px) {
                 .industries-serve-grid {
-                    grid-template-columns: 1fr;
                     gap: 2rem;
-                }
-
-                .industry-serve-card {
-                    max-width: 95vw;
-                }
-            }
-
-            @media (max-width: 600px) {
-                .industries-serve-section {
-                    padding: 2.1rem 0 1.2rem 0;
-                }
-
-                .industries-serve-title {
-                    font-size: 1.5rem;
-                }
-
-                .industries-serve-desc {
-                    font-size: 0.99rem;
-                }
-
-                .industries-serve-grid {
-                    gap: 1.1rem;
-                }
-
-                .industry-serve-card {
-                    min-height: 340px;
-                    padding: 0;
-                }
-
-                .industry-serve-img-wrap,
-                .industry-serve-img {
-                    height: 120px;
+                    padding: 0 1.5rem;
                 }
 
                 .industry-serve-content {
-                    padding: 1rem 0.7rem 1rem 0.7rem;
+                    padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .industries-serve-section {
+                    padding: 3rem 0 2rem 0;
                 }
 
-                .industry-serve-description {
-                    min-height: 0;
+                .industries-serve-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                    padding: 0 1rem;
+                }
+
+                .industry-serve-card {
+                    max-width: 100%;
+                }
+
+                .industry-serve-img-wrap {
+                    height: 160px;
+                }
+
+                .industry-serve-content {
+                    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+                }
+
+                .industry-serve-apps {
+                    gap: 0.5rem;
+                }
+
+                .industry-serve-apps li {
+                    padding: 0.4rem 1rem;
+                    font-size: 0.85rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .industries-serve-section {
+                    padding: 2.5rem 0 1.5rem 0;
+                }
+
+                .industries-serve-grid {
+                    gap: 1.2rem;
+                    padding: 0 0.5rem;
+                }
+
+                .industry-serve-card {
+                    border-radius: 15px;
+                }
+
+                .industry-serve-img-wrap {
+                    height: 140px;
+                }
+
+                .industry-serve-content {
+                    padding: 1.2rem 1rem 1rem 1rem;
+                    gap: 0.6rem;
+                }
+
+                .industry-serve-apps {
+                    gap: 0.4rem;
+                }
+
+                .industry-serve-apps li {
+                    padding: 0.35rem 0.8rem;
+                    font-size: 0.8rem;
+                    border-radius: 15px;
+                }
+            }
+
+            @media (max-width: 360px) {
+                .industries-serve-grid {
+                    padding: 0;
+                }
+
+                .industry-serve-content {
+                    padding: 1rem 0.8rem 0.8rem 0.8rem;
+                }
+
+                .industry-serve-apps li {
+                    padding: 0.3rem 0.7rem;
+                    font-size: 0.75rem;
                 }
             }
         </style>

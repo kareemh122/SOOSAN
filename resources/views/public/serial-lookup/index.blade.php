@@ -667,7 +667,7 @@
                 @endif
             </div>
 
-            <!-- Sample Serials -->
+            <!-- Sample Serials
             <div class="sample-serials animate-in">
                 <h6 class="fw-bold mb-3 d-flex align-items-center" style="color: var(--primary-blue);">
                     <i class="fas fa-lightbulb me-2" style="color: var(--accent-green);"></i>
@@ -679,7 +679,7 @@
                     <span class="sample-serial" onclick="fillSerial('HD1200-2025-001')">HD1200-2025-001</span>
                     <span class="sample-serial" onclick="fillSerial('SQ35-2024-789')">SQ35-2024-789</span>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Information Cards -->
             <div class="row g-4">

@@ -2487,9 +2487,7 @@
                              title="Korean Partnership">
                     </div>
                 @endguest
-
             </div>
-
         </div>
     </nav>
 
@@ -2658,6 +2656,7 @@
     <footer class="bg-dark text-white">
         <div class="container py-5">
             <div class="row g-4">
+
                 <!-- Company Info -->
                 <div class="col-md-3">
                     <h5 class="fw-semibold mb-3">SOOSAN</h5>
@@ -2704,28 +2703,34 @@
                 <!-- Contact -->
                 <div class="col-md-3">
                     <h5 class="fw-semibold mb-3">{{ __('common.contact') }}</h5>
-                    <div class="text-light small">
-                        <p class="mb-1">123 Industrial Avenue</p>
-                        <p class="mb-1">Industrial City, Country</p>
-                        <p class="mb-1">Phone: +1 (555) 123-4567</p>
-                        <p class="mb-1">Email: info@soosancebotics.com</p>
+                    <div class="text-light small info">
+                        <p class="mb-1">{{ __('common.st_address') }}</p>
+                        <p class="mb-1">{{ __('common.city_country') }}</p>
+                        <a href="tel:+201112696961"><p class="mb-1">{{ __('common.contact_phone_number') }}</p></a>
+                        <a href="mailto:soosanegypt@madinagp.com"><p class="mb-1">{{ __('common.contact_email') }}</p></a>
                     </div>
                 </div>
             </div>
+            <style>
+                .info a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+            </style>
 
             <hr class="border-secondary mt-4 mb-3">
             <div class="text-center copy-right-section">
                 <a href="https://soosancebotics.com/en/main" title="SOOSAN CEBOTICS" target="_blank">
                     <img src="{{ asset('images/soosan_logo_en.svg') }}" alt="SOOSAN CEBOTICS">
                 </a>
-                <p class="text-light small mb-0">&copy; {{ date('Y') }} SOOSAN
+                <p class="text-light small mb-0">&copy; {{ date('Y') }} AL-MADINA
                     {{ __('common.copyright') }}</p>
                 <a href="https://madinagp.com/tag/al-madina-contracting-company/" title="AL MADINA CONRACTING COMPANY" target="_blank">
                     <img src="{{ asset('images/almadina2.png') }}" alt="AL MADINA CONTRACTING COMPANY">
                 </a>
             </div>
             <div>
-                <p class="powered-by">Powered By: AK</p>
+                <p class="powered-by">Developed by: A&K</p>
             </div>
         </div>
 
@@ -3422,5 +3427,4 @@
     </script>
 @endif
 </body>
-
 </html>

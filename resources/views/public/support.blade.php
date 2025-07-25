@@ -14,7 +14,7 @@
         overflow: hidden;
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
-    
+
     .support-hero::before {
         content: '';
         position: absolute;
@@ -22,12 +22,12 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: 
+        background:
             radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
             radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
             radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
     }
-    
+
     .hero-content {
         position: relative;
         z-index: 2;
@@ -204,7 +204,7 @@
     .action-btn {
         background: #00548e;
         color: white;
-        border: none;   
+        border: none;
         border-radius: 16px;
         padding: 1rem 2rem;
         font-weight: 600;
@@ -240,7 +240,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: 
+        background:
             radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
             url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="emergency-pattern" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M20,0 L40,20 L20,40 L0,20 Z" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23emergency-pattern)"/></svg>');
     }
@@ -292,11 +292,11 @@
     }
 
     @keyframes emergencyPulse {
-        0%, 100% { 
+        0%, 100% {
             transform: scale(1);
             box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
         }
-        50% { 
+        50% {
             transform: scale(1.02);
             box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
         }
@@ -518,57 +518,532 @@
         transform: translateY(0);
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
+    /* Enhanced RTL Support */
+    [dir="rtl"] {
+        text-align: right;
+    }
+
+    [dir="rtl"] .support-hero,
+    [dir="rtl"] .hero-content {
+        text-align: center;
+    }
+
+    [dir="rtl"] .badge-item {
+        text-align: center;
+    }
+
+    [dir="rtl"] .badge-item::after {
+        right: auto;
+        left: 0;
+    }
+
+    [dir="rtl"] .category-card,
+    [dir="rtl"] .department-card,
+    [dir="rtl"] .contact-method-card {
+        text-align: center;
+    }
+
+    [dir="rtl"] .feature-list {
+        text-align: right;
+        padding-right: 0;
+    }
+
+    [dir="rtl"] .feature-list li {
+        padding-right: 2rem;
+        padding-left: 0;
+    }
+
+    [dir="rtl"] .feature-list li::before {
+        right: 0;
+        left: auto;
+    }
+
+    [dir="rtl"] .feature-list li:hover {
+        padding-right: 2.5rem;
+        padding-left: 0;
+    }
+
+    [dir="rtl"] .action-btn,
+    [dir="rtl"] .emergency-btn,
+    [dir="rtl"] .contact-action {
+        direction: rtl;
+    }
+
+    [dir="rtl"] .action-btn i,
+    [dir="rtl"] .emergency-btn i,
+    [dir="rtl"] .contact-action i {
+        margin-right: 0;
+        margin-left: 0.5rem;
+    }
+
+    [dir="rtl"] .faq-question {
+        text-align: right;
+        flex-direction: row-reverse;
+    }
+
+    [dir="rtl"] .faq-answer {
+        text-align: right;
+    }
+
+    [dir="rtl"] .btn i {
+        margin-right: 0;
+        margin-left: 0.5rem;
+    }
+
+    /* Enhanced Responsive Design */
+    @media (max-width: 1200px) {
+        .support-hero {
+            padding: 5rem 0 3rem;
+        }
+
+        .support-categories,
+        .emergency-section,
+        .stats-section,
+        .contact-methods,
+        .faq-section {
+            padding: 4rem 0;
+        }
+
+        .category-icon {
+            width: 90px;
+            height: 90px;
+            font-size: 2.25rem;
+        }
+    }
         .support-hero {
             padding: 4rem 0 3rem;
         }
-        
+
         .hero-badges {
             margin-top: 2rem;
             padding: 1.5rem;
         }
-        
+
         .badge-item::after {
             display: none;
         }
-        
+
         .category-card {
             padding: 2rem 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .category-icon {
             width: 80px;
             height: 80px;
             font-size: 2rem;
         }
-        
+
         .emergency-card {
             padding: 2rem;
         }
-        
+
         .stats-container {
             padding: 2rem;
         }
-        
+
         .stat-number {
             font-size: 2.5rem;
         }
-        
+
         .contact-method-card {
             padding: 2rem 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .faq-question {
             padding: 1.25rem 1.5rem;
             font-size: 1rem;
         }
-        
+
         .faq-answer {
             padding: 0 1.5rem 1.25rem;
             font-size: 1rem;
+        }
+    @media (max-width: 768px) {
+        .support-hero {
+            padding: 4rem 0 3rem;
+            margin-top: 70px;
+        }
+
+        .support-hero h1 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .support-hero .fs-4 {
+            font-size: 1.15rem !important;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badges {
+            margin-top: 2rem;
+            padding: 1.5rem;
+        }
+
+        .badge-item {
+            margin-bottom: 1rem;
+        }
+
+        .badge-item::after {
+            display: none;
+        }
+
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .support-categories,
+        .emergency-section,
+        .stats-section,
+        .contact-methods,
+        .faq-section {
+            padding: 3rem 0;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-card {
+            padding: 2rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .emergency-card {
+            padding: 2rem;
+        }
+
+        .emergency-btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        .stats-container {
+            padding: 2rem;
+        }
+
+        .stat-card {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+        }
+
+        .contact-method-card {
+            padding: 2rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.25rem;
+            font-size: 1rem;
+        }
+
+        /* Better touch targets */
+        .action-btn,
+        .emergency-btn,
+        .contact-action {
+            min-height: 44px;
+            padding: 1rem 1.5rem;
+        }
+
+        /* Better spacing */
+        .container {
+            padding: 0 1rem;
+        }
+    }
+        .support-hero {
+            padding: 3.5rem 0 2.5rem;
+            margin-top: 60px;
+        }
+
+        .support-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .support-hero .fs-4 {
+            font-size: 1rem !important;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-badges {
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge-icon {
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-item h6 {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .badge-item small {
+            font-size: 0.75rem;
+        }
+
+        .support-categories,
+        .emergency-section,
+        .stats-section,
+        .contact-methods,
+        .faq-section {
+            padding: 2.5rem 0;
+        }
+
+        .section-header h2 {
+            font-size: 1.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-card {
+            padding: 1.5rem 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list li {
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+        }
+
+        [dir="rtl"] .feature-list li {
+            padding-right: 1.75rem;
+            padding-left: 0;
+        }
+
+        .action-btn {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .emergency-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .emergency-section .fs-5 {
+            font-size: 1rem !important;
+            margin-bottom: 1.25rem;
+        }
+
+        .emergency-card {
+            padding: 1.75rem;
+        }
+
+        .emergency-btn {
+            padding: 0.875rem 1.75rem;
+            font-size: 0.95rem;
+        }
+
+        .stats-container {
+            padding: 1.75rem;
+        }
+
+        .stat-card {
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+        }
+
+        .contact-method-card {
+            padding: 1.5rem 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-method-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-method-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-action {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .faq-question {
+            padding: 1.125rem 1.25rem;
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem 1.125rem;
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced mobile layouts */
+        .container {
+            padding: 0 0.75rem;
+        }
+
+        .row.g-4 {
+            --bs-gutter-x: 1rem;
+            --bs-gutter-y: 1rem;
+        }
+
+        /* Better readability */
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Better touch targets */
+        .action-btn,
+        .emergency-btn,
+        .contact-action {
+            min-height: 44px;
+        }
+    }
+
+    /* Ultra-small screens */
+    @media (max-width: 360px) {
+        .support-hero h1 {
+            font-size: 1.7rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.7rem;
+        }
+
+        .category-card {
+            padding: 1.25rem 1rem;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+
+        .emergency-card {
+            padding: 1.5rem;
+        }
+
+        .stats-container {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+        }
+
+        .contact-method-card {
+            padding: 1.25rem 1rem;
+        }
+
+        .container {
+            padding: 0 0.5rem;
+        }
+    }
+
+    /* Landscape mobile orientation */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .support-hero {
+            padding: 2.5rem 0 2rem;
+        }
+
+        .hero-badges {
+            margin-top: 1.5rem;
+        }
+
+        .badge-item::after {
+            display: block;
+        }
+
+        .support-categories,
+        .emergency-section,
+        .stats-section,
+        .contact-methods,
+        .faq-section {
+            padding: 2.5rem 0;
+        }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .category-icon,
+        .badge-icon,
+        .contact-icon {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
     }
 </style>
@@ -595,7 +1070,7 @@
                                 <i class="fas fa-headset me-2"></i>{{ __('common.contact_support') }}
                             </a>
                         </div>
-                        
+
                         <!-- Hero Badges -->
                         <div class="hero-badges">
                             <div class="row g-4">
@@ -710,7 +1185,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="category-card animate-on-scroll">
                         <div class="category-icon">
                             <i class="fas fa-graduation-cap"></i>
@@ -728,8 +1203,8 @@
                             <i class="fas fa-book-open"></i>{{ __('common.view_training') }}
                         </a>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="category-card animate-on-scroll">
                         <div class="category-icon">
                             <i class="fas fa-laptop-medical"></i>
@@ -747,8 +1222,8 @@
                             <i class="fas fa-chart-line"></i>{{ __('common.learn_more') }}
                         </a>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
+                </div> -->
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="category-card animate-on-scroll">
                         <div class="category-icon">
                             <i class="fas fa-shield-alt"></i>
@@ -766,13 +1241,13 @@
                             <i class="fas fa-umbrella"></i>{{ __('common.check_coverage') }}
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
 
     <!-- Emergency Support -->
-    <section class="emergency-section" id="emergency">
+    <!-- <section class="emergency-section" id="emergency">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -784,7 +1259,7 @@
                         <p class="fs-5 mb-4">
                             {{ __('common.equipment_breakdown_costs') }}
                         </p>
-                        
+
                         <div class="emergency-card">
                             <div class="row g-4">
                                 <div class="col-md-4 text-center">
@@ -809,7 +1284,7 @@
                                     <p class="mb-0">{{ __('common.worldwide_service_network') }}</p>
                                 </div>
                             </div>
-                            
+
                             <div class="text-center mt-4">
                                 <a href="tel:+18005667261" class="emergency-btn">
                                     <i class="fas fa-phone-alt"></i>
@@ -824,7 +1299,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Statistics -->
     <section class="stats-section">
@@ -955,7 +1430,7 @@
                         <h2 class="display-5 fw-bold mb-3">{{ __('common.frequently_asked_questions') }}</h2>
                         <p class="fs-5 text-muted">{{ __('common.quick_answers_support_questions') }}</p>
                     </div>
-                    
+
                     <div class="faq-container">
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
@@ -966,7 +1441,7 @@
                                 {{ __('common.standard_response_time_4_hours') }}
                             </div>
                         </div>
-                        
+
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>{{ __('common.do_you_provide_onsite_worldwide') }}</span>
@@ -976,7 +1451,7 @@
                                 {{ __('common.yes_certified_technicians_150_countries') }}
                             </div>
                         </div>
-                        
+
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>{{ __('common.what_training_programs_offer') }}</span>
@@ -986,7 +1461,7 @@
                                 {{ __('common.comprehensive_training_operator_certification') }}
                             </div>
                         </div>
-                        
+
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>{{ __('common.how_order_genuine_parts') }}</span>
@@ -996,7 +1471,7 @@
                                 {{ __('common.order_parts_support_team') }}
                             </div>
                         </div>
-                        
+
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>{{ __('common.what_remote_monitoring_capabilities') }}</span>
@@ -1006,7 +1481,7 @@
                                 {{ __('common.advanced_iot_monitoring_system') }}
                             </div>
                         </div>
-                        
+
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFAQ(this)">
                                 <span>{{ __('common.what_warranty_coverage_included') }}</span>
@@ -1030,14 +1505,14 @@
         const answer = button.nextElementSibling;
         const icon = button.querySelector('.faq-icon');
         const isActive = faqItem.classList.contains('active');
-        
+
         // Close all FAQ items
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
             item.querySelector('.faq-answer').classList.remove('active');
             item.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
         });
-        
+
         // Open clicked item if it wasn't active
         if (!isActive) {
             faqItem.classList.add('active');
@@ -1045,17 +1520,17 @@
             icon.style.transform = 'rotate(180deg)';
         }
     }
-    
+
     // Animate numbers on scroll
     function animateNumber(element, start, end, duration) {
         const range = end - start;
         const startTime = performance.now();
-        
+
         function updateNumber(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const current = Math.floor(start + (range * progress));
-            
+
             if (element.dataset.target === '98') {
                 element.textContent = current + '%';
             } else if (element.dataset.target === '24') {
@@ -1065,27 +1540,27 @@
             } else {
                 element.textContent = current;
             }
-            
+
             if (progress < 1) {
                 requestAnimationFrame(updateNumber);
             }
         }
-        
+
         requestAnimationFrame(updateNumber);
     }
-    
+
     // Intersection Observer for animations
     function initAnimations() {
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    
+
                     // Animate stat numbers if this is a stats section
                     if (entry.target.classList.contains('stats-container')) {
                         const statNumbers = entry.target.querySelectorAll('.stat-number');
@@ -1099,42 +1574,42 @@
                 }
             });
         }, observerOptions);
-        
+
         // Observe all animated elements
         document.querySelectorAll('.animate-on-scroll, .stats-container').forEach(element => {
             observer.observe(element);
         });
     }
-    
+
     // Live chat function (placeholder)
     function openLiveChat() {
         // This would integrate with your live chat system
         alert('Live chat would open here. Integration with your preferred chat system needed.');
     }
-    
+
     // Enhanced card interactions
     function initCardInteractions() {
         document.querySelectorAll('.category-card, .contact-method-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-12px) scale(1.02)';
             });
-            
+
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
     }
-    
+
     // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
         initAnimations();
         initCardInteractions();
-        
+
         // Add staggered animation to category cards
         document.querySelectorAll('.category-card').forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
         });
-        
+
         // Emergency button pulse effect
         const emergencyBtn = document.querySelector('.emergency-btn');
         if (emergencyBtn) {

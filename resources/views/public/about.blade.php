@@ -92,6 +92,7 @@
             min-height: 60vh;
             display: flex;
             align-items: center;
+            margin-top: 2rem;
         }
 
         .hero-section::before {
@@ -142,9 +143,9 @@
         .stats-container {
             display: flex;
             justify-content: center;
-            gap: 4rem;
+            /* gap: 4rem; */
             margin-top: 3rem;
-            flex-wrap: wrap;
+            /* flex-wrap: wrap; */
         }
 
         .stat-item {
@@ -573,82 +574,409 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
+    /* Enhanced RTL Support */
+    [dir="rtl"] {
+        text-align: right;
+    }
 
-            .hero-subtitle {
-                font-size: 1.25rem;
-            }
+    [dir="rtl"] .hero-content {
+        text-align: center;
+    }
 
-            .stats-container {
-                gap: 2rem;
-            }
+    [dir="rtl"] .stats-container {
+        direction: rtl;
+    }
 
-            .stats-counter {
-                font-size: 2.5rem;
-            }
+    [dir="rtl"] .stat-item {
+        text-align: center;
+    }
 
-            .col-md-2,
-            .col-md-4,
-            .col-md-6,
-            .col-md-8,
-            .col-md-10 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
+    [dir="rtl"] .row {
+        flex-direction: row-reverse;
+    }
 
-            .card-body {
-                padding: 1.5rem;
-            }
+    [dir="rtl"] .feature-icon,
+    [dir="rtl"] .category-icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-            .section-title {
-                font-size: 2rem;
-            }
+    [dir="rtl"] .features-grid {
+        direction: rtl;
+    }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+    [dir="rtl"] .feature-card {
+        text-align: center;
+    }
 
-            .timeline-item {
-                padding-left: 2.5rem;
-            }
+    [dir="rtl"] .btn {
+        direction: rtl;
+    }
 
-            .btn {
-                display: block;
-                width: 100%;
-                margin-bottom: 1rem;
-            }
+    [dir="rtl"] .btn i {
+        margin-right: 0;
+        margin-left: 0.5rem;
+    }
 
-            .contact-cta .btn {
-                width: auto;
-                display: inline-block;
-            }
+    [dir="rtl"] .timeline-item {
+        padding-right: 4rem;
+        padding-left: 0;
+        border-right: 3px solid var(--soosan-light-gray);
+        border-left: none;
+    }
+
+    [dir="rtl"] .timeline-item::before {
+        right: -8px;
+        left: auto;
+    }
+
+    /* Enhanced Responsive Design */
+    @media (max-width: 1200px) {
+        .hero-section {
+            padding: 4rem 0;
         }
 
-        @media (max-width: 480px) {
-            .hero-section {
-                padding: 3rem 0;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .stats-counter {
-                font-size: 2rem;
-            }
-
-            .card-body {
-                padding: 1rem;
-            }
-
-            .contact-cta {
-                padding: 3rem 1.5rem;
-            }
+        .content-section {
+            padding: 4rem 0;
         }
+
+        .features-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .hero-title {
+            font-size: 3rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+        }
+
+        .stats-counter {
+            font-size: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+        }
+
+        .col-md-2,
+        .col-md-4,
+        .col-md-6,
+        .col-md-8,
+        .col-md-10 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .card-body {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .card-body .col-md-10 {
+            margin-top: 0;
+        }
+
+        [dir="rtl"] .card-body .col-md-10 {
+            margin-top: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 4rem 0 3rem;
+            margin-top: 70px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-container {
+            gap: 2rem;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-item {
+            min-width: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-counter {
+            font-size: 2.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+        }
+
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .animated-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item {
+            padding-left: 2.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        [dir="rtl"] .timeline-item {
+            padding-right: 2.5rem;
+            padding-left: 0;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        .contact-cta {
+            padding: 3rem 1.5rem;
+        }
+
+        .contact-cta .btn {
+            width: auto;
+            display: inline-block;
+            margin: 0.5rem;
+            min-width: 150px;
+        }
+
+    }
+
+    @media (max-width: 480px) {
+        .hero-section {
+            padding: 3rem 0 2rem;
+            margin-top: 60px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-container {
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            margin-bottom: 1rem;
+        }
+
+        .stats-counter {
+            font-size: 1.8rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+        }
+
+        .content-section {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card {
+            padding: 1.25rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .contact-cta {
+            padding: 2rem 1rem;
+        }
+
+        .contact-cta .section-title {
+            font-size: 1.5rem;
+        }
+
+        .contact-cta .btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+            min-width: 120px;
+        }
+
+        .timeline-item {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        [dir="rtl"] .timeline-item {
+            padding-right: 2rem;
+            padding-left: 0;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Enhanced mobile touch targets */
+        .btn,
+        .feature-card,
+        .animated-card {
+            min-height: 44px;
+        }
+
+        .feature-card {
+            padding: 1.5rem 1rem;
+        }
+
+        /* Better spacing for mobile */
+        .container {
+            padding: 0 1rem;
+        }
+
+        /* Improve readability on small screens */
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Optimize images for mobile */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    /* Ultra-small screens */
+    @media (max-width: 360px) {
+        .hero-title {
+            font-size: 1.75rem;
+        }
+
+        .stats-counter {
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+        }
+
+        .feature-card {
+            padding: 1rem;
+        }
+
+        .contact-cta .btn {
+            min-width: 100px;
+            font-size: 0.85rem;
+        }
+    }
+
+    /* Landscape mobile orientation */
+    @media (max-width: 768px) and (orientation: landscape) {
+        .hero-section {
+            padding: 2rem 0;
+        }
+
+        .stats-container {
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            margin-bottom: 0.5rem;
+            min-width: 120px;
+        }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .feature-icon,
+        .category-icon {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+    }
 
         /* Loading States */
         .loading {
@@ -715,7 +1043,7 @@
                 <div class="stats-container">
                     <div class="stat-item">
                         <span class="stats-counter animate-counter" data-count="40">0</span>
-                        <p class="stat-label">{{ __('about.years_of_excellence') }}</p>
+                        <p class="stat-label first">{{ __('about.years_of_excellence') }}</p>
                     </div>
                     <div class="stat-item">
                         <span class="stats-counter animate-counter" data-count="1000"
