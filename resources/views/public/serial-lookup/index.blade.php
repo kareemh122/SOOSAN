@@ -416,7 +416,6 @@
         box-shadow: 0 4px 16px rgba(0, 84, 142, 0.3);
         transition: var(--transition);
         flex-shrink: 0;
-        padding-right: 6px;
         margin-left: 20px;
     }
 

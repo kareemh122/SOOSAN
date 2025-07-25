@@ -74,7 +74,6 @@
         margin: 0 auto 1rem;
         box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
         transition: all 0.3s ease;
-        padding-right: 7px;
     }
 
     .badge-item:hover .badge-icon {
@@ -395,7 +394,7 @@
     }
 
     .contact-action {
-        background: white;
+        background: transparent;
         color: var(--primary-color);
         border: none;
         border-radius: 12px;
@@ -475,13 +474,9 @@
         animation: fadeInDown 0.3s ease;
     }
 
-    .faq-icon {
+    .faq-question i {
         transition: transform 0.3s ease;
         color: var(--primary-color);
-    }
-
-    .faq-item.active .faq-icon {
-        transform: rotate(180deg);
     }
 
     /* Animations */
@@ -1063,10 +1058,10 @@
                             {{ __('common.comprehensive_support_solutions') }}
                         </p>
                         <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
-                            <a href="#emergency" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-semibold">
+                            <!-- <a href="#emergency" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-semibold">
                                 <i class="fas fa-exclamation-triangle me-2"></i>{{ __('common.emergency_support') }}
-                            </a>
-                            <a href="#contact-support" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill fw-semibold">
+                            </a> -->
+                            <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill fw-semibold">
                                 <i class="fas fa-headset me-2"></i>{{ __('common.contact_support') }}
                             </a>
                         </div>
@@ -1320,7 +1315,7 @@
                             </div>
                             <div class="col-md-3 col-6">
                                 <div class="stat-card">
-                                    <span class="stat-number" data-target="150">0</span>
+                                    <span class="stat-number" data-target="70">0</span>
                                     <div class="stat-label">{{ __('common.countries_served') }}</div>
                                 </div>
                             </div>
@@ -1361,10 +1356,10 @@
                         <h4 class="fw-bold mb-3">{{ __('common.phone_support') }}</h4>
                         <p class="mb-3 opacity-90">{{ __('common.speak_directly_technical_experts') }}</p>
                         <div class="mb-3">
-                            <strong class="d-block">+1-800-SOOSAN-1</strong>
+                            <strong class="d-block">{{ __('common.phone_no') }}</strong>
                             <small class="opacity-75">{{ __('common.available_24_7') }}</small>
                         </div>
-                        <a href="tel:+18005667261" class="contact-action">
+                        <a href="tel:+201112696961" class="contact-action">
                             <i class="fas fa-phone me-2"></i>{{ __('common.call_now') }}
                         </a>
                     </div>
@@ -1377,7 +1372,7 @@
                         <h4 class="fw-bold mb-3">{{ __('common.email_support') }}</h4>
                         <p class="mb-3 opacity-90">{{ __('common.send_detailed_technical_questions') }}</p>
                         <div class="mb-3">
-                            <strong class="d-block">support@soosanegypt.com</strong>
+                            <strong class="d-block">soosanegypt@madinagp.com</strong>
                             <small class="opacity-75">{{ __('common.hour_response') }}</small>
                         </div>
                         <a href="mailto:support@soosanegypt.com" class="contact-action">
@@ -1422,7 +1417,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <!-- <section class="faq-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -1495,29 +1490,99 @@
                 </div>
             </div>
         </div>
+    </section> -->
+        <section class="faq-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-header">
+                        <h2 class="section-title">{{ __('common.frequently_asked_questions') }}</h2>
+                        <p class="section-description">{{ __('common.quick_answers_common_questions') }}</p>
+                    </div>
+
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>{{ __('common.what_types_drilling_equipment') }}</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                {{ __('common.we_offer_comprehensive_range') }}
+                            </div>
+                        </div>
+
+                        <!-- <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>{{ __('common.do_you_provide_international_shipping') }}</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                {{ __('common.yes_we_ship_worldwide') }}
+                            </div>
+                        </div> -->
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>{{ __('common.what_warranty_do_you_offer') }}</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                {{ __('common.all_equipment_comes_with_warranty') }}
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>{{ __('common.do_you_provide_training') }}</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                {{ __('common.absolutely_we_provide_training') }}
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>{{ __('common.how_can_i_get_quote') }}</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                {{!! __('common.you_can_request_quote') !!}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 @push('scripts')
 <script>
-    // FAQ Toggle functionality
+    // Enhanced FAQ Toggle (identical to contact.blade.php)
     function toggleFAQ(button) {
-        const faqItem = button.closest('.faq-item');
         const answer = button.nextElementSibling;
-        const icon = button.querySelector('.faq-icon');
-        const isActive = faqItem.classList.contains('active');
+        const icon = button.querySelector('i');
+        const isActive = answer.classList.contains('active');
 
-        // Close all FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
-            item.querySelector('.faq-answer').classList.remove('active');
-            item.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        // Close all other FAQ items with smooth animation
+        document.querySelectorAll('.faq-answer.active').forEach(item => {
+            if (item !== answer) {
+                item.classList.remove('active');
+                const otherIcon = item.previousElementSibling.querySelector('i');
+                otherIcon.style.transform = 'rotate(0deg)';
+                item.previousElementSibling.style.background = '';
+            }
         });
 
-        // Open clicked item if it wasn't active
-        if (!isActive) {
-            faqItem.classList.add('active');
+        // Toggle current item with enhanced animation
+        if (isActive) {
+            answer.classList.remove('active');
+            icon.style.transform = 'rotate(0deg)';
+            button.style.background = '';
+        } else {
             answer.classList.add('active');
             icon.style.transform = 'rotate(180deg)';
+            button.style.background = 'rgba(0, 84, 142, 0.05)';
         }
     }
 
@@ -1576,7 +1641,7 @@
         }, observerOptions);
 
         // Observe all animated elements
-        document.querySelectorAll('.animate-on-scroll, .stats-container').forEach(element => {
+        document.querySelectorAll('.animate-on-scroll, .stats-container, .faq-item').forEach(element => {
             observer.observe(element);
         });
     }
@@ -1619,6 +1684,41 @@
                     emergencyBtn.style.boxShadow = '0 8px 24px rgba(255, 255, 255, 0.2)';
                 }, 500);
             }, 3000);
+        }
+
+        // Enhanced scroll animations for FAQ items
+        const faqObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${index * 0.1}s`;
+                    entry.target.classList.add('animate-slide-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe FAQ items for enhanced animations
+        document.querySelectorAll('.faq-item').forEach(element => {
+            faqObserver.observe(element);
+        });
+
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.warn('Support page error:', e.error);
+        });
+
+        // Enhanced performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    if (perfData && perfData.loadEventEnd > 3000) {
+                        console.warn('Support page loaded slowly:', perfData.loadEventEnd + 'ms');
+                    }
+                }, 0);
+            });
         }
     });
 </script>

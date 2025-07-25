@@ -403,7 +403,6 @@
         font-size: 1.5rem;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         transition: var(--transition);
-        padding-right: 6px;
     }
 
     .section-icon:hover {
@@ -992,7 +991,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Always use LTR direction for PDF regardless of current locale
         const isRtl = false; // Force LTR for PDF generation
-        
+
         // Always use English translations for PDF regardless of current locale
         const englishTranslations = {
             'common.specification': 'Specification',
@@ -1028,13 +1027,12 @@ document.addEventListener('DOMContentLoaded', function () {
             'common.attribute': 'Attribute',
             'common.value': 'Value'
         };
-        
-        function t(key) { 
+
+        function t(key) {
             return englishTranslations[key] || key.replace('common.', '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         }
 
-        const loadingText = 'Generating PDF...';
-        pdfBtn.innerHTML = `<i class="fas fa-spinner fa-spin me-2"></i>${loadingText}`;
+        pdfBtn.innerHTML = `<i class="fas fa-spinner fa-spin me-2"></i>`;
         pdfBtn.disabled = true;
 
         const productName = pdfBtn?.dataset.model_name || '-';
@@ -1069,22 +1067,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Rod Diameter',
                 'Applicable Carrier'
             ];
-            
+
             specsTable.querySelectorAll('tbody tr').forEach((row, index) => {
                 // Skip first 3 rows (Model Name, Line, Type) and start from Body Weight
                 if (index < 3) return;
-                
+
                 // Use hardcoded English label
                 const labelIndex = index - 3; // -3 because we skip first 3 rows
                 const label = englishSpecLabels[labelIndex] || 'Specification';
                 const span = row.querySelector('td span.unit-value');
                 const siValue = span ? (span.dataset.si || '-') : '-';
                 const lbftValue = span ? (span.dataset.imperial || '-') : '-';
-                
+
                 // Clean up any potential corruption in the values and ensure proper units
                 const cleanSiValue = siValue.replace(/[^\w\s\-~.,()]/g, '').trim();
                 let cleanLbftValue = lbftValue.replace(/[^\w\s\-~.,()]/g, '').trim();
-                
+
                 // Ensure Imperial values have proper units
                 if (cleanLbftValue && cleanLbftValue !== '-') {
                     // Add units based on the specification type
@@ -1118,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
                 }
-                
+
                 specsRows.push([label, cleanSiValue, cleanLbftValue]); // Always LTR order
             });
         } else {
@@ -1151,17 +1149,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         status: '{{ $soldProduct->warranty_voided ? "Voided" : "Valid" }}',
                         daysRemaining: '{{ $soldProduct->warranty_end_date ? round($soldProduct->warranty_end_date->diffInDays(now(), false)) : "-" }}'
                     };
-                    
+
                     return soldProductData;
                 };
-                
+
                 const warrantyData = getWarrantyDataFromProduct();
                 const purchaseDateRaw = warrantyData.purchaseDate;
                 const warrantyStartRaw = warrantyData.warrantyStart;
                 const warrantyEndRaw = warrantyData.warrantyEnd;
                 const status = warrantyData.status;
                 const daysRemaining = warrantyData.daysRemaining;
-                
+
                 const rows = [
                     [t('purchase_date'), purchaseDateRaw],
                     [t('warranty_start'), warrantyStartRaw],

@@ -1154,7 +1154,7 @@
                             <a href="#contact-form" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-semibold">
                                 <i class="fas fa-paper-plane me-2"></i>{{ __('common.send_message') }}
                             </a>
-                            <a href="tel:+1234567890" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill fw-semibold">
+                            <a href="tel:+201112696961" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill fw-semibold">
                                 <i class="fas fa-phone me-2"></i>{{ __('common.call_now') }}
                             </a>
                         </div>
@@ -1265,7 +1265,7 @@
                             <strong class="d-block">{{ __('common.industrial_district') }}</strong>
                             <small class="text-muted">{{ __('common.st_address') }}</small>
                         </div>
-                        <a href="#location-map" class="method-action">
+                        <a href="https://maps.app.goo.gl/3CeG29sE5xK5uTBp6" class="method-action" target="_blank">
                             <i class="fas fa-directions me-2"></i>{{ __('common.get_directions') }}
                         </a>
                     </div>

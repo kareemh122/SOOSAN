@@ -1,6 +1,6 @@
 /* RTL Styles for Arabic Language */
 [dir="rtl"] {
-    font-family: 'Inter', 'Noto Sans Arabic', Arial, sans-serif;
+    font-family: "Inter", "Noto Sans Arabic", Arial, sans-serif;
 }
 [dir="rtl"] .slider-nav {
     padding-left: 8px;
@@ -73,9 +73,6 @@
 [dir="rtl"] .fab {
     margin-right: 0;
 }
-[dir="rtl"] .search-input-btn {
-    padding-left: 30px;
-}
 
 [dir="rtl"] #scrollToTopBtn {
     padding-left: 12px;
@@ -92,7 +89,7 @@
 }
 
 /* Breadcrumbs */
-[dir="rtl"] .breadcrumb-item+.breadcrumb-item::before {
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
     float: right;
     padding-left: 0;
     padding-right: 0.5rem;

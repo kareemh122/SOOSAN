@@ -143,7 +143,7 @@
         .stats-container {
             display: flex;
             justify-content: center;
-            /* gap: 4rem; */
+            gap: 4rem;
             margin-top: 3rem;
             /* flex-wrap: wrap; */
         }
@@ -265,7 +265,12 @@
             color: var(--soosan-dark-gray);
             margin-bottom: 2rem;
             line-height: 1.85;
+            text-align: left;
         }
+        [dir="rtl"] .section-subtitle {
+            text-align: right;
+        }
+
 
         /* Grid Layout */
         .row {
@@ -704,7 +709,7 @@
 
         .stats-container {
             gap: 2rem;
-            flex-direction: column;
+            flex-wrap: nowrap;
             align-items: center;
         }
 
@@ -1042,16 +1047,16 @@
                 </p>
                 <div class="stats-container">
                     <div class="stat-item">
-                        <span class="stats-counter animate-counter" data-count="40">0</span>
+                        <span class="stats-counter animate-counter" data-count="40">0+</span>
                         <p class="stat-label first">{{ __('about.years_of_excellence') }}</p>
                     </div>
                     <div class="stat-item">
                         <span class="stats-counter animate-counter" data-count="1000"
-                            style="animation-delay: 0.2s;">0</span>
+                            style="animation-delay: 0.2s;">0+</span>
                         <p class="stat-label">{{ __('about.projects_completed') }}</p>
                     </div>
                     <div class="stat-item">
-                        <span class="stats-counter animate-counter" data-count="70" style="animation-delay: 0.4s;">0</span>
+                        <span class="stats-counter animate-counter" data-count="70" style="animation-delay: 0.4s;">0+</span>
                         <p class="stat-label">{{ __('about.countries_served') }}</p>
                     </div>
                 </div>
@@ -1066,7 +1071,7 @@
             <div class="animated-card loading">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col-md-2 text-center mb-4">
+                        <div class="col-md-2 text-center">
                             <div class="feature-icon">
                                 <i class="fas fa-book-open"></i>
                             </div>
@@ -1085,7 +1090,7 @@
             <div class="animated-card loading">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col-md-2 text-center mb-4">
+                        <div class="col-md-2 text-center">
                             <div class="feature-icon">
                                 <i class="fas fa-history"></i>
                             </div>
@@ -1104,7 +1109,7 @@
             <div class="animated-card loading">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col-md-2 text-center mb-4">
+                        <div class="col-md-2 text-center">
                             <div class="feature-icon">
                                 <i class="fas fa-bullseye"></i>
                             </div>
@@ -1126,7 +1131,7 @@
             <div class="animated-card loading">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col-md-2 text-center mb-4">
+                        <div class="col-md-2 text-center">
                             <div class="feature-icon">
                                 <i class="fas fa-cogs"></i>
                             </div>
@@ -1193,7 +1198,7 @@
             <div class="animated-card loading">
                 <div class="contact-cta">
                     <div class="feature-icon mx-auto">
-                        <a href="{{ route('contact') }}">
+                        <a href="tel:+201112696961">
                             <i class="fas fa-phone"></i>
                         </a>
                     </div>

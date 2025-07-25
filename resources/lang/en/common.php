@@ -257,7 +257,7 @@ return [
     'speak_directly_with_experts' => 'Speak directly with our experts for immediate assistance',
     'emergency_support' => '24/7 Emergency Support',
     'email_us' => 'Email Us',
-    'send_detailed_inquiries' => 'Send us your detailed inquiries and get comprehensive responses',
+    'send_detailed_inquiries' => 'Send us detailed inquiries and get comprehensive responses',
     'response_within_24_hours' => 'Response within 24 hours',
     'send_email' => 'Send Email',
     'whatsapp' => 'WhatsApp',

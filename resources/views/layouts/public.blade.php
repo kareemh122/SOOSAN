@@ -194,10 +194,381 @@
         html, body {
              overflow-x: hidden;
         }
-        /* Enhanced Navbar Styling */
+        /* Enhanced Navbar Styling with Zoom Level Support */
         .navbar {
             min-height: var(--navbar-height);
             padding: 0.75rem 0;
+            z-index: 1050;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Navbar Container Responsiveness */
+        .container-fluid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            min-width: 0;
+        }
+
+        /* Logo Optimization */
+        .navbar-brand {
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+
+        .navbar-brand img {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            height: 60px !important;
+            width: auto !important;
+            max-height: 60px;
+        }
+
+        /* Desktop Navigation Container */
+        .navbar-nav-desktop {
+            flex-grow: 1;
+            max-width: calc(100% - 300px);
+            min-width: 0;
+        }
+
+        .navbar-nav-desktop .navbar-nav {
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Zoom Level Responsive Adjustments */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .navbar-nav-desktop .navbar-nav {
+                gap: 1.2rem;
+            }
+
+            .navbar-brand img {
+                height: 55px !important;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .navbar-nav-desktop .navbar-nav {
+                gap: 1rem;
+            }
+
+            .navbar-brand img {
+                height: 50px !important;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .navbar-nav-desktop .navbar-nav {
+                gap: 0.8rem;
+            }
+
+            .navbar-brand img {
+                height: 45px !important;
+            }
+        }
+
+        /* Desktop Navigation Items */
+        .navbar-nav .nav-item {
+            flex-shrink: 1;
+            min-width: 0;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            color: #333;
+            padding: 0.75rem 0.8rem;
+            border-radius: 8px;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        /* Zoom Level Text Adjustments */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .navbar-nav .nav-link {
+                padding: 0.6rem 0.7rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .navbar-nav .nav-link {
+                padding: 0.5rem 0.6rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .navbar-nav .nav-link {
+                padding: 0.4rem 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Right Side Navigation */
+        .navbar-nav-right {
+            flex-shrink: 0;
+            gap: 1rem;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .navbar-nav-right {
+                gap: 0.8rem;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .navbar-nav-right {
+                gap: 0.6rem;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .navbar-nav-right {
+                gap: 0.5rem;
+            }
+        }
+
+        /* Language Selector Responsive */
+        .language-selector-btn {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .language-selector-btn {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .language-selector-btn {
+                padding: 0.4rem 0.7rem;
+                font-size: 0.8rem;
+                border-radius: 8px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .language-selector-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+                border-radius: 6px;
+            }
+        }
+
+        /* Enhanced Login Button */
+        .enhanced-login-btn {
+            background: linear-gradient(135deg, #00548e, #004085);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            border: none;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .enhanced-login-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .enhanced-login-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+                border-radius: 8px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .enhanced-login-btn {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.75rem;
+                border-radius: 6px;
+            }
+        }
+
+        /* Korean Flag Container */
+        .korean-flag-container {
+            flex-shrink: 0;
+        }
+
+        .korean-flag {
+            height: 30px;
+            width: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .korean-flag {
+                height: 28px;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .korean-flag {
+                height: 25px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .korean-flag {
+                height: 22px;
+            }
+        }
+
+        /* Enhanced User Button */
+        .enhanced-user-btn {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .enhanced-user-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .enhanced-user-btn {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.8rem;
+                border-radius: 8px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .enhanced-user-btn {
+                padding: 0.2rem 0.6rem;
+                font-size: 0.75rem;
+                border-radius: 6px;
+            }
+        }
+
+        /* User Avatar */
+        .user-avatar-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .user-avatar-img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .user-avatar-img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .user-avatar-img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        /* Navigation Link Icons */
+        .navbar-nav .nav-link i {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .navbar-nav .nav-link i {
+                font-size: 0.9rem;
+                margin-right: 0.4rem;
+            }
+        }
+
+        @media (min-width: 1100px) and (max-width: 1199px) {
+            .navbar-nav .nav-link i {
+                font-size: 0.85rem;
+                margin-right: 0.3rem;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1099px) {
+            .navbar-nav .nav-link i {
+                font-size: 0.8rem;
+                margin-right: 0.25rem;
+            }
+        }
+
+        /* Prevent text wrapping and overflow */
+        .navbar-nav .nav-link,
+        .language-selector-btn,
+        .enhanced-login-btn,
+        .enhanced-user-btn {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* RTL Support */
+        html[dir="rtl"] .navbar-nav .nav-link i {
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+
+        html[dir="rtl"] .language-selector-btn,
+        html[dir="rtl"] .enhanced-login-btn {
+            flex-direction: row-reverse;
+        }
+
+        /* Ensure navbar stays within viewport */
+        @media (max-width: 1199px) {
+            .container-fluid {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
             z-index: 1050;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2704,8 +3075,8 @@
                 <div class="col-md-3">
                     <h5 class="fw-semibold mb-3">{{ __('common.contact') }}</h5>
                     <div class="text-light small info">
-                        <p class="mb-1">{{ __('common.st_address') }}</p>
-                        <p class="mb-1">{{ __('common.city_country') }}</p>
+                        <a href="https://maps.app.goo.gl/3CeG29sE5xK5uTBp6" target="_blank"><p class="mb-1">{{ __('common.st_address') }}</p></a>
+                        <a href="https://maps.app.goo.gl/3CeG29sE5xK5uTBp6" target="_blank"><p class="mb-1">{{ __('common.city_country') }}</p></a>
                         <a href="tel:+201112696961"><p class="mb-1">{{ __('common.contact_phone_number') }}</p></a>
                         <a href="mailto:soosanegypt@madinagp.com"><p class="mb-1">{{ __('common.contact_email') }}</p></a>
                     </div>

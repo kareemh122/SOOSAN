@@ -119,11 +119,32 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
         }
 
-        /* Icon Navigation Styles */
+        /* Enhanced Icon Navigation Styles with Zoom Level Support */
         .icon-nav {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+            min-width: 0; /* Allow shrinking */
+        }
+
+        /* Adaptive spacing for different zoom levels */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .icon-nav {
+                gap: 1.2rem;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .icon-nav {
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .icon-nav {
+                gap: 0.8rem;
+            }
         }
 
         .nav-icon-item {
@@ -134,9 +155,37 @@
             text-decoration: none;
             color: var(--text-color);
             transition: all 0.3s ease;
-            padding: 0.5rem;
-            border-radius: 12px;
-            min-width: 60px;
+            padding: 0.4rem 0.3rem;
+            border-radius: 10px;
+            min-width: 50px;
+            max-width: 70px;
+            flex-shrink: 1;
+            text-align: center;
+        }
+
+        /* Zoom level adjustments for nav items */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .nav-icon-item {
+                min-width: 45px;
+                max-width: 60px;
+                padding: 0.35rem 0.25rem;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .nav-icon-item {
+                min-width: 40px;
+                max-width: 55px;
+                padding: 0.3rem 0.2rem;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .nav-icon-item {
+                min-width: 35px;
+                max-width: 50px;
+                padding: 0.25rem 0.15rem;
+            }
         }
 
         .nav-icon-item:hover {
@@ -174,24 +223,72 @@
         }
 
         .nav-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.25rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
             transition: all 0.3s ease;
             position: relative;
         }
 
+        /* Zoom level adjustments for icons */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .nav-icon {
+                font-size: 1.2rem;
+                margin-bottom: 0.15rem;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .nav-icon {
+                font-size: 1.1rem;
+                margin-bottom: 0.1rem;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .nav-icon {
+                font-size: 1rem;
+                margin-bottom: 0.05rem;
+            }
+        }
+
         .nav-icon-item:hover .nav-icon {
-            transform: scale(1.1);
+            transform: scale(1.05);
             animation: iconBounce 0.6s ease;
         }
 
         .nav-icon-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             opacity: 0.8;
             transition: all 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        /* Zoom level adjustments for labels */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .nav-icon-label {
+                font-size: 0.65rem;
+                letter-spacing: 0.2px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .nav-icon-label {
+                font-size: 0.6rem;
+                letter-spacing: 0.1px;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .nav-icon-label {
+                font-size: 0.55rem;
+                letter-spacing: 0px;
+            }
         }
 
         .nav-icon-item:hover .nav-icon-label {
@@ -308,7 +405,7 @@
             width: 24px;
         }
 
-        /* Enhanced Mobile Navigation */
+        /* Enhanced Mobile Navigation Responsive Design */
         @media (max-width: 991px) {
             .icon-nav {
                 flex-direction: column;
@@ -330,6 +427,8 @@
                 gap: 1rem;
                 border-radius: 15px;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                min-width: auto;
+                max-width: none;
             }
 
             .nav-icon-item:hover {
@@ -351,6 +450,10 @@
             .nav-icon-label {
                 font-size: 1rem;
                 font-weight: 600;
+                white-space: normal;
+                max-width: none;
+                text-overflow: none;
+                overflow: visible;
             }
 
             .nav-icon-item::after {
@@ -359,6 +462,67 @@
 
             .nav-icon-item::before {
                 display: none;
+            }
+
+            .language-toggle-container {
+                margin: 1rem 0;
+                justify-content: center;
+                min-width: auto;
+            }
+
+            .language-toggle {
+                width: 90px;
+                height: 40px;
+            }
+
+            .language-toggle-slider {
+                width: 34px;
+                height: 34px;
+                font-size: 10px;
+            }
+
+            .language-toggle.active .language-toggle-slider {
+                transform: translateX(48px);
+            }
+
+            .language-labels {
+                font-size: 12px;
+                padding: 0 8px;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 576px) {
+            .icon-nav {
+                padding: 1rem;
+                gap: 0.3rem;
+            }
+
+            .nav-icon-item {
+                padding: 0.8rem 1rem;
+                gap: 0.8rem;
+            }
+
+            .nav-icon {
+                font-size: 1.2rem;
+            }
+
+            .nav-icon-label {
+                font-size: 0.9rem;
+            }
+
+            .language-toggle {
+                width: 80px;
+                height: 36px;
+            }
+
+            .language-toggle-slider {
+                width: 30px;
+                height: 30px;
+            }
+
+            .language-toggle.active .language-toggle-slider {
+                transform: translateX(42px);
             }
         }
 
@@ -382,23 +546,73 @@
             margin-top: 0;
         }
 
-        /* iPhone-style Language Toggle Switch */
+        /* Enhanced iPhone-style Language Toggle Switch with Zoom Support */
         .language-toggle-container {
             display: flex;
             align-items: center;
-            margin-left: 1rem;
+            margin-left: 0.8rem;
+            flex-shrink: 0;
+            min-width: 80px;
+        }
+
+        /* Zoom level adjustments for language toggle */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .language-toggle-container {
+                margin-left: 0.6rem;
+                min-width: 75px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .language-toggle-container {
+                margin-left: 0.5rem;
+                min-width: 70px;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .language-toggle-container {
+                margin-left: 0.4rem;
+                min-width: 65px;
+            }
         }
 
         .language-toggle {
             position: relative;
-            width: 80px;
-            height: 36px;
+            width: 75px;
+            height: 32px;
             background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-            border-radius: 18px;
+            border-radius: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
             border: 2px solid #e2e8f0;
+            flex-shrink: 0;
+        }
+
+        /* Zoom level adjustments for toggle */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .language-toggle {
+                width: 70px;
+                height: 30px;
+                border-radius: 15px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .language-toggle {
+                width: 65px;
+                height: 28px;
+                border-radius: 14px;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .language-toggle {
+                width: 60px;
+                height: 26px;
+                border-radius: 13px;
+            }
         }
 
         .language-toggle.active {
@@ -411,8 +625,8 @@
             position: absolute;
             top: 2px;
             left: 2px;
-            width: 30px;
-            height: 30px;
+            width: 26px;
+            height: 26px;
             background: white;
             border-radius: 50%;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -420,15 +634,59 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
             color: #64748b;
         }
 
+        /* Zoom level adjustments for slider */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .language-toggle-slider {
+                width: 24px;
+                height: 24px;
+                font-size: 8px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .language-toggle-slider {
+                width: 22px;
+                height: 22px;
+                font-size: 7px;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .language-toggle-slider {
+                width: 20px;
+                height: 20px;
+                font-size: 6px;
+            }
+        }
+
         .language-toggle.active .language-toggle-slider {
-            transform: translateX(44px);
+            transform: translateX(41px);
             color: var(--primary-color);
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Zoom level adjustments for active slider */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .language-toggle.active .language-toggle-slider {
+                transform: translateX(38px);
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .language-toggle.active .language-toggle-slider {
+                transform: translateX(35px);
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .language-toggle.active .language-toggle-slider {
+                transform: translateX(32px);
+            }
         }
 
         .language-labels {
@@ -440,10 +698,32 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 8px;
+            padding: 0 6px;
             pointer-events: none;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
+        }
+
+        /* Zoom level adjustments for labels */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .language-labels {
+                font-size: 9px;
+                padding: 0 5px;
+            }
+        }
+
+        @media (min-width: 1000px) and (max-width: 1199px) {
+            .language-labels {
+                font-size: 8px;
+                padding: 0 4px;
+            }
+        }
+
+        @media (min-width: 850px) and (max-width: 999px) {
+            .language-labels {
+                font-size: 7px;
+                padding: 0 3px;
+            }
         }
 
         .lang-en {
@@ -481,34 +761,12 @@
             }
 
             100% {
-                transform: translateX(44px);
+                transform: translateX(41px);
             }
         }
 
         .language-toggle.active .language-toggle-slider {
             animation: slideToggle 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Mobile adjustments */
-        @media (max-width: 991px) {
-            .language-toggle-container {
-                margin: 1rem 0;
-                justify-content: center;
-            }
-
-            .language-toggle {
-                width: 90px;
-                height: 40px;
-            }
-
-            .language-toggle-slider {
-                width: 34px;
-                height: 34px;
-            }
-
-            .language-toggle.active .language-toggle-slider {
-                transform: translateX(48px);
-            }
         }
 
         :root {
@@ -648,7 +906,7 @@
         }
 
         .hero-main-title {
-            font-size: 2.3rem !important;
+            font-size: 4rem;
             font-weight: 800;
             line-height: 1.1;
             color: #fff;
@@ -786,7 +1044,7 @@
             .hero-btn:active::before {
                 left: 100%;
             }
-        }
+
 
         @media (max-width: 480px) {
             .hero-content-overlay {
@@ -795,6 +1053,7 @@
             }
 
             .hero-main-title {
+                font-size: 2.3rem;
                 margin-bottom: 1rem;
             }
 
@@ -1473,7 +1732,6 @@
             text-decoration: none;
             transition: all 0.3s ease;
             transform: scale(0.5);
-            padding-right: 7px;
         }
 
         .product-card:hover .product-link {
@@ -1917,10 +2175,6 @@
                 padding: 0 2rem;
             }
 
-            .hero-main-title {
-                font-size: clamp(3rem, 8vw, 4.5rem);
-            }
-
             .product-grid {
                 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
@@ -1946,10 +2200,6 @@
         @media (min-width: 1400px) {
             .container {
                 max-width: 1400px;
-            }
-
-            .hero-main-title {
-                font-size: 5rem;
             }
         }
 
@@ -1980,10 +2230,6 @@
                     max-width: 500px;
                 }
 
-                .hero-main-title {
-                    font-size: 3rem;
-                }
-
                 .hero-desc {
                     font-size: 1.2rem;
                 }
@@ -2009,7 +2255,7 @@
                 }
 
                 .hero-main-title {
-                    font-size: 2.5rem;
+                    font-size: 3.5rem;
                     margin-bottom: 1.5rem;
                     line-height: 1.2;
                 }
@@ -2068,7 +2314,7 @@
                 }
 
                 .hero-main-title {
-                    font-size: 2rem;
+                    font-size: 2.3rem;
                     margin-bottom: 1rem;
                 }
 
@@ -2199,7 +2445,7 @@
                 }
 
                 .hero-main-title {
-                    font-size: 1.75rem;
+                    font-size: 2.3rem;
                     margin-bottom: 0.75rem;
                 }
 
@@ -2255,10 +2501,6 @@
             @media (max-width: 374.98px) {
                 .hero-content-overlay {
                     padding: 0.75rem 0.5rem;
-                }
-
-                .hero-main-title {
-                    font-size: 1.5rem;
                 }
 
                 .hero-desc {
@@ -5336,7 +5578,7 @@
                         <ul class="industry-serve-apps">
                             <li><i class="fas fa-bridge" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_infrastructure_app_1') }}</li>
                             <li><i class="fas fa-road" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_infrastructure_app_2') }}</li>
-                            <li class="full-width"><i class="fas fa-tools" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_infrastructure_app_3') }}</li>
+                            <li><i class="fas fa-tools" style="margin-right: 0.3rem;"></i>{{ __('homepage.industry_infrastructure_app_3') }}</li>
                         </ul>
                     </div>
                     <div class="industry-progress-bar"></div>
@@ -5530,14 +5772,10 @@
                 background: linear-gradient(135deg, #9cb836 0%, #8ba332 100%);
             }
 
-            .industry-serve-apps li.full-width {
-                flex: 1 1 100%;
-                text-align: center;
-            }
-
             .industry-serve-apps li i {
                 opacity: 0.9;
                 font-size: 0.8em;
+                margin-right: 10px;
             }
 
             .industry-progress-bar {
