@@ -15,6 +15,10 @@
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
 
+    h1 {
+        font-size: 3.5rem;
+    }
+
     .support-hero::before {
         content: '';
         position: absolute;
@@ -395,7 +399,7 @@
 
     .contact-action {
         background: transparent;
-        color: var(--primary-color);
+        color: #fff;
         border: none;
         border-radius: 12px;
         padding: 0.875rem 1.5rem;
