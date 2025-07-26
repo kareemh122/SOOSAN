@@ -2120,6 +2120,7 @@
                 display: flex;
             }
 
+
             .search-filters {
                 flex-direction: row;
                 justify-content: center;
@@ -2317,7 +2318,7 @@
                     font-size: 0.9rem;
                 }
 
-                .slider-nav {
+                /* .slider-nav {
                     width: 45px;
                     height: 45px;
                     font-size: 1rem;
@@ -2329,8 +2330,10 @@
 
                 .slider-nav.next {
                     right: 1rem;
+                } */
+                 .slider-nav, .slider-nav.prev, .slider-nav.next {
+                     display: none;
                 }
-
                 .slider-dots {
                     bottom: 5rem;
                     gap: 0.75rem;
@@ -2428,7 +2431,7 @@
                 }
 
                 .hero-content-overlay {
-                    bottom: 22%;
+                    bottom: 18%;
                     width: 95%;
                     padding: 1rem 0.75rem;
                 }
@@ -2667,7 +2670,7 @@
             /* RTL Support */
             [dir="rtl"] .hero-content-overlay {
                 left: auto;
-                right: -37%;
+                right: -42%;
                 text-align: right;
             }
 
