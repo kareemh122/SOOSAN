@@ -828,7 +828,7 @@
         }
 
         .slider-container {
-            position: relative;
+            /* position: relative; */
             height: 100%;
         }
 
