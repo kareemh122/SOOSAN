@@ -823,7 +823,7 @@
         /* Modern Hero Slider */
         .hero-slider {
             position: relative;
-            height: 114vh;
+            height: 105vh;
             overflow: hidden;
         }
 
@@ -893,11 +893,13 @@
             width: 55%;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             text-align: left;
             background: transparent;
             padding: 2rem 0
             animation: heroContentFloat 6s ease-in-out infinite;
+        }
+        [dir="rtl"] .hero-content-overlay {
+            text-align: right;
         }
 
         @keyframes heroContentFloat {
@@ -906,7 +908,7 @@
         }
 
         .hero-main-title {
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 800;
             line-height: 1.2;
             color: #fff;
@@ -2065,7 +2067,6 @@
         @media (min-width: 425px) {
             .hero-btn-group {
                 flex-direction: row;
-                justify-content: center;
                 flex-wrap: wrap;
             }
 
@@ -2290,12 +2291,12 @@
             /* Mobile landscape and small tablets */
             @media (max-width: 768px) {
                 .hero-slider {
-                    height: 100vh;
+                    height: 95vh;
                     min-height: 500px;
                 }
 
                 .hero-content-overlay {
-                    bottom: 22%;
+                    bottom: 18%;
                     width: 95%;
                     max-width: 380px;
                     padding: 1.5rem 1rem;
