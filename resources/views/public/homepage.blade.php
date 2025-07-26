@@ -5742,7 +5742,7 @@
             .industry-serve-apps li i {
                 opacity: 0.9;
                 font-size: 0.8em;
-                margin-right: 10px;
+                margin-left: 10px;
             }
 
             .industry-progress-bar {

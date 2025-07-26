@@ -56,12 +56,6 @@
 <meta name="robots" content="index, follow">
 @endpush
 
-@section('page-header')
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-        <h1 class="display-6 fw-bold text-dark mb-0">{{ __('common.serial_lookup_title') }}</h1>
-    </div>
-@endsection
-
 @push('styles')
 <style>
     :root {
