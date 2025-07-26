@@ -4638,19 +4638,19 @@
                             <div class="col-4 text-center">
                                 <div class="stat-item">
                                     <h3 class="h2 fw-bold" style="color: #00548e">{{ __('common.country_numbers') }}</h3>
-                                    <p class="text-muted">{{ __('homepage.countries_stat') }}</p>
+                                    <p style="color: #212529bf;">{{ __('homepage.countries_stat') }}</p>
                                 </div>
                             </div>
                             <div class="col-4 text-center">
                                 <div class="stat-item">
                                     <h3 class="h2 fw-bold" style="color: #00548e">{{ __('common.project_numbers') }}</h3>
-                                    <p class="text-muted">{{ __('homepage.projects_stat') }}</p>
+                                    <p style="color: #212529bf;">{{ __('homepage.projects_stat') }}</p>
                                 </div>
                             </div>
                             <div class="col-4 text-center">
                                 <div class="stat-item">
                                     <h3 class="h2 fw-bold" style="color: #00548e">{{ __('common.support_numbers') }}</h3>
-                                    <p class="text-muted">{{ __('homepage.support_stat') }}</p>
+                                    <p style="color: #212529bf;">{{ __('homepage.support_stat') }}</p>
                                 </div>
                             </div>
                         </div>

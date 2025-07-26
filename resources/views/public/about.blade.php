@@ -92,7 +92,7 @@
             min-height: 60vh;
             display: flex;
             align-items: center;
-            margin-top: 2rem;
+            /* margin-top: 2rem; */
         }
 
         .hero-section::before {
@@ -694,7 +694,7 @@
     @media (max-width: 768px) {
         .hero-section {
             padding: 4rem 0 3rem;
-            margin-top: 70px;
+            /* margin-top: 70px; */
         }
 
         .hero-title {
@@ -798,7 +798,7 @@
     @media (max-width: 480px) {
         .hero-section {
             padding: 3rem 0 2rem;
-            margin-top: 60px;
+            /* margin-top: 60px; */
         }
 
         .hero-title {

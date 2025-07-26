@@ -149,6 +149,13 @@
         box-shadow: 0 4px 12px rgba(0, 84, 142, 0.3);
     }
 
+    #productsCount {
+        text-align: left;
+    }
+    [dir="rtl"] #productsCount {
+        text-align: right;
+    }
+
     /* Filter styles */
     .filter-category-header {
         cursor: pointer;
@@ -448,7 +455,7 @@
 
         <!-- Controls Row -->
         <div class="row align-items-center justify-content-between mb-4">
-                <div class="mb-3" id="productsCount" style="margin-left:50%;">
+                <div class="mb-3" id="productsCount">
                     <h5 class="fw-semibold" style="color: #00548e; margin-top: 15px; font-size: 23px;">
                         {{ __('common.total_products', ['count' => $products->total()]) }}
                     </h5>

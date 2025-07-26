@@ -662,7 +662,7 @@
     @media (max-width: 768px) {
         .support-hero {
             padding: 4rem 0 3rem;
-            margin-top: 70px;
+            /* margin-top: 70px; */
         }
 
         .support-hero h1 {
@@ -785,7 +785,7 @@
     }
         .support-hero {
             padding: 3.5rem 0 2.5rem;
-            margin-top: 60px;
+            /* margin-top: 60px; */
         }
 
         .support-hero h1 {

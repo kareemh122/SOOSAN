@@ -669,7 +669,7 @@
 
     @media (max-width: 768px) {
         .contact-hero {
-            margin-top: 70px;
+            /* margin-top: 70px; */
             padding: 5rem 0 3rem;
         }
 
@@ -791,7 +791,7 @@
     @media (max-width: 480px) {
         .contact-hero {
             padding: 4rem 0 2.5rem;
-            margin-top: 60px;
+            /* margin-top: 60px; */
         }
 
         .contact-hero h1 {
