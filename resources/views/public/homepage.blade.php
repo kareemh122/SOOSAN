@@ -906,7 +906,7 @@
         }
 
         .hero-main-title {
-            font-size: 3rem;
+            font-size: 4.5rem;
             font-weight: 800;
             line-height: 1.2;
             color: #fff;
@@ -2236,7 +2236,7 @@
                     transform: translateX(-50%);
                     text-align: left;
                     padding: 2rem 1.5rem;
-                    bottom: 20%;
+                    bottom: 22%;
                     top: auto;
                     width: 90%;
                     max-width: 450px;
@@ -2295,7 +2295,7 @@
                 }
 
                 .hero-content-overlay {
-                    bottom: 15%;
+                    bottom: 22%;
                     width: 95%;
                     max-width: 380px;
                     padding: 1.5rem 1rem;
@@ -2427,7 +2427,7 @@
                 }
 
                 .hero-content-overlay {
-                    bottom: 12%;
+                    bottom: 22%;
                     width: 95%;
                     padding: 1rem 0.75rem;
                 }
@@ -2666,8 +2666,7 @@
             /* RTL Support */
             [dir="rtl"] .hero-content-overlay {
                 left: auto;
-                right: -36%;
-                align-items: flex-end;
+                right: -37%;
                 text-align: right;
             }
 
