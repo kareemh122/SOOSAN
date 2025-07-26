@@ -823,7 +823,7 @@
         /* Modern Hero Slider */
         .hero-slider {
             position: relative;
-            height: 100vh;
+            height: 114vh;
             overflow: hidden;
         }
 
@@ -906,9 +906,9 @@
         }
 
         .hero-main-title {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.2;
             color: #fff;
             margin-bottom: 1.1rem;
             text-shadow:
@@ -1050,11 +1050,6 @@
             .hero-content-overlay {
                 width: 95%;
                 margin: 0 auto;
-            }
-
-            .hero-main-title {
-                font-size: 2.3rem;
-                margin-bottom: 1rem;
             }
 
             .hero-desc {
@@ -1973,7 +1968,9 @@
                 font-size: 0.9rem;
             }
         }
-
+        .badge-item {
+            text-align: center;
+        }
         /* Industries Section */
         .industries-section {
             background: white;
@@ -2038,11 +2035,6 @@
                 padding: 0 1rem;
             }
 
-            .hero-main-title {
-                font-size: clamp(1.5rem, 6vw, 2.2rem);
-                line-height: 1.2;
-            }
-
             .hero-desc {
                 font-size: clamp(0.9rem, 3vw, 1.1rem);
             }
@@ -2063,10 +2055,6 @@
 
         /* Small Mobile (375px+) */
         @media (min-width: 375px) {
-            .hero-main-title {
-                font-size: clamp(1.8rem, 6vw, 2.5rem);
-            }
-
             .hero-btn {
                 font-size: 1rem;
                 padding: 0.9rem 1.8rem;
@@ -2356,7 +2344,7 @@
                 /* Hero Content Section */
                 .hero-content-section {
                     padding: 4rem 0;
-                    margin-top: -50px;
+                    margin-top: -20px;
                 }
 
                 .hero-title {
@@ -2442,11 +2430,6 @@
                     bottom: 12%;
                     width: 95%;
                     padding: 1rem 0.75rem;
-                }
-
-                .hero-main-title {
-                    font-size: 2.3rem;
-                    margin-bottom: 0.75rem;
                 }
 
                 .hero-desc {
@@ -2848,7 +2831,6 @@
 
         .highlight-item {
             position: relative;
-            border-radius: 20px;
             overflow: hidden;
             background: white;
             box-shadow: 0 10px 40px rgba(0, 84, 142, 0.1);
@@ -3050,7 +3032,7 @@
             /* Hero Content Section */
             .hero-content-section {
                 padding: 3rem 0;
-                margin-top: -30px;
+                margin-top: -15px;
             }
 
             .hero-badge {
@@ -3241,7 +3223,6 @@
             .youtube-video-item iframe {
                 min-width: 100%;
                 height: 220px;
-                border-radius: 12px;
             }
 
             /* Highlights Section */
@@ -3316,7 +3297,7 @@
             /* Hero Content Section */
             .hero-content-section {
                 padding: 2.5rem 0;
-                margin-top: -20px;
+                margin-top: -10px;
             }
 
             .hero-badge {
@@ -4653,7 +4634,7 @@
                         <p class="lead text-muted mb-4">
                             {{ __('homepage.global_section_description') }}
                         </p>
-                        <div class="stats-grid row" style="flex-wrap: nowrap;">
+                        <div class="stats-grid row" style="flex-wrap: nowrap; justify-content: center;">
                             <div class="col-4 text-center">
                                 <div class="stat-item">
                                     <h3 class="h2 fw-bold" style="color: #00548e">{{ __('common.country_numbers') }}</h3>
@@ -4872,7 +4853,6 @@
 
         .highlight-item {
             background: #fff;
-            border-radius: 20px;
             box-shadow: 0 8px 32px rgba(37, 99, 235, 0.13);
             overflow: hidden;
             transition: transform 0.32s cubic-bezier(.4, 2, .3, 1), box-shadow 0.32s, filter 0.25s;
@@ -5171,7 +5151,7 @@
                 left: 88%;
             }
             [dir="rtl"] .search-input-btn {
-                right: 88%;
+                right: 86%;
             }
         }
 
@@ -5377,7 +5357,6 @@
             position: relative;
             width: 100%;
             background: #000;
-            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
             transition: all 0.3s ease;
@@ -5462,13 +5441,7 @@
                 width: 100%;
                 max-width: 100%;
                 min-height: 250px;
-                border-radius: 8px;
             }
-
-            .youtube-video-item iframe {
-                border-radius: 8px;
-            }
-
             .youtube-explore-btn {
                 font-size: 1rem;
                 padding: 0.9rem 2rem;
@@ -5487,15 +5460,9 @@
 
             .youtube-video-item {
                 min-height: 220px;
-                border-radius: 6px;
                 margin: 0 auto;
                 max-width: 95%;
             }
-
-            .youtube-video-item iframe {
-                border-radius: 6px;
-            }
-
             .soosan-youtube-section .section-header {
                 margin-bottom: 1.5rem;
                 padding: 0 1rem;
@@ -5702,7 +5669,7 @@
             .industry-serve-img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: contain;
                 transition: all 0.3s ease;
                 display: block;
             }

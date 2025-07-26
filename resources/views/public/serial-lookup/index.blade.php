@@ -112,7 +112,7 @@
         padding: 6rem 0 4rem;
         position: relative;
         overflow: hidden;
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
     }
 
     .lookup-hero::before {
@@ -475,6 +475,9 @@
     .support-btn:hover::before {
         left: 0;
     }
+    .support-btn div small {
+        color: #6c6262;
+    }
 
     .support-btn:hover {
         color: white;
@@ -482,7 +485,9 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(0, 84, 142, 0.3);
     }
-
+    .support-btn:hover div small {
+        color: #fff;
+    }
     /* Floating Elements */
     .floating-element {
         position: absolute;
@@ -623,13 +628,13 @@
                         <i class="fas fa-barcode"></i>
                     </div>
                     <h2 class="h3 fw-bold mb-3" style="color: var(--primary-blue);">{{ __('common.equipment_serial_lookup') }}</h2>
-                    <p class="text-muted fs-5">{{ __('common.equipment_serial_lookup_desc') }}</p>
+                    <!-- <p class="text-muted fs-5">{{ __('common.equipment_serial_lookup_desc') }}</p> -->
                 </div>
 
                 <form action="{{ route('serial-lookup.lookup') }}" method="POST" id="serialForm" class="needs-validation" novalidate>
                     @csrf
                     <div class="mb-4">
-                        <label for="serial_number" class="form-label fw-bold fs-5" style="color: var(--primary-blue);">{{ __('common.serial_number') }}</label>
+                        <!-- <label for="serial_number" class="form-label fw-bold fs-5" style="color: var(--primary-blue);">{{ __('common.serial_number') }}</label> -->
                         <input type="text"
                                class="form-control serial-input @error('serial_number') is-invalid @enderror"
                                id="serial_number"
@@ -725,25 +730,25 @@
                         </h5>
                         <p class="mb-4 text-muted">{{ __('common.need_help_desc') }}</p>
                         <div class="d-grid gap-3">
-                            <a href="mailto:support@soosanegypt.com" class="support-btn">
+                            <a href="mailto:soosanegypt@madinagp.com" class="support-btn">
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <strong>{{ __('common.email_support') }}</strong>
-                                    <small class="d-block text-muted">support@soosanegypt.com</small>
+                                    <small class="d-block">soosanegypt@madinagp.com</small>
                                 </div>
                             </a>
-                            <a href="tel:+201000000000" class="support-btn">
+                            <a href="tel:+201112696961" class="support-btn">
                                 <i class="fas fa-phone"></i>
                                 <div>
                                     <strong>{{ __('common.call_support') }}</strong>
-                                    <small class="d-block text-muted">+20 100 000 0000</small>
+                                    <small class="d-block">{{ __('common.phone_no') }}</small>
                                 </div>
                             </a>
-                            <a href="https://wa.me/201000000000" class="support-btn" target="_blank">
+                            <a href="https://wa.me/201112696961" class="support-btn" target="_blank">
                                 <i class="fab fa-whatsapp"></i>
                                 <div>
                                     <strong>{{ __('common.whatsapp_support') }}</strong>
-                                    <small class="d-block text-muted">{{ __('common.quick_messaging') }}</small>
+                                    <small class="d-block">{{ __('common.quick_messaging') }}</small>
                                 </div>
                             </a>
                         </div>
@@ -763,128 +768,128 @@
 
 @push('scripts')
 <script>
-function fillSerial(serial) {
-    const input = document.getElementById('serial_number');
-    input.value = serial;
-    input.focus();
+        function fillSerial(serial) {
+            const input = document.getElementById('serial_number');
+            input.value = serial;
+            input.focus();
 
-    // Add visual feedback
-    input.style.transform = 'scale(1.02)';
-    input.style.borderColor = 'var(--accent-green)';
-    setTimeout(() => {
-        input.style.transform = '';
-        input.style.borderColor = '';
-    }, 300);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('serialForm');
-    const btn = document.getElementById('lookupBtn');
-    const serialInput = document.getElementById('serial_number');
-
-    // Form submission handling
-    form.addEventListener('submit', function() {
-        btn.disabled = true;
-        document.getElementById('lookupSpinner').classList.remove('d-none');
-        // Optionally: document.querySelector('.lookup-form').style.opacity = '1';
-    });
-
-    // Enhanced input validation
-    serialInput.addEventListener('input', function() {
-        // Clean input - allow only alphanumeric, hyphens, and underscores
-        this.value = this.value.replace(/[^a-zA-Z0-9\-_]/g, '');
-
-        // Visual feedback
-        if (this.value.length > 0) {
-            this.classList.remove('is-invalid');
-            this.classList.add('is-valid');
-            this.style.borderColor = 'var(--accent-green)';
-        } else {
-            this.classList.remove('is-valid');
-            this.style.borderColor = '';
-        }
-    });
-
-    // Auto-focus and entrance animation
-    setTimeout(() => {
-        serialInput.focus();
-    }, 1000);
-
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 200);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe animated elements
-    document.querySelectorAll('.animate-in').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Add keyboard shortcuts
-    document.addEventListener('keydown', function(e) {
-        // Ctrl/Cmd + Enter to submit form
-        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-            form.submit();
+            // Add visual feedback
+            input.style.transform = 'scale(1.02)';
+            input.style.borderColor = 'var(--accent-green)';
+            setTimeout(() => {
+                input.style.transform = '';
+                input.style.borderColor = '';
+            }, 300);
         }
 
-        // Escape to clear input
-        if (e.key === 'Escape') {
-            serialInput.value = '';
-            serialInput.focus();
-        }
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('serialForm');
+            const btn = document.getElementById('lookupBtn');
+            const serialInput = document.getElementById('serial_number');
 
-    // Add sample serial click animations
-    document.querySelectorAll('.sample-serial').forEach(serial => {
-        serial.addEventListener('click', function() {
-            // Ripple effect
-            const ripple = document.createElement('span');
-            ripple.style.cssText = `
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.6);
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
+            // Form submission handling
+            form.addEventListener('submit', function() {
+                btn.disabled = true;
+                document.getElementById('lookupSpinner').classList.remove('d-none');
+                // Optionally: document.querySelector('.lookup-form').style.opacity = '1';
+            });
+
+            // Enhanced input validation
+            serialInput.addEventListener('input', function() {
+                // Clean input - allow only alphanumeric, hyphens, and underscores
+                this.value = this.value.replace(/[^a-zA-Z0-9\-_]/g, '');
+
+                // Visual feedback
+                if (this.value.length > 0) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                    this.style.borderColor = 'var(--accent-green)';
+                } else {
+                    this.classList.remove('is-valid');
+                    this.style.borderColor = '';
+                }
+            });
+
+            // Auto-focus and entrance animation
+            setTimeout(() => {
+                serialInput.focus();
+            }, 1000);
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe animated elements
+            document.querySelectorAll('.animate-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl/Cmd + Enter to submit form
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    form.submit();
+                }
+
+                // Escape to clear input
+                if (e.key === 'Escape') {
+                    serialInput.value = '';
+                    serialInput.focus();
+                }
+            });
+
+            // Add sample serial click animations
+            document.querySelectorAll('.sample-serial').forEach(serial => {
+                serial.addEventListener('click', function() {
+                    // Ripple effect
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.6);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (rect.width / 2 - size / 2) + 'px';
+                    ripple.style.top = (rect.height / 2 - size / 2) + 'px';
+
+                    this.style.position = 'relative';
+                    this.appendChild(ripple);
+
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
             `;
-
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = (rect.width / 2 - size / 2) + 'px';
-            ripple.style.top = (rect.height / 2 - size / 2) + 'px';
-
-            this.style.position = 'relative';
-            this.appendChild(ripple);
-
-            setTimeout(() => ripple.remove(), 600);
+            document.head.appendChild(style);
         });
-    });
-
-    // Add CSS for ripple animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-});
 </script>
 @endpush

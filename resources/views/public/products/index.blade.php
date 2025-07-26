@@ -277,7 +277,7 @@
     /* Copy toast */
     .copy-toast {
         position: fixed;
-        top: 2rem;
+        bottom: 2rem;
         right: 2rem;
         background: var(--primary-blue);
         color: white;
@@ -450,8 +450,8 @@
         <div class="row align-items-center justify-content-between mb-4">
                 <div class="mb-3" id="productsCount" style="margin-left:50%;">
                     <h5 class="fw-semibold" style="color: #00548e; margin-top: 15px; font-size: 23px;">
-    {{ __('common.total_products', ['count' => $products->total()]) }}
-</h5>
+                        {{ __('common.total_products', ['count' => $products->total()]) }}
+                    </h5>
                 </div>
             <div class="col-12 col-md-auto mb-3 mb-md-0">
                 <div class="d-flex align-items-center gap-3">
@@ -492,24 +492,33 @@
                         <span class="d-inline d-md-none">{{ __('common.sort_default') }}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="sortDropdown">
-                        <li><a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="none">
-    <i class="fas fa-ban me-2"></i>{{ __('common.sort_none') }}
-</a></li>
-<li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="carrier-desc">
-    <i class="fas fa-arrow-down-wide-short me-2"></i>{{ __('common.sort_carrier_desc') }}
-</a></li>
-<li><a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="carrier-asc">
-    <i class="fas fa-arrow-up-short-wide me-2"></i>{{ __('common.sort_carrier_asc') }}
-</a></li>
-<li><hr class="dropdown-divider"></li>
-<li><a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="weight-desc">
-    <i class="fas fa-arrow-down-wide-short me-2"></i>{{ __('common.sort_weight_desc') }}
-</a></li>
-<li><a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="weight-asc">
-    <i class="fas fa-arrow-up-short-wide me-2"></i>{{ __('common.sort_weight_asc') }}
-</a>
-</li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="none">
+                                <i class="fas fa-ban me-2"></i>{{ __('common.sort_none') }}
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="carrier-desc">
+                                <i class="fas fa-arrow-down-wide-short me-2"></i>{{ __('common.sort_carrier_desc') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="carrier-asc">
+                                <i class="fas fa-arrow-up-short-wide me-2"></i>{{ __('common.sort_carrier_asc') }}
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="weight-desc">
+                                <i class="fas fa-arrow-down-wide-short me-2"></i>{{ __('common.sort_weight_desc') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center sort-option" href="#" data-sort="weight-asc">
+                                <i class="fas fa-arrow-up-short-wide me-2"></i>{{ __('common.sort_weight_asc') }}
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -748,7 +757,7 @@
 </div>
 
 <div id="pageProgressBar"></div>
-<div id="copyToast" class="copy-toast">Link copied to clipboard</div>
+<div id="copyToast" class="copy-toast">{{ __('common.copy_link') }}</div>
 
 @push('scripts')
 <script>

@@ -742,7 +742,7 @@
             border-bottom: 3px solid #b0d701;
         }
 
-        .mobile-nav-header::before {
+        /* .mobile-nav-header::before {
             content: '';
             position: absolute;
             top: 0;
@@ -755,7 +755,7 @@
 
         .mobile-nav-header:hover::before {
             left: 100%;
-        }
+        } */
 
         .mobile-nav-logo {
             font-size: 1.25rem;
@@ -1647,6 +1647,32 @@
 
             .mobile-nav-content {
                 padding: 1rem;
+            }
+        }
+
+        /* Global Mobile Spacing Fix */
+        @media (max-width: 768px) {
+            /* Fix blank space between navbar and content */
+            main {
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+            }
+
+            /* Ensure no unexpected gaps in mobile */
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            /* Fix hero sections spacing on mobile */
+            section[class*="hero"] {
+                margin-bottom: 0;
+            }
+
+            /* Fix any negative margins causing gaps */
+            *[class*="main-container"],
+            *[class*="content-section"] {
+                margin-top: 0 !important;
             }
         }
 
@@ -2870,7 +2896,6 @@
         <div class="mobile-nav-header">
             <div class="d-flex align-items-center">
                 <img src="{{ asset('images/logo2.png') }}" alt="SoosanEgypt Logo" style="height: 40px; width: auto;">
-                <span class="ms-2 fw-bold text-white">Soosan Egypt</span>
             </div>
             <button type="button" class="btn btn-link text-white p-0" id="closeMobileNav">
                 <i class="fas fa-times" style="font-size: 1.5rem;"></i>

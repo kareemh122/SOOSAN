@@ -56,7 +56,7 @@
         padding: 4rem 0 2rem;
         position: relative;
         overflow: hidden;
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
     }
 
     .result-header::before {
@@ -558,9 +558,14 @@
             padding: 3rem 0 2rem;
         }
 
+        .main-container {
+            margin-top: -30px;
+        }
+
         .coverage-card {
             padding: 2rem 1.5rem;
             margin-bottom: 1.5rem;
+            margin-top: 10px;
         }
 
         .pdf-download-btn {

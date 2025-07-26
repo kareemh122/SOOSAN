@@ -12,7 +12,7 @@
         padding: 6rem 0 4rem;
         position: relative;
         overflow: hidden;
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
     }
 
     h1 {
@@ -789,7 +789,7 @@
         }
 
         .support-hero h1 {
-            font-size: 2rem;
+            font-size: 3.5rem;
             margin-bottom: 0.75rem;
         }
 

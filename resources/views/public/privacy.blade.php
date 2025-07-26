@@ -66,7 +66,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: 
+        background:
             radial-gradient(circle at 20% 30%, rgba(176, 215, 1, 0.15) 0%, transparent 50%),
             radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
             url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="privacy-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23privacy-grid)"/></svg>');
@@ -301,7 +301,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: 
+        background:
             radial-gradient(circle at 30% 20%, rgba(176, 215, 1, 0.15) 0%, transparent 50%),
             url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="contact-dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23contact-dots)"/></svg>');
         z-index: 1;
@@ -412,11 +412,11 @@
         .privacy-hero {
             padding: 6rem 0 4rem;
         }
-        
+
         .privacy-section {
             padding: 4rem 0;
         }
-        
+
         .card-header,
         .card-body {
             padding: 2rem;
@@ -427,66 +427,66 @@
         .privacy-hero {
             padding: 5rem 0 3rem;
         }
-        
+
         .privacy-hero h1 {
             font-size: 2.5rem;
         }
-        
+
         .privacy-hero .lead {
             font-size: 1.1rem;
         }
-        
+
         .privacy-section {
             padding: 3rem 0;
         }
-        
+
         .privacy-card {
             margin-bottom: 2rem;
         }
-        
+
         .card-header h3 {
             font-size: 1.3rem;
             flex-direction: column;
             align-items: flex-start;
             gap: 0.5rem;
         }
-        
+
         .card-header,
         .card-body {
             padding: 1.5rem;
         }
-        
+
         .card-body p {
             font-size: 1rem;
         }
-        
+
         .updated-info {
             padding: 1.25rem 1.5rem;
             flex-direction: column;
             text-align: center;
             gap: 0.75rem;
         }
-        
+
         .info-list li,
         .card-body li {
             padding: 0.75rem 0;
             padding-left: 2rem;
             font-size: 1rem;
         }
-        
+
         .contact-section {
             padding: 3rem 1.5rem;
             margin-top: 2rem;
         }
-        
+
         .contact-section h3 {
             font-size: 1.8rem;
         }
-        
+
         .contact-section p {
             font-size: 1.1rem;
         }
-        
+
         .cta-button {
             padding: 1rem 2rem;
             font-size: 1rem;
@@ -497,30 +497,30 @@
         .privacy-hero {
             padding: 4rem 0 2rem;
         }
-        
+
         .card-header h3 {
             font-size: 1.2rem;
         }
-        
+
         .card-header,
         .card-body {
             padding: 1.25rem;
         }
-        
+
         .info-list li,
         .card-body li {
             padding-left: 1.5rem;
             font-size: 0.95rem;
         }
-        
+
         .contact-section {
             padding: 2.5rem 1rem;
         }
-        
+
         .contact-section h3 {
             font-size: 1.6rem;
         }
-        
+
         .cta-button {
             padding: 0.875rem 1.75rem;
             font-size: 0.95rem;
@@ -561,20 +561,20 @@
             color: black !important;
             padding: 2rem 0 !important;
         }
-        
+
         .privacy-card {
             box-shadow: none !important;
             border: 1px solid #ccc !important;
             break-inside: avoid;
             margin-bottom: 1rem !important;
         }
-        
+
         .contact-section {
             background: white !important;
             color: black !important;
             border: 1px solid #ccc !important;
         }
-        
+
         .cta-button {
             display: none !important;
         }
@@ -605,11 +605,11 @@
         .privacy-card {
             border: 2px solid var(--text-color);
         }
-        
+
         .card-header h3 {
             color: var(--text-color);
         }
-        
+
         .card-body p {
             color: var(--text-color);
         }
@@ -626,7 +626,7 @@
         <div class="container">
             <div class="privacy-content animate-fade-in">
                 <h1 class="display-4 fw-bold mb-3">{{ __('privacy.privacy_policy') }}</h1>
-                <p class="lead">{{ __('privacy.privacy_important') }}</p>
+                <!-- <p class="lead">{{ __('privacy.privacy_important') }}</p> -->
             </div>
         </div>
     </section>
@@ -726,7 +726,7 @@
                     </div>
 
                     <!-- Contact Us -->
-                    <div class="card privacy-card animate-slide-in" id="contact_us">
+                    <!-- <div class="card privacy-card animate-slide-in" id="contact_us">
                         <div class="card-header">
                             <h3><i class="fas fa-envelope"></i> {{ __('privacy.contact_us_title') }}</h3>
                         </div>
@@ -734,7 +734,7 @@
                             <p>{{ __('privacy.contact_us_content') }}</p>
                             <p><strong>{{ __('privacy.contact_us_company') }}</strong></p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Enhanced Contact Section -->
                     <div class="contact-section animate-slide-in">
@@ -764,7 +764,7 @@
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
             const progress = (scrollTop / scrollHeight) * 100;
-            
+
             if (scrollProgress) {
                 scrollProgress.style.width = progress + '%';
             }
@@ -782,7 +782,7 @@
                     // Add staggered animation delay
                     entry.target.style.animationDelay = `${index * 0.1}s`;
                     entry.target.classList.add('animate-slide-in');
-                    
+
                     // Add entrance animation to icons
                     const icon = entry.target.querySelector('.card-header h3 i');
                     if (icon) {
@@ -806,7 +806,7 @@
         document.querySelectorAll('.privacy-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.borderColor = 'rgba(0, 84, 142, 0.3)';
-                
+
                 // Animate list items on hover
                 const listItems = this.querySelectorAll('li');
                 listItems.forEach((item, index) => {
@@ -815,10 +815,10 @@
                     }, index * 50);
                 });
             });
-            
+
             card.addEventListener('mouseleave', function() {
                 this.style.borderColor = 'var(--border-color)';
-                
+
                 // Reset list items
                 const listItems = this.querySelectorAll('li');
                 listItems.forEach(item => {
@@ -843,7 +843,7 @@
 
         // Enhanced scroll event listeners
         let ticking = false;
-        
+
         function handleScroll() {
             if (!ticking) {
                 requestAnimationFrame(() => {
@@ -929,9 +929,9 @@
             announcement.style.height = '1px';
             announcement.style.overflow = 'hidden';
             announcement.textContent = message;
-            
+
             document.body.appendChild(announcement);
-            
+
             setTimeout(() => {
                 document.body.removeChild(announcement);
             }, 1000);

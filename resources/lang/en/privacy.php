@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'questions_privacy' => 'Questions About Privacy',
-    'questions_description' => 'If you have any questions about this Privacy Policy, please contact us at:',    
+    'questions_description' => 'If you have any questions about this Privacy Policy, please contact us at:',
     'contact_privacy_team' => 'Contact Privacy Team',
 
     'title' => 'Privacy Policy',
@@ -36,13 +36,13 @@ return [
     'cookies_content' => 'Our website may use cookies to collect browsing data. These cookies help us analyze site traffic and enhance your experience. You can disable cookies in your browser settings.',
 
     'data_sharing_title' => 'Sharing Your Data',
-    'data_sharing_content' => 'We do not sell or rent your personal data. We may share it with trusted partners (such as SOOSAN CEBOTICS or service providers) only as necessary to fulfill your request or maintain our service standards.',
+    'data_sharing_content' => 'We do not sell or rent your personal data. We may share it with trusted partners (such as <a href="https://soosancebotics.com/en/main" target="_blank" rel="noopener noreferrer">SOOSAN CEBOTICS</a> or service providers) only as necessary to fulfill your request or maintain our service standards.',
 
     'data_security_title' => 'Data Security',
     'data_security_content' => 'We take reasonable precautions to safeguard your data through secure servers, encryption, and access controls. However, no internet transmission is 100% secure.',
 
     'your_rights_title' => 'Your Rights',
-    'your_rights_content' => 'You may request to access, correct, or delete your personal data by contacting us at <a href="mailto:soosaninfo@madinagp.com">soosaninfo@madinagp.com</a>.',
+    'your_rights_content' => 'You may request to access, correct, or delete your personal data by contacting us at <a href="mailto:soosanegypt@madinagp.com">soosanegypt@madinagp.com</a>.',
 
     'contact_us_title' => 'Contact Us',
     'contact_us_content' => 'If you have any questions about this Privacy Policy, please contact us at:',
