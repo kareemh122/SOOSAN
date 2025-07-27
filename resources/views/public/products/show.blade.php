@@ -978,21 +978,25 @@
                                 return is_numeric($v) ? number_format($v, 1, '.', ',') : $v;
                             }
 
-                            function spec_row($val, $factor, $si_unit, $imp_unit) {
+                            function nf0($v) {
+                                return is_numeric($v) ? number_format($v, 0, '.', ',') : $v;
+                            }
+
+                            function spec_row($val, $factor, $si_unit, $imp_unit, $si_decimals = 0) {
                                 if ($val === null || $val === '' || $val === '-') {
                                     return ['- ' . $si_unit, '- ' . $imp_unit];
                                 }
                                 if (preg_match('/^([\d.]+)~([\d.]+)/', $val, $m)) {
-                                    $si_min = nf1($m[1] * $factor);
-                                    $si_max = nf1($m[2] * $factor);
+                                    $si_min = number_format($m[1] * $factor, $si_decimals, '.', ',');
+                                    $si_max = number_format($m[2] * $factor, $si_decimals, '.', ',');
                                     return ["$si_min ~ $si_max $si_unit", nf1($m[1]) . ' ~ ' . nf1($m[2]) . " $imp_unit"];
                                 }
                                 if (preg_match('/^(\d+)\/(\d+)$/', trim($val), $m)) {
                                     $dec = $m[1] / $m[2];
-                                    return [nf1($dec * $factor) . " $si_unit", $val . " $imp_unit"];
+                                    return [number_format($dec * $factor, $si_decimals, '.', ',') . " $si_unit", $val . " $imp_unit"];
                                 }
                                 if (is_numeric($val)) {
-                                    return [nf1($val * $factor) . " $si_unit", nf1($val) . " $imp_unit"];
+                                    return [number_format($val * $factor, $si_decimals, '.', ',') . " $si_unit", nf1($val) . " $imp_unit"];
                                 }
                                 return [$val . " $si_unit", $val . " $imp_unit"];
                             }
@@ -1001,9 +1005,9 @@
                                 $dash = '- BPM';
                                 if ($val === null || $val === '' || $val === '-') return [$dash, $dash];
                                 if (preg_match('/^([\d.]+)~([\d.]+)/', $val, $m)) {
-                                    return [nf1($m[1]) . ' ~ ' . nf1($m[2]) . ' BPM', nf1($m[1]) . ' ~ ' . nf1($m[2]) . ' BPM'];
+                                    return [nf0($m[1]) . ' ~ ' . nf0($m[2]) . ' BPM', nf0($m[1]) . ' ~ ' . nf0($m[2]) . ' BPM'];
                                 }
-                                if (is_numeric($val)) return [nf1($val) . ' BPM', nf1($val) . ' BPM'];
+                                if (is_numeric($val)) return [nf0($val) . ' BPM', nf0($val) . ' BPM'];
                                 return [$val . ' BPM', $val . ' BPM'];
                             }
 
@@ -1016,29 +1020,29 @@
                                 $si_unit = 'kgf/cm²'; $imp_unit = 'lb-ft';
                                 if ($val === null || $val === '' || $val === '-') return ['- ' . $si_unit, '- ' . $imp_unit];
                                 if (preg_match('/^([\d.,]+)~([\d.,]+)/', $val, $m)) {
-                                    $si_min = nf1(floatval(str_replace([','], [''], $m[1])) * 0.070307);
-                                    $si_max = nf1(floatval(str_replace([','], [''], $m[2])) * 0.070307);
+                                    $si_min = nf0(floatval(str_replace([','], [''], $m[1])) * 0.070307);
+                                    $si_max = nf0(floatval(str_replace([','], [''], $m[2])) * 0.070307);
                                     return ["$si_min ~ $si_max $si_unit", nf1($m[1]) . ' ~ ' . nf1($m[2]) . " $imp_unit"];
                                 }
                                 if (is_numeric(str_replace([','], [''], $val))) {
-                                    $si = nf1(floatval(str_replace([','], [''], $val)) * 0.070307);
+                                    $si = nf0(floatval(str_replace([','], [''], $val)) * 0.070307);
                                     return ["$si $si_unit", nf1($val) . " $imp_unit"];
                                 }
                                 return [$val . ' ' . $si_unit, $val . ' ' . $imp_unit];
                             }
 
-                            [$bw_si, $bw_imp] = spec_row($product->body_weight, 0.45359237, 'kg', 'lb');
-                            [$ow_si, $ow_imp] = spec_row($product->operating_weight, 0.45359237, 'kg', 'lb');
-                            [$ol_si, $ol_imp] = spec_row($product->overall_length, 25.4, 'mm', 'in');
-                            [$owd_si, $owd_imp] = spec_row($product->overall_width, 25.4, 'mm', 'in');
-                            [$oh_si, $oh_imp] = spec_row($product->overall_height, 25.4, 'mm', 'in');
-                            [$rof_si, $rof_imp] = spec_row($product->required_oil_flow, 3.785411784, 'l/min', 'gal/min');
+                            [$bw_si, $bw_imp] = spec_row($product->body_weight, 0.45359237, 'kg', 'lb', 0);
+                            [$ow_si, $ow_imp] = spec_row($product->operating_weight, 0.45359237, 'kg', 'lb', 0);
+                            [$ol_si, $ol_imp] = spec_row($product->overall_length, 25.4, 'mm', 'in', 0);
+                            [$owd_si, $owd_imp] = spec_row($product->overall_width, 25.4, 'mm', 'in', 0);
+                            [$oh_si, $oh_imp] = spec_row($product->overall_height, 25.4, 'mm', 'in', 0);
+                            [$rof_si, $rof_imp] = spec_row($product->required_oil_flow, 3.785411784, 'l/min', 'gal/min', 0);
                             [$op_si, $op_imp] = op_row($product->operating_pressure);
-                            [$ir_si, $ir_imp] = bpm_row($product->impact_rate_std);
+                            [$ir_si, $ir_imp] = bpm_row($product->impact_rate);
                             [$irsr_si, $irsr_imp] = bpm_row($product->impact_rate_soft_rock);
                             [$hd_si, $hd_imp] = hose_row($product->hose_diameter);
-                            [$rd_si, $rd_imp] = spec_row($product->rod_diameter, 25.4, 'mm', 'in');
-                            [$ac_si, $ac_imp] = spec_row($product->applicable_carrier, 0.00045359237, 'ton', 'lb');
+                            [$rd_si, $rd_imp] = spec_row($product->rod_diameter, 25.4, 'mm', 'in', 0);
+                            [$ac_si, $ac_imp] = spec_row($product->applicable_carrier, 0.00045359237, 'ton', 'lb', 1);
                         @endphp
                         <tr><th>{{ __('common.body_weight') }}</th><td><span class="unit-value" data-si="{{ $bw_si }}" data-imperial="{{ $bw_imp }}">{{ $bw_si }}</span></td></tr>
                         <tr><th>{{ __('common.operating_weight') }}</th><td><span class="unit-value" data-si="{{ $ow_si }}" data-imperial="{{ $ow_imp }}">{{ $ow_si }}</span></td></tr>
@@ -1405,7 +1409,7 @@ document.addEventListener('DOMContentLoaded', function () {
         overall_height: "{{ $product->overall_height ?? '-' }}",
         required_oil_flow: "{{ $product->required_oil_flow ?? '-' }}",
         operating_pressure: "{{ $product->operating_pressure ?? '-' }}",
-        impact_rate: "{{ $product->impact_rate_std ?? '-' }}",
+        impact_rate: "{{ $product->impact_rate ?? '-' }}",
         impact_rate_soft_rock: "{{ $product->impact_rate_soft_rock ?? '-' }}",
         hose_diameter: "{{ $product->hose_diameter ?? '-' }}",
         rod_diameter: "{{ $product->rod_diameter ?? '-' }}",
@@ -1626,7 +1630,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function convertToSI(type, value, imperial) {
         if (!value || value === '-') return '-';
-        const toFormatted = (val, factor, unit) => isNaN(val) ? '-' : number_format(val * factor, 1) + ' ' + unit;
+        const toFormattedSI = (val, factor, unit, decimals = 0) => isNaN(val) ? '-' : number_format(val * factor, decimals) + ' ' + unit;
         const isRange = value.includes('~') || value.includes('-');
         const tryParseFloat = str => parseFloat(str.trim());
 
@@ -1635,11 +1639,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const min = tryParseFloat(minRaw);
             const max = tryParseFloat(maxRaw);
             switch (type) {
-                case 'required_oil_flow': return `${number_format(min * 3.785411784, 1)} - ${number_format(max * 3.785411784, 1)} l/min`;
-                case 'operating_pressure': return `${number_format(min * 0.0703069578296, 1)} - ${number_format(max * 0.0703069578296, 1)} kgf/cm²`;
+                case 'required_oil_flow': return `${number_format(min * 3.785411784, 0)} - ${number_format(max * 3.785411784, 0)} l/min`;
+                case 'operating_pressure': return `${number_format(min * 0.0703069578296, 0)} - ${number_format(max * 0.0703069578296, 0)} kgf/cm²`;
                 case 'applicable_carrier': return `${number_format(min * 0.00045359237, 1)} - ${number_format(max * 0.00045359237, 1)} ton`;
                 case 'impact_rate':
-                case 'impact_rate_soft_rock': return `${number_format(min, 1)} - ${number_format(max, 1)} BPM`;
+                case 'impact_rate_soft_rock': return `${number_format(min, 0)} - ${number_format(max, 0)} BPM`;
                 default: return value;
             }
         }
@@ -1647,17 +1651,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const num = tryParseFloat(value);
         switch (type) {
             case 'body_weight':
-            case 'operating_weight': return toFormatted(num, 0.45359237, 'kg');
+            case 'operating_weight': return toFormattedSI(num, 0.45359237, 'kg', 0);
             case 'overall_length':
             case 'overall_width':
             case 'overall_height':
-            case 'rod_diameter': return toFormatted(num, 25.4, 'mm');
+            case 'rod_diameter': return toFormattedSI(num, 25.4, 'mm', 0);
             case 'hose_diameter': return imperial || '-';
-            case 'required_oil_flow': return toFormatted(num, 3.785411784, 'l/min');
-            case 'operating_pressure': return `${number_format(num * 0.0703069578296, 1)} kgf/cm²`;
-            case 'applicable_carrier': return toFormatted(num, 0.00045359237, 'ton');
+            case 'required_oil_flow': return toFormattedSI(num, 3.785411784, 'l/min', 0);
+            case 'operating_pressure': return `${number_format(num * 0.0703069578296, 0)} kgf/cm²`;
+            case 'applicable_carrier': return toFormattedSI(num, 0.00045359237, 'ton', 1);
             case 'impact_rate':
-            case 'impact_rate_soft_rock': return `${number_format(num, 1)} BPM`;
+            case 'impact_rate_soft_rock': return `${number_format(num, 0)} BPM`;
             default: return value;
         }
     }
