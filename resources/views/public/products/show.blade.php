@@ -1400,7 +1400,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Product data for PDF/CSV generation
     const productData = {
         model_name: "{{ $product->model_name }}",
-        line: "{{ $product->type ?? '-' }}",
+        line: "{{ $product->line ?? '-' }}",
         type: "{{ $product->type ?? '-' }}",
         body_weight: "{{ $product->body_weight ?? '-' }}",
         operating_weight: "{{ $product->operating_weight ?? '-' }}",
@@ -1437,7 +1437,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     doc.setTextColor(255, 255, 255);
                     doc.setFontSize(24);
                     doc.setFont('helvetica', 'bold');
-                    doc.text('Equipment Coverage Report', 40, 80);
+                    doc.text('Equipment Datasheet', 40, 80);
                     doc.setFontSize(16);
                     doc.setFont('helvetica', 'normal');
                     doc.text(productData.model_name, 40, 110);
@@ -1459,8 +1459,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             doc.setFont('helvetica', 'bold');
                             let infoY = y + 20;
                             doc.text('Model: ' + productData.model_name, 210, infoY);
-                            doc.text('Line: ' + (productData.line && productData.line !== '-' ? productData.line : 'SB Line'), 210, infoY + 30);
-                            doc.text('Type: ' + (productData.type && productData.type !== '-' ? productData.type : 'TR-F'), 210, infoY + 60);
+
+                            // Improved line and type handling
+                            const lineText = (productData.line && productData.line !== '-' && productData.line.trim() !== '') ? productData.line.trim() : '-';
+                            const typeText = (productData.type && productData.type !== '-' && productData.type.trim() !== '') ? productData.type.trim() : '-';
+
+                            doc.text('Line: ' + lineText, 210, infoY + 30);
+                            doc.text('Type: ' + typeText, 210, infoY + 60);
                             renderTable(y + 140);
                         };
                         img.onerror = function () { renderTable(y); };
@@ -1534,7 +1539,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     doc.setTextColor(255, 255, 255);
                     doc.setFontSize(24);
                     doc.setFont('helvetica', 'bold');
-                    doc.text('Equipment Coverage Report', 40, 80);
+                    doc.text('Equipment Datasheet', 40, 80);
                     doc.setFontSize(16);
                     doc.setFont('helvetica', 'normal');
                     doc.text(productData.model_name, 40, 110);
@@ -1580,8 +1585,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const csvLines = [
                 `"Hydraulic Breaker Specifications - ${productData.model_name}","",""`,
                 `"Model Name","${productData.model_name}"`,
-                `"Line","${productData.line && productData.line !== '-' ? productData.line : 'SB Line'}"`,
-                `"Type","${productData.type && productData.type !== '-' ? productData.type : 'TR-F'}"`,
+                `"Line","${(productData.line && productData.line !== '-' && productData.line.trim() !== '') ? productData.line.trim() : '-'}"`,
+                `"Type","${(productData.type && productData.type !== '-' && productData.type.trim() !== '') ? productData.type.trim() : '-'}"`,
                 "",
                 header.join(","),
                 ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(','))
@@ -1606,6 +1611,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (value.includes('~') || value.includes('-')) {
             const [min, max] = value.split(/~|-/).map(v => v.trim());
             return `${number_format(min, 1)} - ${number_format(max, 1)} ${getImperialUnit(type)}`;
+        }
+        // For hose diameter, preserve exact database value without decimal formatting
+        if (type === 'hose_diameter') {
+            return `${value} ${getImperialUnit(type)}`;
         }
         return `${number_format(value, 1)} ${getImperialUnit(type)}`;
     }
@@ -1656,7 +1665,7 @@ document.addEventListener('DOMContentLoaded', function () {
             case 'overall_width':
             case 'overall_height':
             case 'rod_diameter': return toFormattedSI(num, 25.4, 'mm', 0);
-            case 'hose_diameter': return imperial || '-';
+            case 'hose_diameter': return `${value} in`; // Same value for both SI and Imperial
             case 'required_oil_flow': return toFormattedSI(num, 3.785411784, 'l/min', 0);
             case 'operating_pressure': return `${number_format(num * 0.0703069578296, 0)} kgf/cm²`;
             case 'applicable_carrier': return toFormattedSI(num, 0.00045359237, 'ton', 1);

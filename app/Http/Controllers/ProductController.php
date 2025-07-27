@@ -195,6 +195,8 @@ class ProductController extends Controller
                 return Product::with('category')->select([
                     'id',
                     'model_name',
+                    'line',
+                    'type',
                     'body_weight',
                     'operating_weight',
                     'overall_length',
@@ -215,6 +217,8 @@ class ProductController extends Controller
             $product = Product::with('category')->select([
                 'id',
                 'model_name',
+                'line',
+                'type',
                 'body_weight',
                 'operating_weight',
                 'overall_length',
