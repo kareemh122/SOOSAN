@@ -36,7 +36,7 @@ return [
     // Hero Section
     'hero_slide_1_title' => 'The Future of Heavy Industry',
     'hero_slide_1_subtitle' => 'Advanced Engineering Solutions That Define Tomorrow',
-    'hero_slide_1_description' => 'SoosanEgypt leads the global transformation in heavy equipment technology with innovative solutions that set new industry standards for performance, reliability, and sustainability.',
+    'hero_slide_1_description' => 'SOOSAN leads the global transformation in heavy equipment technology with innovative solutions that set new industry standards for performance, reliability, and sustainability.',
 
     'hero_slide_2_title' => 'Innovation in Motion',
     'hero_slide_2_subtitle' => 'See Our Technology at Work',
