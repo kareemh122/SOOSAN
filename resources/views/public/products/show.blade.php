@@ -7,80 +7,80 @@
 
 @push('structured_data')
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "{{ $product->model_name }}",
-    "description": "{{ $product->description ?? 'Professional hydraulic breaker and drilling equipment from SoosanEgypt' }}",
-    "image": "{{ $product->image_url ?? asset('images/fallback.webp') }}",
-    "url": "{{ route('products.show', $product->id) }}",
-    "brand": {
-        "@type": "Brand",
-        "name": "Soosan"
-    },
-    "category": "{{ $product->category->name ?? 'Hydraulic Breakers' }}",
-    "manufacturer": {
-        "@type": "Organization",
-        "name": "SoosanEgypt"
-    },
-    "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock",
-        "seller": {
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "{{ $product->model_name }}",
+        "description": "{{ $product->description ?? 'Professional hydraulic breaker and drilling equipment from SoosanEgypt' }}",
+        "image": "{{ $product->image_url ?? asset('images/fallback.webp') }}",
+        "url": "{{ route('products.show', $product->id) }}",
+        "brand": {
+            "@type": "Brand",
+            "name": "Soosan"
+        },
+        "category": "{{ $product->category->name ?? 'Hydraulic Breakers' }}",
+        "manufacturer": {
             "@type": "Organization",
             "name": "SoosanEgypt"
-        }
-    },
-    "additionalProperty": [
-        {
-            "@type": "PropertyValue",
-            "name": "Operating Weight",
-            "value": "{{ $product->operating_weight ?? 'N/A' }} lb"
         },
-        {
-            "@type": "PropertyValue",
-            "name": "Required Oil Flow",
-            "value": "{{ $product->required_oil_flow ?? 'N/A' }} gal/min"
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "SoosanEgypt"
+            }
         },
-        {
-            "@type": "PropertyValue",
-            "name": "Applicable Carrier",
-            "value": "{{ $product->applicable_carrier ?? 'N/A' }} lb"
-        },
-        {
-            "@type": "PropertyValue",
-            "name": "Operating Pressure",
-            "value": "{{ $product->operating_pressure ?? 'N/A' }} psi"
-        }
-    ]
-}
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Operating Weight",
+                "value": "{{ $product->operating_weight ?? 'N/A' }} lb"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Required Oil Flow",
+                "value": "{{ $product->required_oil_flow ?? 'N/A' }} gal/min"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Applicable Carrier",
+                "value": "{{ $product->applicable_carrier ?? 'N/A' }} lb"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Operating Pressure",
+                "value": "{{ $product->operating_pressure ?? 'N/A' }} psi"
+            }
+        ]
+    }
 </script>
 
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "{{ url('/') }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Products",
-            "item": "{{ url('/products') }}"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "{{ $product->model_name }}",
-            "item": "{{ route('products.show', $product->id) }}"
-        }
-    ]
-}
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ url('/') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "{{ url('/products') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{ $product->model_name }}",
+                "item": "{{ route('products.show', $product->id) }}"
+            }
+        ]
+    }
 </script>
 @endpush
 
@@ -1173,523 +1173,523 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Unit toggle functionality
-    const siBtn = document.getElementById('siBtn');
-    const imperialBtn = document.getElementById('imperialBtn');
-    const unitValues = document.querySelectorAll('.unit-value');
+    document.addEventListener('DOMContentLoaded', function () {
+        // Unit toggle functionality
+        const siBtn = document.getElementById('siBtn');
+        const imperialBtn = document.getElementById('imperialBtn');
+        const unitValues = document.querySelectorAll('.unit-value');
 
-    function setUnit(mode) {
-        unitValues.forEach(el => el.classList.add('updating'));
-        setTimeout(() => {
-            unitValues.forEach(el => {
-                el.textContent = el.dataset[mode];
-                el.classList.remove('updating');
-            });
-        }, 150);
+        function setUnit(mode) {
+            unitValues.forEach(el => el.classList.add('updating'));
+            setTimeout(() => {
+                unitValues.forEach(el => {
+                    el.textContent = el.dataset[mode];
+                    el.classList.remove('updating');
+                });
+            }, 150);
 
-        siBtn.classList.toggle('active', mode === 'si');
-        imperialBtn.classList.toggle('active', mode === 'imperial');
+            siBtn.classList.toggle('active', mode === 'si');
+            imperialBtn.classList.toggle('active', mode === 'imperial');
 
-        if (mode === 'si') {
-            siBtn.classList.remove('btn-outline-primary');
-            siBtn.classList.add('btn-primary');
-            imperialBtn.classList.remove('btn-primary');
-            imperialBtn.classList.add('btn-outline-primary');
-        } else {
-            imperialBtn.classList.remove('btn-outline-primary');
-            imperialBtn.classList.add('btn-primary');
-            siBtn.classList.remove('btn-primary');
-            siBtn.classList.add('btn-outline-primary');
+            if (mode === 'si') {
+                siBtn.classList.remove('btn-outline-primary');
+                siBtn.classList.add('btn-primary');
+                imperialBtn.classList.remove('btn-primary');
+                imperialBtn.classList.add('btn-outline-primary');
+            } else {
+                imperialBtn.classList.remove('btn-outline-primary');
+                imperialBtn.classList.add('btn-primary');
+                siBtn.classList.remove('btn-primary');
+                siBtn.classList.add('btn-outline-primary');
+            }
         }
-    }
 
-    if (siBtn && imperialBtn) {
-        siBtn.addEventListener('click', () => setUnit('si'));
-        imperialBtn.addEventListener('click', () => setUnit('imperial'));
-        setUnit('si');
-    }
+        if (siBtn && imperialBtn) {
+            siBtn.addEventListener('click', () => setUnit('si'));
+            imperialBtn.addEventListener('click', () => setUnit('imperial'));
+            setUnit('si');
+        }
 
-    // Carousel functionality
-    const carousel = document.getElementById('similarProductsCarousel');
-    const prevBtn = document.getElementById('carouselPrevBtn');
-    const nextBtn = document.getElementById('carouselNextBtn');
-    const indicators = document.querySelectorAll('.carousel-indicator');
+        // Carousel functionality
+        const carousel = document.getElementById('similarProductsCarousel');
+        const prevBtn = document.getElementById('carouselPrevBtn');
+        const nextBtn = document.getElementById('carouselNextBtn');
+        const indicators = document.querySelectorAll('.carousel-indicator');
 
-    // Detect direction
-    const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+        // Detect direction
+        const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
 
-    if (carousel && prevBtn && nextBtn) {
-        let currentSlide = 0;
-        const cardWidth = 320 + 24; // card width + gap
-        const visibleCards = window.innerWidth >= 992 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-        const totalCards = carousel.children.length;
-        const maxSlide = Math.max(0, Math.ceil(totalCards / visibleCards) - 1);
+        if (carousel && prevBtn && nextBtn) {
+            let currentSlide = 0;
+            const cardWidth = 320 + 24; // card width + gap
+            const visibleCards = window.innerWidth >= 992 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+            const totalCards = carousel.children.length;
+            const maxSlide = Math.max(0, Math.ceil(totalCards / visibleCards) - 1);
 
-        function updateCarousel() {
-            // For RTL, invert the translate direction
-            let translateX;
-            if (!isRTL) {
-                translateX = -(currentSlide * cardWidth * visibleCards);
-            } else {
-                // In RTL, carousel visually moves right as currentSlide increases
-                translateX = currentSlide * cardWidth * visibleCards;
-            }
-            carousel.style.transform = `translateX(${translateX}px)`;
-
-            // Arrow logic: LTR: left arrow = back, right = forward; RTL: left arrow = forward, right = back
-            if (!isRTL) {
-                prevBtn.style.display = currentSlide > 0 ? 'flex' : 'none';
-                nextBtn.style.display = currentSlide < maxSlide ? 'flex' : 'none';
-            } else {
-                prevBtn.style.display = currentSlide < maxSlide ? 'flex' : 'none'; // left arrow = forward
-                nextBtn.style.display = currentSlide > 0 ? 'flex' : 'none'; // right arrow = back
-            }
-
-            // Dots: LTR dots left-to-right; RTL dots right-to-left (active dot matches currentSlide)
-            indicators.forEach((ind, i) => {
+            function updateCarousel() {
+                // For RTL, invert the translate direction
+                let translateX;
                 if (!isRTL) {
-                    ind.classList.toggle('active', i === currentSlide);
+                    translateX = -(currentSlide * cardWidth * visibleCards);
                 } else {
-                    // In RTL, the first dot is the rightmost, so reverse index
-                    ind.classList.toggle('active', i === currentSlide);
+                    // In RTL, carousel visually moves right as currentSlide increases
+                    translateX = currentSlide * cardWidth * visibleCards;
+                }
+                carousel.style.transform = `translateX(${translateX}px)`;
+
+                // Arrow logic: LTR: left arrow = back, right = forward; RTL: left arrow = forward, right = back
+                if (!isRTL) {
+                    prevBtn.style.display = currentSlide > 0 ? 'flex' : 'none';
+                    nextBtn.style.display = currentSlide < maxSlide ? 'flex' : 'none';
+                } else {
+                    prevBtn.style.display = currentSlide < maxSlide ? 'flex' : 'none'; // left arrow = forward
+                    nextBtn.style.display = currentSlide > 0 ? 'flex' : 'none'; // right arrow = back
+                }
+
+                // Dots: LTR dots left-to-right; RTL dots right-to-left (active dot matches currentSlide)
+                indicators.forEach((ind, i) => {
+                    if (!isRTL) {
+                        ind.classList.toggle('active', i === currentSlide);
+                    } else {
+                        // In RTL, the first dot is the rightmost, so reverse index
+                        ind.classList.toggle('active', i === currentSlide);
+                    }
+                });
+            }
+
+            // In both modes, increasing currentSlide shows more products to the left (LTR) or right (RTL)
+            function goForward() {
+                if (currentSlide < maxSlide) {
+                    currentSlide++;
+                    updateCarousel();
+                }
+            }
+            function goBackward() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                }
+            }
+
+            // Attach event listeners: arrows always point to visual direction
+            if (!isRTL) {
+                prevBtn.addEventListener('click', goBackward); // left arrow = back
+                nextBtn.addEventListener('click', goForward);  // right arrow = forward
+            } else {
+                prevBtn.addEventListener('click', goForward);  // left arrow = forward
+                nextBtn.addEventListener('click', goBackward); // right arrow = back
+            }
+
+            // Dots: in RTL, clicking the rightmost dot is slide 0, leftmost is maxSlide
+            indicators.forEach((ind, i) => {
+                ind.addEventListener('click', () => {
+                    currentSlide = i;
+                    updateCarousel();
+                });
+            });
+
+            // Touch/Scroll support for mobile
+            let isScrolling = false;
+            let startX = 0;
+            let scrollLeft = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                isScrolling = true;
+                startX = e.touches[0].pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                if (!isScrolling) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+
+            carousel.addEventListener('touchend', () => {
+                isScrolling = false;
+            });
+
+            // Mouse drag support for desktop
+            let isMouseDown = false;
+            let mouseStartX = 0;
+            let mouseScrollLeft = 0;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isMouseDown = true;
+                mouseStartX = e.pageX - carousel.offsetLeft;
+                mouseScrollLeft = carousel.scrollLeft;
+                carousel.style.cursor = 'grabbing';
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isMouseDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - mouseStartX) * 2;
+                carousel.scrollLeft = mouseScrollLeft - walk;
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isMouseDown = false;
+                carousel.style.cursor = 'grab';
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isMouseDown = false;
+                carousel.style.cursor = 'grab';
+            });
+
+            // Scroll snap detection for mobile
+            carousel.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    // On mobile, let the native scroll handle the carousel
+                    return;
+                }
+            });
+
+            updateCarousel();
+
+            window.addEventListener('resize', () => {
+                // Recalculate on resize
+                const newVisibleCards = window.innerWidth >= 992 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+                if (newVisibleCards !== visibleCards) {
+                    currentSlide = 0; // Reset to first slide on breakpoint change
+                }
+                updateCarousel();
+            });
+        }
+
+        // Share functionality
+        const shareBtn = document.getElementById('shareBtn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const url = window.location.href;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(() => {
+                        showToast('{{ __("common.link_copied") }}');
+                    }).catch(err => {
+                        console.error('Clipboard API failed:', err);
+                        fallbackCopyTextToClipboard(url);
+                        showToast('{{ __("common.link_copied") }}');
+                    });
+                } else {
+                    fallbackCopyTextToClipboard(url);
+                    showToast('{{ __("common.link_copied") }}');
                 }
             });
         }
 
-        // In both modes, increasing currentSlide shows more products to the left (LTR) or right (RTL)
-        function goForward() {
-            if (currentSlide < maxSlide) {
-                currentSlide++;
-                updateCarousel();
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                console.error('Fallback copy failed:', err);
             }
-        }
-        function goBackward() {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarousel();
-            }
-        }
-
-        // Attach event listeners: arrows always point to visual direction
-        if (!isRTL) {
-            prevBtn.addEventListener('click', goBackward); // left arrow = back
-            nextBtn.addEventListener('click', goForward);  // right arrow = forward
-        } else {
-            prevBtn.addEventListener('click', goForward);  // left arrow = forward
-            nextBtn.addEventListener('click', goBackward); // right arrow = back
+            document.body.removeChild(textArea);
         }
 
-        // Dots: in RTL, clicking the rightmost dot is slide 0, leftmost is maxSlide
-        indicators.forEach((ind, i) => {
-            ind.addEventListener('click', () => {
-                currentSlide = i;
-                updateCarousel();
-            });
-        });
+        // Product data for PDF/CSV generation
+        const productData = {
+            model_name: "{{ $product->model_name }}",
+            line: "{{ $product->line ?? '-' }}",
+            type: "{{ $product->type ?? '-' }}",
+            body_weight: "{{ $product->body_weight ?? '-' }}",
+            operating_weight: "{{ $product->operating_weight ?? '-' }}",
+            overall_length: "{{ $product->overall_length ?? '-' }}",
+            overall_width: "{{ $product->overall_width ?? '-' }}",
+            overall_height: "{{ $product->overall_height ?? '-' }}",
+            required_oil_flow: "{{ $product->required_oil_flow ?? '-' }}",
+            operating_pressure: "{{ $product->operating_pressure ?? '-' }}",
+            impact_rate: "{{ $product->impact_rate ?? '-' }}",
+            impact_rate_soft_rock: "{{ $product->impact_rate_soft_rock ?? '-' }}",
+            hose_diameter: "{{ $product->hose_diameter ?? '-' }}",
+            rod_diameter: "{{ $product->rod_diameter ?? '-' }}",
+            applicable_carrier: "{{ $product->applicable_carrier ?? '-' }}"
+        };
 
-        // Touch/Scroll support for mobile
-        let isScrolling = false;
-        let startX = 0;
-        let scrollLeft = 0;
+            // PDF Download functionality
+            const downloadPdfBtn = document.querySelector('#pdfBtn');
+            if (downloadPdfBtn) {
+                downloadPdfBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+                    const pageWidth = doc.internal.pageSize.getWidth();
+                    const logoUrl = window.location.origin + '/images/logo2.png';
 
-        carousel.addEventListener('touchstart', (e) => {
-            isScrolling = true;
-            startX = e.touches[0].pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-        });
+                    const logoImg = new window.Image();
+                    logoImg.crossOrigin = 'anonymous';
+                    logoImg.onload = function () {
+                        // --- BLUE HEADER BAR ---
+                        doc.setFillColor(0, 84, 142); // Soosan blue
+                        doc.rect(0, 0, pageWidth, 140, 'F');
 
-        carousel.addEventListener('touchmove', (e) => {
-            if (!isScrolling) return;
-            e.preventDefault();
-            const x = e.touches[0].pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2;
-            carousel.scrollLeft = scrollLeft - walk;
-        });
-
-        carousel.addEventListener('touchend', () => {
-            isScrolling = false;
-        });
-
-        // Mouse drag support for desktop
-        let isMouseDown = false;
-        let mouseStartX = 0;
-        let mouseScrollLeft = 0;
-
-        carousel.addEventListener('mousedown', (e) => {
-            isMouseDown = true;
-            mouseStartX = e.pageX - carousel.offsetLeft;
-            mouseScrollLeft = carousel.scrollLeft;
-            carousel.style.cursor = 'grabbing';
-        });
-
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isMouseDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - mouseStartX) * 2;
-            carousel.scrollLeft = mouseScrollLeft - walk;
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            isMouseDown = false;
-            carousel.style.cursor = 'grab';
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            isMouseDown = false;
-            carousel.style.cursor = 'grab';
-        });
-
-        // Scroll snap detection for mobile
-        carousel.addEventListener('scroll', () => {
-            if (window.innerWidth <= 768) {
-                // On mobile, let the native scroll handle the carousel
-                return;
-            }
-        });
-
-        updateCarousel();
-
-        window.addEventListener('resize', () => {
-            // Recalculate on resize
-            const newVisibleCards = window.innerWidth >= 992 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-            if (newVisibleCards !== visibleCards) {
-                currentSlide = 0; // Reset to first slide on breakpoint change
-            }
-            updateCarousel();
-        });
-    }
-
-    // Share functionality
-    const shareBtn = document.getElementById('shareBtn');
-    if (shareBtn) {
-        shareBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const url = window.location.href;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(() => {
-                    showToast('{{ __("common.link_copied") }}');
-                }).catch(err => {
-                    console.error('Clipboard API failed:', err);
-                    fallbackCopyTextToClipboard(url);
-                    showToast('{{ __("common.link_copied") }}');
-                });
-            } else {
-                fallbackCopyTextToClipboard(url);
-                showToast('{{ __("common.link_copied") }}');
-            }
-        });
-    }
-
-    function fallbackCopyTextToClipboard(text) {
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.style.position = 'fixed';
-        textArea.style.opacity = '0';
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-            document.execCommand('copy');
-        } catch (err) {
-            console.error('Fallback copy failed:', err);
-        }
-        document.body.removeChild(textArea);
-    }
-
-    // Product data for PDF/CSV generation
-    const productData = {
-        model_name: "{{ $product->model_name }}",
-        line: "{{ $product->line ?? '-' }}",
-        type: "{{ $product->type ?? '-' }}",
-        body_weight: "{{ $product->body_weight ?? '-' }}",
-        operating_weight: "{{ $product->operating_weight ?? '-' }}",
-        overall_length: "{{ $product->overall_length ?? '-' }}",
-        overall_width: "{{ $product->overall_width ?? '-' }}",
-        overall_height: "{{ $product->overall_height ?? '-' }}",
-        required_oil_flow: "{{ $product->required_oil_flow ?? '-' }}",
-        operating_pressure: "{{ $product->operating_pressure ?? '-' }}",
-        impact_rate: "{{ $product->impact_rate ?? '-' }}",
-        impact_rate_soft_rock: "{{ $product->impact_rate_soft_rock ?? '-' }}",
-        hose_diameter: "{{ $product->hose_diameter ?? '-' }}",
-        rod_diameter: "{{ $product->rod_diameter ?? '-' }}",
-        applicable_carrier: "{{ $product->applicable_carrier ?? '-' }}"
-    };
-
-        // PDF Download functionality
-        const downloadPdfBtn = document.querySelector('#pdfBtn');
-        if (downloadPdfBtn) {
-            downloadPdfBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-                const pageWidth = doc.internal.pageSize.getWidth();
-                const logoUrl = window.location.origin + '/images/logo2.png';
-
-                const logoImg = new window.Image();
-                logoImg.crossOrigin = 'anonymous';
-                logoImg.onload = function () {
-                    // --- BLUE HEADER BAR ---
-                    doc.setFillColor(0, 84, 142); // Soosan blue
-                    doc.rect(0, 0, pageWidth, 140, 'F');
-
-                    // --- HEADER TEXT ---
-                    doc.setTextColor(255, 255, 255);
-                    doc.setFontSize(24);
-                    doc.setFont('helvetica', 'bold');
-                    doc.text('Equipment Datasheet', 40, 80);
-                    doc.setFontSize(16);
-                    doc.setFont('helvetica', 'normal');
-                    doc.text(productData.model_name, 40, 110);
-
-                    // --- LOGO on top-right (AFTER header so it's visible)
-                    doc.addImage(logoImg, 'PNG', pageWidth - 190, 20, 160, 100);
-
-                    let y = 160;
-
-                    // --- PRODUCT IMAGE + INFO ---
-                    const imgUrl = "{{ $product->image_url ? asset($product->image_url) : asset('images/fallback.webp') }}";
-                    if (imgUrl) {
-                        const img = new window.Image();
-                        img.crossOrigin = 'anonymous';
-                        img.onload = function () {
-                            doc.addImage(img, 'PNG', 40, y, 150, 170);
-                            doc.setTextColor(0, 0, 0);
-                            doc.setFontSize(14);
-                            doc.setFont('helvetica', 'bold');
-                            let infoY = y + 20;
-                            doc.text('Model: ' + productData.model_name, 210, infoY);
-
-                            // Improved line and type handling
-                            const lineText = (productData.line && productData.line !== '-' && productData.line.trim() !== '') ? productData.line.trim() : '-';
-                            const typeText = (productData.type && productData.type !== '-' && productData.type.trim() !== '') ? productData.type.trim() : '-';
-
-                            doc.text('Line: ' + lineText, 210, infoY + 30);
-                            doc.text('Type: ' + typeText, 210, infoY + 60);
-                            renderTable(y + 140);
-                        };
-                        img.onerror = function () { renderTable(y); };
-                        img.src = imgUrl;
-                    } else {
-                        renderTable(y);
-                    }
-
-                    function renderTable(startY) {
-                        let tableY = startY + 40;
-                        doc.setFontSize(16);
+                        // --- HEADER TEXT ---
+                        doc.setTextColor(255, 255, 255);
+                        doc.setFontSize(24);
                         doc.setFont('helvetica', 'bold');
-                        doc.setTextColor(0, 84, 142);
-                        doc.text('Technical Specifications', 40, tableY);
+                        doc.text('Equipment Datasheet', 40, 80);
+                        doc.setFontSize(16);
+                        doc.setFont('helvetica', 'normal');
+                        doc.text(productData.model_name, 40, 110);
 
-                        const tableData = [
-                            ['Attribute', 'SI', 'Imperial'],
-                            ['Body Weight', convertToSI('body_weight', productData.body_weight), formatImperial('body_weight', productData.body_weight)],
-                            ['Operating Weight', convertToSI('operating_weight', productData.operating_weight), formatImperial('operating_weight', productData.operating_weight)],
-                            ['Overall Length', convertToSI('overall_length', productData.overall_length), formatImperial('overall_length', productData.overall_length)],
-                            ['Overall Width', convertToSI('overall_width', productData.overall_width), formatImperial('overall_width', productData.overall_width)],
-                            ['Overall Height', convertToSI('overall_height', productData.overall_height), formatImperial('overall_height', productData.overall_height)],
-                            ['Required Oil Flow', convertToSI('required_oil_flow', productData.required_oil_flow), formatImperial('required_oil_flow', productData.required_oil_flow)],
-                            ['Operating Pressure', convertToSI('operating_pressure', productData.operating_pressure), formatImperial('operating_pressure', productData.operating_pressure)],
-                            ['Impact Rate (STD Mode)', convertToSI('impact_rate', productData.impact_rate), formatImperial('impact_rate', productData.impact_rate)],
-                            ['Impact Rate (Soft Rock)', convertToSI('impact_rate_soft_rock', productData.impact_rate_soft_rock), formatImperial('impact_rate_soft_rock', productData.impact_rate_soft_rock)],
-                            ['Hose Diameter', productData.hose_diameter, productData.hose_diameter],
-                            ['Rod Diameter', convertToSI('rod_diameter', productData.rod_diameter), formatImperial('rod_diameter', productData.rod_diameter)],
-                            ['Applicable Carrier', convertToSI('applicable_carrier', productData.applicable_carrier), formatImperial('applicable_carrier', productData.applicable_carrier)],
-                        ];
+                        // --- LOGO on top-right (AFTER header so it's visible)
+                        doc.addImage(logoImg, 'PNG', pageWidth - 190, 20, 160, 100);
 
-                        doc.autoTable({
-                            startY: tableY + 10,
-                            head: [tableData[0]],
-                            body: tableData.slice(1),
-                            theme: 'grid',
-                            headStyles: {
-                                fillColor: [0, 84, 142],
-                                textColor: [255, 255, 255],
-                                fontStyle: 'bold'
-                            },
-                            styles: {
-                                font: 'helvetica',
-                                fontSize: 10,
-                                cellPadding: 8
-                            },
-                            alternateRowStyles: {
-                                fillColor: [248, 250, 252]
-                            },
-                            margin: { left: 40, right: 40 }
-                        });
+                        let y = 160;
 
-                        const now = new Date();
-                        doc.setFontSize(12);
-                        doc.setTextColor(0, 0, 0);
-                        doc.text(`Generated on: ${now.toLocaleString('en-US', {
-                            month: 'long', day: '2-digit', year: 'numeric',
-                            hour: '2-digit', minute: '2-digit', hour12: true
-                        })}`, pageWidth / 2, doc.lastAutoTable.finalY + 18, { align: 'center' });
+                        // --- PRODUCT IMAGE + INFO ---
+                        const imgUrl = "{{ $product->image_url ? asset($product->image_url) : asset('images/fallback.webp') }}";
+                        if (imgUrl) {
+                            const img = new window.Image();
+                            img.crossOrigin = 'anonymous';
+                            img.onload = function () {
+                                doc.addImage(img, 'PNG', 40, y, 150, 170);
+                                doc.setTextColor(0, 0, 0);
+                                doc.setFontSize(14);
+                                doc.setFont('helvetica', 'bold');
+                                let infoY = y + 20;
+                                doc.text('Model: ' + productData.model_name, 210, infoY);
 
-                        doc.save(`${productData.model_name}_specifications.pdf`);
-                        showToast('{{ __("common.pdf_download_started") }}');
-                    }
-                };
+                                // Improved line and type handling
+                                const lineText = (productData.line && productData.line !== '-' && productData.line.trim() !== '') ? productData.line.trim() : '-';
+                                const typeText = (productData.type && productData.type !== '-' && productData.type.trim() !== '') ? productData.type.trim() : '-';
 
-                logoImg.onerror = function () {
-                    console.warn("Logo image failed to load.");
-                    // Proceed without logo if it fails to load
-                    doc.setFillColor(0, 84, 142);
-                    doc.rect(0, 0, pageWidth, 140, 'F');
-                    doc.setTextColor(255, 255, 255);
-                    doc.setFontSize(24);
-                    doc.setFont('helvetica', 'bold');
-                    doc.text('Equipment Datasheet', 40, 80);
-                    doc.setFontSize(16);
-                    doc.setFont('helvetica', 'normal');
-                    doc.text(productData.model_name, 40, 110);
-                    let y = 160;
-                    renderTable(y);
-                };
+                                doc.text('Line: ' + lineText, 210, infoY + 30);
+                                doc.text('Type: ' + typeText, 210, infoY + 60);
+                                renderTable(y + 140);
+                            };
+                            img.onerror = function () { renderTable(y); };
+                            img.src = imgUrl;
+                        } else {
+                            renderTable(y);
+                        }
 
-                logoImg.src = logoUrl;
+                        function renderTable(startY) {
+                            let tableY = startY + 40;
+                            doc.setFontSize(16);
+                            doc.setFont('helvetica', 'bold');
+                            doc.setTextColor(0, 84, 142);
+                            doc.text('Technical Specifications', 40, tableY);
+
+                            const tableData = [
+                                ['Attribute', 'SI', 'Imperial'],
+                                ['Body Weight', convertToSI('body_weight', productData.body_weight), formatImperial('body_weight', productData.body_weight)],
+                                ['Operating Weight', convertToSI('operating_weight', productData.operating_weight), formatImperial('operating_weight', productData.operating_weight)],
+                                ['Overall Length', convertToSI('overall_length', productData.overall_length), formatImperial('overall_length', productData.overall_length)],
+                                ['Overall Width', convertToSI('overall_width', productData.overall_width), formatImperial('overall_width', productData.overall_width)],
+                                ['Overall Height', convertToSI('overall_height', productData.overall_height), formatImperial('overall_height', productData.overall_height)],
+                                ['Required Oil Flow', convertToSI('required_oil_flow', productData.required_oil_flow), formatImperial('required_oil_flow', productData.required_oil_flow)],
+                                ['Operating Pressure', convertToSI('operating_pressure', productData.operating_pressure), formatImperial('operating_pressure', productData.operating_pressure)],
+                                ['Impact Rate (STD Mode)', convertToSI('impact_rate', productData.impact_rate), formatImperial('impact_rate', productData.impact_rate)],
+                                ['Impact Rate (Soft Rock)', convertToSI('impact_rate_soft_rock', productData.impact_rate_soft_rock), formatImperial('impact_rate_soft_rock', productData.impact_rate_soft_rock)],
+                                ['Hose Diameter', productData.hose_diameter, productData.hose_diameter],
+                                ['Rod Diameter', convertToSI('rod_diameter', productData.rod_diameter), formatImperial('rod_diameter', productData.rod_diameter)],
+                                ['Applicable Carrier', convertToSI('applicable_carrier', productData.applicable_carrier), formatImperial('applicable_carrier', productData.applicable_carrier)],
+                            ];
+
+                            doc.autoTable({
+                                startY: tableY + 10,
+                                head: [tableData[0]],
+                                body: tableData.slice(1),
+                                theme: 'grid',
+                                headStyles: {
+                                    fillColor: [0, 84, 142],
+                                    textColor: [255, 255, 255],
+                                    fontStyle: 'bold'
+                                },
+                                styles: {
+                                    font: 'helvetica',
+                                    fontSize: 10,
+                                    cellPadding: 8
+                                },
+                                alternateRowStyles: {
+                                    fillColor: [248, 250, 252]
+                                },
+                                margin: { left: 40, right: 40 }
+                            });
+
+                            const now = new Date();
+                            doc.setFontSize(12);
+                            doc.setTextColor(0, 0, 0);
+                            doc.text(`Generated on: ${now.toLocaleString('en-US', {
+                                month: 'long', day: '2-digit', year: 'numeric',
+                                hour: '2-digit', minute: '2-digit', hour12: true
+                            })}`, pageWidth / 2, doc.lastAutoTable.finalY + 18, { align: 'center' });
+
+                            doc.save(`${productData.model_name}_specifications.pdf`);
+                            showToast('{{ __("common.pdf_download_started") }}');
+                        }
+                    };
+
+                    logoImg.onerror = function () {
+                        console.warn("Logo image failed to load.");
+                        // Proceed without logo if it fails to load
+                        doc.setFillColor(0, 84, 142);
+                        doc.rect(0, 0, pageWidth, 140, 'F');
+                        doc.setTextColor(255, 255, 255);
+                        doc.setFontSize(24);
+                        doc.setFont('helvetica', 'bold');
+                        doc.text('Equipment Datasheet', 40, 80);
+                        doc.setFontSize(16);
+                        doc.setFont('helvetica', 'normal');
+                        doc.text(productData.model_name, 40, 110);
+                        let y = 160;
+                        renderTable(y);
+                    };
+
+                    logoImg.src = logoUrl;
+                });
+            }
+
+        // CSV Download functionality
+        const downloadCsvBtn = document.querySelector('#csvBtn');
+        if (downloadCsvBtn) {
+            downloadCsvBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const attributes = [
+                    { label: 'Body Weight', key: 'body_weight' },
+                    { label: 'Operating Weight', key: 'operating_weight' },
+                    { label: 'Overall Length', key: 'overall_length' },
+                    { label: 'Overall Width', key: 'overall_width' },
+                    { label: 'Overall Height', key: 'overall_height' },
+                    { label: 'Required Oil Flow', key: 'required_oil_flow' },
+                    { label: 'Operating Pressure', key: 'operating_pressure' },
+                    { label: 'Impact Rate (STD Mode)', key: 'impact_rate' },
+                    { label: 'Impact Rate (Soft Rock)', key: 'impact_rate_soft_rock' },
+                    { label: 'Hose Diameter', key: 'hose_diameter' },
+                    { label: 'Rod Diameter', key: 'rod_diameter' },
+                    { label: 'Applicable Carrier', key: 'applicable_carrier' }
+                ];
+
+                const header = ["Attribute Name", "SI", "Imperial"];
+
+                const rows = attributes.map(attr => {
+                    const rawValue = productData[attr.key]?.trim();
+                    if (!rawValue || rawValue === '-') return [attr.label, '-', '-'];
+                    const imperial = formatImperial(attr.key, rawValue);
+                    const si = convertToSI(attr.key, rawValue, imperial);
+                    return [attr.label, si, imperial];
+                });
+
+                const csvLines = [
+                    `"Hydraulic Breaker Specifications - ${productData.model_name}","",""`,
+                    `"Model Name","${productData.model_name}"`,
+                    `"Line","${(productData.line && productData.line !== '-' && productData.line.trim() !== '') ? productData.line.trim() : '-'}"`,
+                    `"Type","${(productData.type && productData.type !== '-' && productData.type.trim() !== '') ? productData.type.trim() : '-'}"`,
+                    "",
+                    header.join(","),
+                    ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(','))
+                ];
+
+                const blob = new Blob([csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${productData.model_name}_specifications.csv`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+                showToast('{{ __("common.csv_download_started") }}');
             });
         }
 
-    // CSV Download functionality
-    const downloadCsvBtn = document.querySelector('#csvBtn');
-    if (downloadCsvBtn) {
-        downloadCsvBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const attributes = [
-                { label: 'Body Weight', key: 'body_weight' },
-                { label: 'Operating Weight', key: 'operating_weight' },
-                { label: 'Overall Length', key: 'overall_length' },
-                { label: 'Overall Width', key: 'overall_width' },
-                { label: 'Overall Height', key: 'overall_height' },
-                { label: 'Required Oil Flow', key: 'required_oil_flow' },
-                { label: 'Operating Pressure', key: 'operating_pressure' },
-                { label: 'Impact Rate (STD Mode)', key: 'impact_rate' },
-                { label: 'Impact Rate (Soft Rock)', key: 'impact_rate_soft_rock' },
-                { label: 'Hose Diameter', key: 'hose_diameter' },
-                { label: 'Rod Diameter', key: 'rod_diameter' },
-                { label: 'Applicable Carrier', key: 'applicable_carrier' }
-            ];
-
-            const header = ["Attribute Name", "SI", "Imperial"];
-
-            const rows = attributes.map(attr => {
-                const rawValue = productData[attr.key]?.trim();
-                if (!rawValue || rawValue === '-') return [attr.label, '-', '-'];
-                const imperial = formatImperial(attr.key, rawValue);
-                const si = convertToSI(attr.key, rawValue, imperial);
-                return [attr.label, si, imperial];
-            });
-
-            const csvLines = [
-                `"Hydraulic Breaker Specifications - ${productData.model_name}","",""`,
-                `"Model Name","${productData.model_name}"`,
-                `"Line","${(productData.line && productData.line !== '-' && productData.line.trim() !== '') ? productData.line.trim() : '-'}"`,
-                `"Type","${(productData.type && productData.type !== '-' && productData.type.trim() !== '') ? productData.type.trim() : '-'}"`,
-                "",
-                header.join(","),
-                ...rows.map(row => row.map(cell => `"${cell.replace(/"/g, '""')}"`).join(','))
-            ];
-
-            const blob = new Blob([csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${productData.model_name}_specifications.csv`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            showToast('{{ __("common.csv_download_started") }}');
-        });
-    }
-
-    // Helper functions for unit conversion
-    function formatImperial(type, value) {
-        if (!value || value === '-') return '-';
-        if (value.includes('~') || value.includes('-')) {
-            const [min, max] = value.split(/~|-/).map(v => v.trim());
-            return `${number_format(min, 1)} - ${number_format(max, 1)} ${getImperialUnit(type)}`;
+        // Helper functions for unit conversion
+        function formatImperial(type, value) {
+            if (!value || value === '-') return '-';
+            if (value.includes('~') || value.includes('-')) {
+                const [min, max] = value.split(/~|-/).map(v => v.trim());
+                return `${number_format(min, 1)} - ${number_format(max, 1)} ${getImperialUnit(type)}`;
+            }
+            // For hose diameter, preserve exact database value without decimal formatting
+            if (type === 'hose_diameter') {
+                return `${value} ${getImperialUnit(type)}`;
+            }
+            return `${number_format(value, 1)} ${getImperialUnit(type)}`;
         }
-        // For hose diameter, preserve exact database value without decimal formatting
-        if (type === 'hose_diameter') {
-            return `${value} ${getImperialUnit(type)}`;
-        }
-        return `${number_format(value, 1)} ${getImperialUnit(type)}`;
-    }
 
-    function getImperialUnit(type) {
-        switch (type) {
-            case 'body_weight':
-            case 'operating_weight':
-            case 'applicable_carrier': return 'lb';
-            case 'overall_length':
-            case 'overall_width':
-            case 'overall_height':
-            case 'hose_diameter': return 'in';
-            case 'rod_diameter': return 'in';
-            case 'required_oil_flow': return 'gal/min';
-            case 'operating_pressure': return 'psi';
-            case 'impact_rate':
-            case 'impact_rate_soft_rock': return 'BPM';
-            default: return '';
-        }
-    }
-
-    function convertToSI(type, value, imperial) {
-        if (!value || value === '-') return '-';
-        const toFormattedSI = (val, factor, unit, decimals = 0) => isNaN(val) ? '-' : number_format(val * factor, decimals) + ' ' + unit;
-        const isRange = value.includes('~') || value.includes('-');
-        const tryParseFloat = str => parseFloat(str.trim());
-
-        if (isRange) {
-            const [minRaw, maxRaw] = value.split(/~|-/);
-            const min = tryParseFloat(minRaw);
-            const max = tryParseFloat(maxRaw);
+        function getImperialUnit(type) {
             switch (type) {
-                case 'required_oil_flow': return `${number_format(min * 3.785411784, 0)} - ${number_format(max * 3.785411784, 0)} l/min`;
-                case 'operating_pressure': return `${number_format(min * 0.0703069578296, 0)} - ${number_format(max * 0.0703069578296, 0)} kgf/cm²`;
-                case 'applicable_carrier': return `${number_format(min * 0.00045359237, 1)} - ${number_format(max * 0.00045359237, 1)} ton`;
+                case 'body_weight':
+                case 'operating_weight':
+                case 'applicable_carrier': return 'lb';
+                case 'overall_length':
+                case 'overall_width':
+                case 'overall_height':
+                case 'hose_diameter': return 'in';
+                case 'rod_diameter': return 'in';
+                case 'required_oil_flow': return 'gal/min';
+                case 'operating_pressure': return 'psi';
                 case 'impact_rate':
-                case 'impact_rate_soft_rock': return `${number_format(min, 0)} - ${number_format(max, 0)} BPM`;
+                case 'impact_rate_soft_rock': return 'BPM';
+                default: return '';
+            }
+        }
+
+        function convertToSI(type, value, imperial) {
+            if (!value || value === '-') return '-';
+            const toFormattedSI = (val, factor, unit, decimals = 0) => isNaN(val) ? '-' : number_format(val * factor, decimals) + ' ' + unit;
+            const isRange = value.includes('~') || value.includes('-');
+            const tryParseFloat = str => parseFloat(str.trim());
+
+            if (isRange) {
+                const [minRaw, maxRaw] = value.split(/~|-/);
+                const min = tryParseFloat(minRaw);
+                const max = tryParseFloat(maxRaw);
+                switch (type) {
+                    case 'required_oil_flow': return `${number_format(min * 3.785411784, 0)} - ${number_format(max * 3.785411784, 0)} l/min`;
+                    case 'operating_pressure': return `${number_format(min * 0.0703069578296, 0)} - ${number_format(max * 0.0703069578296, 0)} kgf/cm²`;
+                    case 'applicable_carrier': return `${number_format(min * 0.00045359237, 1)} - ${number_format(max * 0.00045359237, 1)} ton`;
+                    case 'impact_rate':
+                    case 'impact_rate_soft_rock': return `${number_format(min, 0)} - ${number_format(max, 0)} BPM`;
+                    default: return value;
+                }
+            }
+
+            const num = tryParseFloat(value);
+            switch (type) {
+                case 'body_weight':
+                case 'operating_weight': return toFormattedSI(num, 0.45359237, 'kg', 0);
+                case 'overall_length':
+                case 'overall_width':
+                case 'overall_height':
+                case 'rod_diameter': return toFormattedSI(num, 25.4, 'mm', 0);
+                case 'hose_diameter': return `${value} in`; // Same value for both SI and Imperial
+                case 'required_oil_flow': return toFormattedSI(num, 3.785411784, 'l/min', 0);
+                case 'operating_pressure': return `${number_format(num * 0.0703069578296, 0)} kgf/cm²`;
+                case 'applicable_carrier': return toFormattedSI(num, 0.00045359237, 'ton', 1);
+                case 'impact_rate':
+                case 'impact_rate_soft_rock': return `${number_format(num, 0)} BPM`;
                 default: return value;
             }
         }
 
-        const num = tryParseFloat(value);
-        switch (type) {
-            case 'body_weight':
-            case 'operating_weight': return toFormattedSI(num, 0.45359237, 'kg', 0);
-            case 'overall_length':
-            case 'overall_width':
-            case 'overall_height':
-            case 'rod_diameter': return toFormattedSI(num, 25.4, 'mm', 0);
-            case 'hose_diameter': return `${value} in`; // Same value for both SI and Imperial
-            case 'required_oil_flow': return toFormattedSI(num, 3.785411784, 'l/min', 0);
-            case 'operating_pressure': return `${number_format(num * 0.0703069578296, 0)} kgf/cm²`;
-            case 'applicable_carrier': return toFormattedSI(num, 0.00045359237, 'ton', 1);
-            case 'impact_rate':
-            case 'impact_rate_soft_rock': return `${number_format(num, 0)} BPM`;
-            default: return value;
+        function number_format(number, decimals) {
+            const n = !isFinite(+number) ? 0 : +number;
+            return Number(n).toFixed(decimals).toString();
         }
-    }
 
-    function number_format(number, decimals) {
-        const n = !isFinite(+number) ? 0 : +number;
-        return Number(n).toFixed(decimals).toString();
-    }
-
-    function showToast(message) {
-        const toast = document.getElementById('copyToast');
-        if (toast) {
-            toast.textContent = message;
-            toast.classList.add('active');
-            setTimeout(() => {
-                toast.classList.remove('active');
-            }, 2000);
+        function showToast(message) {
+            const toast = document.getElementById('copyToast');
+            if (toast) {
+                toast.textContent = message;
+                toast.classList.add('active');
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                }, 2000);
+            }
         }
-    }
-});
+    });
 </script>
 @endpush

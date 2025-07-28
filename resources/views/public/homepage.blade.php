@@ -3607,9 +3607,9 @@
 
             <!-- Enhanced Tab Navigation -->
             <div class="breaker-tabs" data-aos="fade-up" data-aos-delay="200">
-                <button class="breaker-tab active" data-line="sq-line">
-                    <span class="tab-icon">SQ</span>
-                    <span class="tab-text">{{ __('homepage.sq_line_tab') }}</span>
+                <button class="breaker-tab active" data-line="et-ii-line">
+                    <span class="tab-icon">ET-II</span>
+                    <span class="tab-text">{{ __('homepage.etii_line_tab') }}</span>
                     <div class="tab-glow"></div>
                 </button>
                 <button class="breaker-tab" data-line="sb-line">
@@ -3622,9 +3622,9 @@
                     <span class="tab-text">{{ __('homepage.sbe_line_tab') }}</span>
                     <div class="tab-glow"></div>
                 </button>
-                <button class="breaker-tab" data-line="et-ii-line">
-                    <span class="tab-icon">ET-II</span>
-                    <span class="tab-text">{{ __('homepage.etii_line_tab') }}</span>
+                <button class="breaker-tab" data-line="sq-line">
+                    <span class="tab-icon">SQ</span>
+                    <span class="tab-text">{{ __('homepage.sq_line_tab') }}</span>
                     <div class="tab-glow"></div>
                 </button>
             </div>
